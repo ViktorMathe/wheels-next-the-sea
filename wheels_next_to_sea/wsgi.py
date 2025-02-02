@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'wells_motors.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'wheels_next_to_sea.settings')
 
 application = get_wsgi_application()

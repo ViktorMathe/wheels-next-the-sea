@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-4q*_p0kzd-5iz9j-pr&_3)*s1=6n!4087y1%tae*k0ir!-xf%!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '8000-viktormathe-wellsmotorc-gjh2vwq4odw.ws-eu117.gitpod.io']
+ALLOWED_HOSTS = ['localhost', '8000-viktormathe-wheelsnextt-8zrffueu9jq.ws-eu*.gitpod.io']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'wells_motors.urls'
+ROOT_URLCONF = 'wheels_next_to_sea.urls'
 
 TEMPLATES = [
     {
@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'wells_motors.wsgi.application'
+WSGI_APPLICATION = 'wheels_next_to_sea.wsgi.application'
 
 
 # Database
