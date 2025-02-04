@@ -1,20 +1,52 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <title>Document</title>
+    <title>{% block title %}Wheels Next The Sea{% endblock %}</title>
 </head>
+
 <body>
-    <header>
-        Hello woooorld!!!
-    </header>
-    <main>
-    {% block content%}
-    {% endblock %}
-    </main>
-    <script src="{% static 'js/script.js' %}"></script>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <a href="/">
+                    <img src="/" alt="Wheels next the sea logo">
+                </a>
+            </div>
+            <nav class="nav">
+                <!-- Mobile Menu Button -->
+                <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+                <ul class="nav-list">
+                    <li><a href="/">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Events ▼</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Upcoming Events</a></li>
+                            <li><a href="#">Past Events</a></li>
+                            <li><a href="#">Event Locations</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- Main Content -->
+        <main class="content">
+            {% block content %}
+            {% endblock %}
+        </main>
+        <script src="{% static 'js/script.js' %}"></script>
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 Wheels Next The Sea. All rights reserved.</p>
+        </footer>
+    </div>
 </body>
+
 </html>
