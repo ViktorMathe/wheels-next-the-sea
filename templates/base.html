@@ -18,20 +18,20 @@
                     <img src="/" alt="Wheels next the sea logo">
                 </a>
             </div>
+            <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
             <nav class="nav">
                 <!-- Mobile Menu Button -->
-                <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
                 <ul class="nav-list">
                     <li><a href="/">Home</a></li>
-                    <li class="dropdown">
+                    <li id="events-dropdown" class="dropdown">
                         <a href="#">Events ▼</a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Upcoming Events</a></li>
+                            <li><a href="#">Upcoming Event</a></li>
                             <li><a href="#">Past Events</a></li>
-                            <li><a href="#">Event Locations</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">About</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Donate</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
             </nav>
@@ -44,7 +44,7 @@
         <script src="{% static 'js/script.js' %}"></script>
         <!-- Footer -->
         <footer class="footer">
-            <p>&copy; 2025 Wheels Next The Sea. All rights reserved.</p>
+            <p>Wheels Next The Sea <br>  Since 2010</p>
         </footer>
     </div>
 </body>
