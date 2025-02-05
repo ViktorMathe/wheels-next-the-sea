@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/4854b264bc.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <title>{% block title %}Wheels Next The Sea{% endblock %}</title>
 </head>
@@ -15,7 +16,7 @@
         <header class="header">
             <div class="logo">
                 <a href="/">
-                    <img src="/" alt="Wheels next the sea logo">
+                    <img src="../media/logo.png" alt="Wheels next the sea logo">
                 </a>
             </div>
             <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
@@ -42,9 +43,20 @@
             {% endblock %}
         </main>
         <script src="{% static 'js/script.js' %}"></script>
-        <!-- Footer -->
         <footer class="footer">
-            <p>Wheels Next The Sea <br>  Since 2010</p>
+            <div class="footer-container">
+                <div class="footer-dev">
+                    Website developed by <br> Gameaholic ltd
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-x"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="footer-text">
+                    <p>Wheels Next The Sea <br> <small>Est 2010</small></p>
+                </div>
+            </div>
         </footer>
     </div>
 </body>

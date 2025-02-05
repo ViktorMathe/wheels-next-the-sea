@@ -11,7 +11,6 @@ body {
 .container {
    display: grid;
    grid-template-columns: repeat(12, 1fr);
-   gap: 20px;
    max-width: 100%;
    margin: 0 auto;
 }
@@ -126,13 +125,52 @@ body {
    border-radius: 5px;
 }
 
-/* Footer */
+.hero {
+   text-align: center;
+}
+
+.hero-img {
+   width: 100%;
+   height: auto;
+}
+
+/* Footer Styles */
 .footer {
    grid-column: span 12;
    background-color: #222;
    color: white;
+   padding: 20px 0;
+}
+.footer-container {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin: 0 auto;
+   padding: 0 20px;
+}
+
+.footer-dev {
+   flex: 1;
+   text-align: left;
+}
+
+/* Center Social Media Links */
+.footer-social {
+   flex: 1;
    text-align: center;
-   padding: 10px;
+}
+.footer-social .social-link {
+   color: white;
+   text-decoration: none;
+   margin: 0 10px;
+}
+.footer-social .social-link:hover {
+   text-decoration: underline;
+}
+/* Right-Aligned Paragraph */
+.footer-text {
+   flex: 1;
+   text-align: right;
 }
 
 /* Responsive Mobile Styles */
