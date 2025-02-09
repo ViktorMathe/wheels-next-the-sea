@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="gallery-container">
+
+    <div class="gallery-year" data-year="2015">
+        <h2>2015</h2>
+        <div class="gallery-preview">
+            <img src="/media/gallery/2019/image1.jpg" alt="Event 2019">
+            <img src="/media/gallery/2019/image1.jpg" alt="Event 2019">
+            <img src="/media/gallery/2019/image1.jpg" alt="Event 2019">
+            <img src="/media/gallery/2019/image1.jpg" alt="Event 2019">
+        </div>
+    </div>
+
+    <div class="gallery-year" data-year="2016">
+        <h2>2016</h2>
+        <div class="gallery-preview">
+            <img src="/media/gallery/2016/image1.jpg" alt="Event 2019">
+            <img src="/media/gallery/2016/image1.jpg" alt="Event 2019">
+            <img src="/media/gallery/2016/image1.jpg" alt="Event 2019">
+            <img src="/media/gallery/2016/image1.jpg" alt="Event 2019">
+        </div>
+    </div>
+
+    <div class="gallery-year" data-year="2017">
+        <h2>2017</h2>
+        <div class="gallery-preview">
+            <img src="/media/gallery/2017/image1.jpg" alt="Event 2019">
+            <img src="/media/gallery/2017/image1.jpg" alt="Event 2019">
+            <img src="/media/gallery/2017/image1.jpg" alt="Event 2019">
+            <img src="/media/gallery/2017/image1.jpg" alt="Event 2019">
+        </div>
+    </div>
+
+    <!-- Year Box (Example: 2018) -->
+    <div class="gallery-year" data-year="2018">
+        <h2>2018</h2>
+        <div class="gallery-preview">
+            <img src="/media/gallery/2018/image1.jpg" alt="Event 2018">
+            <img src="/media/gallery/2018/image1.jpg" alt="Event 2018">
+            <img src="/media/gallery/2018/image1.jpg" alt="Event 2018">
+            <img src="/media/gallery/2018/image1.jpg" alt="Event 2018">
+        </div>
+    </div>
+
+    <!-- Year Box (Example: 2019) -->
+    <div class="gallery-year" data-year="2019">
+        <h2>2019</h2>
+        <div class="gallery-preview">
+            <img src="/media/gallery/2019/image1.jpg" alt="Event 2019">
+            <img src="/media/gallery/2019/image1.jpg" alt="Event 2019">
+            <img src="/media/gallery/2019/image1.jpg" alt="Event 2019">
+            <img src="/media/gallery/2019/image1.jpg" alt="Event 2019">
+        </div>
+    </div>
+
+    <div class="gallery-year" data-year="2020">
+        <h2>2020</h2>
+        <div class="gallery-preview">
+            <img src="/media/gallery/2020/image1.jpg" alt="Event 2019">
+            <img src="/media/gallery/2020/image1.jpg" alt="Event 2019">
+            <img src="/media/gallery/2020/image1.jpg" alt="Event 2019">
+            <img src="/media/gallery/2020/image1.jpg" alt="Event 2019">
+        </div>
+    </div>
+
+    <div class="gallery-year" data-year="2021">
+        <h2>2021</h2>
+        <div class="gallery-preview">
+            <img src="/media/gallery/2021/image1.jpg" alt="Event 2019">
+            <img src="/media/gallery/2021/image1.jpg" alt="Event 2019">
+            <img src="/media/gallery/2021/image1.jpg" alt="Event 2019">
+            <img src="/media/gallery/2021/image1.jpg" alt="Event 2019">
+        </div>
+    </div>
+
+    <div class="gallery-year" data-year="2022">
+        <h2>2022</h2>
+        <div class="gallery-preview">
+            <img src="/media/gallery/2022/image1.jpg" alt="Event 2019">
+            <img src="/media/gallery/2022/image1.jpg" alt="Event 2019">
+            <img src="/media/gallery/2022/image1.jpg" alt="Event 2019">
+            <img src="/media/gallery/2022/image1.jpg" alt="Event 2019">
+        </div>
+    </div>
+
+    <div class="gallery-year" data-year="2023">
+        <h2>2023</h2>
+        <div class="gallery-preview">
+            <img src="/media/gallery/2023/image1.jpg" alt="Event 2019">
+            <img src="/media/gallery/2023/image1.jpg" alt="Event 2019">
+            <img src="/media/gallery/2023/image1.jpg" alt="Event 2019">
+            <img src="/media/gallery/2023/image1.jpg" alt="Event 2019">
+        </div>
+    </div>
+
+    <div class="gallery-year" data-year="2024">
+        <h2>2024</h2>
+        <div class="gallery-preview">
+            <img src="/media/gallery/2024/image1.jpg" alt="Event 2019">
+            <img src="/media/gallery/2024/image1.jpg" alt="Event 2019">
+            <img src="/media/gallery/2024/image1.jpg" alt="Event 2019">
+            <img src="/media/gallery/2024/image1.jpg" alt="Event 2019">
+        </div>
+    </div>
+
+    <!-- More years can be added similarly -->
+</div>
+
+<!-- Fullscreen Gallery Modal -->
+<div class="gallery-modal">
+    <span class="close">&times;</span>
+    
+    <!-- Large Image Display -->
+    <div class="gallery-main">
+        <button class="prev">&lt;</button>
+        <img class="main-image" src="" alt="Selected Image">
+        <button class="next">&gt;</button>
+    </div>
+
+    <!-- Thumbnail Navigation Row -->
+    <div class="gallery-thumbnails"></div>
+</div>
+
+{% endblock %}

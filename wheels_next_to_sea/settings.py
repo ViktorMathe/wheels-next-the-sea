@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'wheels_next_to_sea',
+    'gallery',
 ]
 
 MIDDLEWARE = [
