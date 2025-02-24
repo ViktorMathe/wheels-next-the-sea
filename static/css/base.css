@@ -27,6 +27,8 @@ body {
    color: white;
    padding: 15px;
    position: relative;
+   border-end-end-radius: 5px;
+   border-end-start-radius: 5px;
 }
 
 /* Logo */
@@ -66,6 +68,8 @@ body {
 .nav-list li {
    position: relative;
    margin-left: 15px;
+   border-bottom: groove;
+   border-bottom-color: #444444;
    /* Space between menu items */
 }
 
@@ -81,7 +85,7 @@ body {
    position: absolute;
    top: 100%;
    right: 0;
-   background-color: #333;
+   background-color: #3a3a3a;
    list-style: none;
    padding: 10px 0;
    margin: 0;
@@ -122,7 +126,6 @@ body {
 .content {
    grid-column: span 12;
    background: white;
-   padding: 20px;
    border-radius: 5px;
 }
 
@@ -154,6 +157,40 @@ body {
    width: 70%;
 }
 
+/* Reviews slide */
+.marquee {
+   width: 100%;
+   overflow: hidden;
+   white-space: nowrap;
+   background: #222222e3;
+   color: white;
+   margin-top: 25px;
+   padding: 10px 0;
+   border-start-end-radius: 5px;
+   border-start-start-radius: 5px;
+}
+
+.marquee-content {
+   display: inline-block;
+   white-space: nowrap;
+   animation: marquee-scroll 30s linear infinite;
+}
+
+.marquee-item {
+   display: inline-block;
+   margin-right: 50px;
+}
+
+@keyframes marquee-scroll {
+   from {
+      transform: translateX(200%);
+   }
+
+   to {
+      transform: translateX(-100%);
+   }
+}
+
 /* Footer Styles */
 .footer {
    grid-column: span 12;
@@ -161,6 +198,7 @@ body {
    color: white;
    padding: 20px 0;
 }
+
 .footer-container {
    display: flex;
    justify-content: space-between;
@@ -171,7 +209,12 @@ body {
 
 .footer-dev {
    flex: 1;
-   text-align: left;
+}
+
+.dev {
+   text-align: right;
+   font-size: 10px;
+   align-items: self-end;
 }
 
 /* Center Social Media Links */
@@ -179,6 +222,7 @@ body {
    flex: 1;
    text-align: center;
 }
+
 .footer-social .social-link {
    color: white;
    text-decoration: none;
@@ -287,7 +331,8 @@ body {
 }
 
 /* Left and Right Navigation Buttons */
-.prev, .next {
+.prev,
+.next {
    position: absolute;
    background: rgba(0, 0, 0, 0.5);
    color: white;
@@ -300,10 +345,16 @@ body {
    transform: translateY(-50%);
 }
 
-.prev { left: -50px; }
-.next { right: -50px; }
+.prev {
+   left: -50px;
+}
 
-.prev:hover, .next:hover {
+.next {
+   right: -50px;
+}
+
+.prev:hover,
+.next:hover {
    background: rgba(255, 255, 255, 0.5);
    color: black;
 }
@@ -350,7 +401,7 @@ body {
       position: absolute;
       top: 100%;
       right: 0;
-      background: #222;
+      background: #3a3a3a;
       flex-direction: column;
       width: 200px;
       text-align: right;
@@ -368,6 +419,7 @@ body {
    .dropdown-menu {
       right: 0;
       transform: translateY(-10px);
+      background-color: #222;
    }
 
    .hero-img {
@@ -379,15 +431,18 @@ body {
    }
 
    .gallery-container {
-      grid-template-columns: 1fr;  /* Stack gallery boxes in one column */
-  }
+      grid-template-columns: 1fr;
+      /* Stack gallery boxes in one column */
+   }
 
-  .gallery-preview img {
-      width: 50px;  /* Slightly smaller images for mobile */
+   .gallery-preview img {
+      width: 50px;
+      /* Slightly smaller images for mobile */
       height: 50px;
-  }
+   }
 
-  .gallery-modal-content {
-      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Smaller columns in modal */
-  }
+   .gallery-modal-content {
+      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+      /* Smaller columns in modal */
+   }
 }

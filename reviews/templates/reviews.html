@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Submit a Review</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
+
+<h2>Reviews</h2>
+<div class="review-list">
+    {% csrf_token %}
+    {% for review in reviews %}
+        <div class="review">
+            <strong>{{ review.name }}</strong>: {{ review.text }}
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
