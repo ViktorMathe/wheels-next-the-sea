@@ -33,6 +33,9 @@
         {% for review in reviews %}
             <span class="marquee-item">{{ review.text }} - <strong>{{ review.name }}</strong></span>
         {% endfor %}
+        {% for review in reviews %}
+        <span class="marquee-item">{{ review.text }} - <strong>{{ review.name }}</strong></span>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
