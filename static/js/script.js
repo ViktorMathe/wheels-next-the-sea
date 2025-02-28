@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Load full gallery for the selected year
             for (let i = 1; i <= 10; i++) { // Assuming 10 images per year
-                let imgSrc = `/media/gallery/${year}/image${i}.jpg`;
+                let imgSrc = `/media/gallery/${year}/image${i}.webp`;
                 images.push(imgSrc);
 
                 let thumbImg = document.createElement("img");
