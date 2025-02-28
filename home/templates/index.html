@@ -33,13 +33,13 @@
         {% for review in reviews %}
         <span class="marquee-item">
             <p>{{review.title}}</p>
-            <p> {{ review.text }} </p> <br> <small>Written : {{ review.created_at }} <br> By {{review.name}}</small>
+            <p> {{ review.text }} </p> <small class="created-at">Written : {{ review.created_at }} <br> By {{review.name}}</small>
         </span>
         {% endfor %}
         {% for review in reviews %}
         <span class="marquee-item">
             <p>{{review.title}}</p>
-            <p> {{ review.text }} </p> <br> <small>Written : {{ review.created_at }}</small>
+            <p> {{ review.text }} </p> <small class="created-at">Written : {{ review.created_at }} <br> By {{review.name}}</small>
         </span>
         {% endfor %}
     </div>
