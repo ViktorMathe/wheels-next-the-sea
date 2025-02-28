@@ -1,19 +1,34 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>Submit a Review</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Submit</button>
-</form>
+<div id="review-page">
+    <h2>Submit a Review</h2>
+    <form class="review-form" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
 
-<h2>Reviews</h2>
-<div class="review-list">
-    {% csrf_token %}
-    {% for review in reviews %}
-        <div class="review">
-            <strong>{{ review.name }}</strong>: {{ review.text }}
+    <h2>Reviews</h2>
+    <div class="review-list">
+        {% csrf_token %}
+        {% for review in reviews %}
+        <div class="review-items">
+            <ul>
+                <li>
+                    <p>{{review.title}}</p>
+                </li>
+                <li>
+                        <p class="review-text" data-full="{{ review.text }}">
+                            {{ review.text }}
+                        </p>
+                        <span class="read-more">Read More</span>
+                </li>
+                <li>
+                    <p><small>Written : {{ review.created_at }} <br> By {{review.name}}</small></p>
+                </li>
+            </ul>
         </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}

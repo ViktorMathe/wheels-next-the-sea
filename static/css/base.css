@@ -1,8 +1,14 @@
 /* General Styles */
+html{
+   height: 100%;
+
+}
 body {
    font-family: Arial, sans-serif;
    margin: 0;
    padding: 0;
+   display: flex;
+   flex-direction: column;
    background-color: #f8f8f8;
    width: 100%;
    height: 100%;
@@ -10,10 +16,9 @@ body {
 
 /* Grid Container */
 .container {
-   display: grid;
-   grid-template-columns: repeat(12, 1fr);
-   max-width: 100%;
-   margin: 0 auto;
+   flex: 1;
+   display: flex;
+   flex-direction: column;
 }
 
 /* Header */
@@ -124,7 +129,7 @@ body {
 
 /* Main Content */
 .content {
-   grid-column: span 12;
+   flex-grow: 1;
    background: white;
    border-radius: 5px;
 }
@@ -158,6 +163,69 @@ body {
    width: 70%;
 }
 
+/* Review list */
+#review-page {
+   display: grid;
+   background: #949494;
+}
+
+#review-page h2 {
+   text-align: center;
+}
+
+.review-form {
+   text-align: center;
+}
+
+.review-list {
+   display: flex;
+   flex-wrap: wrap;
+   /* Allows wrapping when items reach 100% width */
+   justify-content: center;
+   gap: 15px;
+   padding-bottom: 20px;
+   /* Adds spacing between items */
+}
+
+.review-items {
+   border-style: ridge;
+   border-radius: 5px;
+   width: 35%;
+   min-width: 250px;
+   /* Ensures items don’t shrink too much */
+   max-width: 350px;
+   /* Limits max width */
+   padding: 25px;
+   overflow: hidden;
+   position: relative;
+}
+
+.review-items ul {
+   list-style: none;
+   padding: 0;
+}
+
+/* Truncate long text */
+.review-text {
+   display: -webkit-box;
+   -webkit-line-clamp: 3;
+   /* Limit to 3 lines */
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   max-width: 100%;
+   white-space: normal;
+}
+
+.read-more {
+   color: blue;
+   cursor: pointer;
+   font-weight: bold;
+   display: block;
+   margin-top: 5px;
+}
+
+
 /* Reviews slide */
 .marquee {
    width: 100%;
@@ -181,6 +249,12 @@ body {
 .marquee-item {
    display: inline-block;
    margin-right: 50px;
+   border-style: ridge;
+   padding: 10px;
+   border-radius: 5px;
+   height: 164px;
+   width: 225px;
+   overflow: hidden;
 }
 
 @keyframes marquee-scroll {
@@ -195,6 +269,7 @@ body {
 
 /* Footer Styles */
 .footer {
+   flex-shrink: 0;
    grid-column: span 12;
    background-color: #222;
    color: white;
@@ -303,7 +378,6 @@ body {
    justify-content: center;
    align-items: center;
    flex-direction: column;
-   padding: 20px;
 }
 
 /* Close Button */

@@ -37,6 +37,25 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    document.querySelectorAll(".review-items").forEach(function (item) {
+        let textElement = item.querySelector(".review-text");
+        let fullText = textElement.getAttribute("data-full");
+        let readMoreBtn = item.querySelector(".read-more");
+
+        // Hide "Read More" if content is already short
+        if (textElement.scrollHeight <= textElement.clientHeight) {
+            readMoreBtn.style.display = "none";
+        }
+
+        readMoreBtn.addEventListener("click", function () {
+            textElement.textContent = fullText; // Replace with full text
+            textElement.style.display = "block";
+            textElement.style.overflow = "visible";
+            textElement.style.webkitLineClamp = "unset"; // Remove line clamp
+            readMoreBtn.remove(); // Remove button after expanding
+        });
+    });
+
 
     const yearBoxes = document.querySelectorAll(".gallery-year");
     const modal = document.querySelector(".gallery-modal");

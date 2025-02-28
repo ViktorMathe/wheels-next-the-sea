@@ -31,10 +31,16 @@
 <div class="marquee">
     <div class="marquee-content">
         {% for review in reviews %}
-            <span class="marquee-item">{{ review.text }} - <strong>{{ review.name }}</strong></span>
+        <span class="marquee-item">
+            <p>{{review.title}}</p>
+            <p> {{ review.text }} </p> <br> <small>Written : {{ review.created_at }} <br> By {{review.name}}</small>
+        </span>
         {% endfor %}
         {% for review in reviews %}
-        <span class="marquee-item">{{ review.text }} - <strong>{{ review.name }}</strong></span>
+        <span class="marquee-item">
+            <p>{{review.title}}</p>
+            <p> {{ review.text }} </p> <br> <small>Written : {{ review.created_at }}</small>
+        </span>
         {% endfor %}
     </div>
 </div>
