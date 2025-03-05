@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Upcoming Events</h2>
+<ul>
+    {% for event in events %}
+    <li>
+        <h3>{{ event.title }}</h3>
+        <p>{{ event.description }}</p>
+        <p>Date: {{ event.date }}</p>
+        {% if event.flyer %}
+            <img src="{{ event.flyer.url }}" alt="Event Flyer" width="200">
+        {% endif %}
+    </li>
+    {% empty %}
+    <p>No upcoming events.</p>
+    {% endfor %}
+</ul>
+{% endblock %}

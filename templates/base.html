@@ -27,13 +27,13 @@
                     <li id="events-dropdown" class="dropdown">
                         <a href="#">Events ▼</a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Upcoming Event</a></li>
-                            <li><a href="#">Past Events</a></li>
+                            <li><a href="{% url 'current_events' %}">Upcoming Event</a></li>
+                            <li><a href="{% url 'past_events' %}">Past Events</a></li>
                         </ul>
                     </li>
                     <li><a href="{% url 'gallery' %}">Gallery</a></li>
                     <li><a href="{% url 'reviews' %}">Reviews</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
                 </ul>
             </nav>
         </header>
