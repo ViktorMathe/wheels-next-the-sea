@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import os
 from pathlib import Path
 from dotenv import load_dotenv
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 
 load_dotenv()
 
@@ -42,7 +46,8 @@ INSTALLED_APPS = [
     'gallery',
     'reviews',
     'events',
-    'contact'
+    'contact',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -143,31 +148,29 @@ USE_I18N = True
 USE_TZ = True
 
 
-# **AWS S3 SETTINGS**
-if 'USE_AWS' in os.environ:
-        AWS_S3_OBJECT_PARAMETERS = {
-            'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
-            'CacheControl': 'max-age=94608000',
-        }
-        AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
-        AWS_S3_REGION_NAME = os.environ.get('AWS_S3_REGION_NAME')
-        AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-        AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-        AWS_S3_CUSTOM_DOMAIN = os.environ.get('AWS_S3_CUSTOM_DOMAIN')
-
-        DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-        MEDIAFILES_LOCATION = 'media'
-        MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
-else:
-        # Local development settings
-        MEDIA_URL = '/media/'
-        MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-# WhiteNoise for Static Files
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+CLOUDINARY_URL= "cloudinary://657483658624369:L2P4QumKhynBnPopLuaVz9h505k@vikmath1119"
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': "vikmath1119",
+    'API_KEY': "657483658624369",
+    'API_SECRET': "L2P4QumKhynBnPopLuaVz9h505k",
+}
+
+cloudinary.config(
+cloud_name = "vikmath1119",
+api_key = "657483658624369",
+api_secret = "L2P4QumKhynBnPopLuaVz9h505k",
+api_proxy = "http://proxy.server:9999",
+signature_algorithm = "sha256",
+)
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 
 
 # Default primary key field type

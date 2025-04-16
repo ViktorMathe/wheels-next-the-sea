@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+{% load cloudinary %}
+
+{% block content %}
+<h2>Upload Images</h2>
+
+{% csrf_token %}
+
+{{ cloud_signin | json_script:"id_cloud_signin" }}
+<script type="text/javascript">
+    var signIn = document.getElementById("id_cloud_signin").innerText.slice(1, -1);
+    mloptions = {
+        cloud_name: "vikmath1119",
+        api_key: "657483658624369",
+        api_secret: "L2P4QumKhynBnPopLuaVz9h505k",
+        timestamp: 1315060510,
+        signature: signIn,
+        button_class: 'cloudinary-button',
+        button_caption: 'Insert Images',
+        default_transformations: [
+            [{ quality: "auto" }, { fetch_format: "auto" }],
+            [{ width: 80, height: 80, crop: "fill", gravity: "auto", radius: "max" }, { fetch_format: "auto", quality: "auto" }]
+        ],
+        multiple: true,
+        max_files: 20,
+        folder: {path:"wheels-next-the-sea", resource_type: "image"},
+    }
+    var myWidget = cloudinary.createMediaLibrary(mloptions, {
+        insertHandler: function (data) {
+            data.assets.forEach(asset => {
+                console.log("Inserted asset:",
+                    JSON.stringify(asset, null, 2))
+            })
+        }
+    }, "#media_library_widget",
+        (error, result) => {
+            if (!error && result && result.event === "success") {
+                // Access the delivery URL of the uploaded image 
+                var imageUrl = result.info.secure_url;
+                // Save imageUrl to your database 
+                // You can use an AJAX request to send this data to your server
+                console.log('Done! Here is the image info: ', result.info);
+            }
+        })
+
+    document.getElementById("media_library_widget").addEventListener("click", function () {
+        myWidget.open(mloptions);
+    }, false);
+</script>
+
+<a href="{% url 'gallery' %}">Back to Gallery</a>
+{% endblock %}

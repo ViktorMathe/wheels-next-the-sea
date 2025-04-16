@@ -1,0 +1,550 @@
+/* General Styles */
+html {
+   height: 100%;
+
+}
+
+body {
+   font-family: Arial, sans-serif;
+   margin: 0;
+   padding: 0;
+   display: flex;
+   flex-direction: column;
+   background-color: #444444;
+   width: 100%;
+   height: 100%;
+}
+
+/* Grid Container */
+.container {
+   flex: 1;
+   display: flex;
+   flex-direction: column;
+}
+
+/* Header */
+.header {
+   grid-column: span 12;
+   display: flex;
+   justify-content: flex-end;
+   /* Move everything to the right */
+   align-items: center;
+   background-color: #222;
+   color: white;
+   padding: 15px;
+   position: relative;
+   border-end-end-radius: 5px;
+   border-end-start-radius: 5px;
+}
+
+/* Logo */
+.logo {
+   margin-right: auto;
+   /* Pushes everything else to the right */
+}
+
+.logo img {
+   height: 60px;
+   width: auto;
+}
+
+/* Navigation */
+.nav {
+   position: relative;
+}
+
+/* Mobile Menu Button (Aligned Right) */
+.menu-toggle {
+   display: none;
+   background: none;
+   border: none;
+   font-size: 24px;
+   color: white;
+   cursor: pointer;
+}
+
+/* Navigation Menu */
+.nav-list {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   display: flex;
+}
+
+.nav-list li {
+   position: relative;
+   margin-left: 15px;
+   border-bottom: groove;
+   border-bottom-color: #444444;
+   /* Space between menu items */
+}
+
+.nav-list li a {
+   color: white;
+   text-decoration: none;
+   padding: 10px 15px;
+   display: block;
+}
+
+/* Floating Dropdown Menu (Right-Aligned) */
+.dropdown-menu {
+   position: absolute;
+   top: 100%;
+   right: 0;
+   background-color: #3a3a3a;
+   list-style: none;
+   padding: 10px 0;
+   margin: 0;
+   width: 200px;
+   border-radius: 5px;
+   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+   opacity: 0;
+   visibility: hidden;
+   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+   transform: translateY(-10px);
+   z-index: 1;
+}
+
+/* Dropdown items */
+.dropdown-menu li {
+   border-bottom: 1px solid #444;
+}
+
+.dropdown-menu li a {
+   padding: 10px;
+   display: block;
+   color: white;
+   text-align: left;
+}
+
+.dropdown-menu li a:hover {
+   background-color: #555;
+}
+
+/* Show dropdown as a floating modal */
+.dropdown.active .dropdown-menu {
+   opacity: 1;
+   visibility: visible;
+   transform: translateY(10px);
+}
+
+/* Main Content */
+.content {
+   flex-grow: 1;
+   background: white;
+   border-radius: 5px;
+}
+
+.welcome {
+   text-align: -webkit-center;
+}
+
+.welcome h1 small {
+   font-weight: 200;
+   font-size: medium;
+}
+
+.hero {
+   margin-top: 25px;
+   text-align: center;
+}
+
+.hero-img {
+   width: 70%;
+   height: auto;
+}
+
+.about {
+   text-align: center;
+}
+
+.about p {
+   text-align: center;
+   margin: 0 auto;
+   width: 70%;
+}
+
+/* Review list */
+#review-page {
+   display: grid;
+   background: #949494;
+}
+
+#review-page h2 {
+   text-align: center;
+}
+
+.review-form {
+   text-align: center;
+}
+
+.review-list {
+   display: flex;
+   flex-wrap: wrap;
+   /* Allows wrapping when items reach 100% width */
+   justify-content: center;
+   gap: 15px;
+   padding-bottom: 20px;
+   /* Adds spacing between items */
+}
+
+.review-items {
+   border-style: ridge;
+   border-radius: 5px;
+   width: 35%;
+   min-width: 250px;
+   /* Ensures items don’t shrink too much */
+   max-width: 350px;
+   /* Limits max width */
+   padding: 25px;
+   overflow: hidden;
+   position: relative;
+}
+
+.review-items ul {
+   list-style: none;
+   padding: 0;
+}
+
+/* Truncate long text */
+.review-text {
+   display: -webkit-box;
+   -webkit-line-clamp: 3;
+   -moz-line-clamp: 3;
+   /* Limit to 3 lines */
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   max-width: 100%;
+   white-space: normal;
+   /* Fallback for non-WebKit browsers */
+   display: block;
+   display: -moz-box;
+   -moz-box-orient: vertical;
+}
+
+.read-more {
+   color: blue;
+   cursor: pointer;
+   font-weight: bold;
+   display: block;
+   margin-top: 5px;
+}
+
+
+/* Reviews slide */
+.marquee {
+   width: 100%;
+   overflow: hidden;
+   white-space: nowrap;
+   background: #222222e3;
+   color: white;
+   margin-top: 25px;
+   padding: 10px 0;
+   border-start-end-radius: 5px;
+   border-start-start-radius: 5px;
+   position: relative;
+}
+
+.marquee-content {
+   display: flex;
+   white-space: nowrap;
+   animation: marquee-scroll 20s linear infinite;
+   align-items: center;
+}
+
+.marquee-item {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   flex: 0 0 220px;
+   margin-right: 50px;
+   border-style: ridge;
+   padding: 10px;
+   border-radius: 5px;
+   height: 110px;
+   width: 200px;
+   overflow: hidden;
+}
+
+.created-at {
+   margin-top: auto; /* Pushes the element to the bottom */
+   display: block;
+   text-align: left;
+   font-size: 12px;
+   color: #ccc; /* Optional: Adjust color */
+}
+
+.marquee-item p {
+   margin: 2px;
+   padding-top: 3px;
+   padding-bottom: 3px;
+}
+
+
+@keyframes marquee-scroll {
+   from {
+      transform: translateX(0);
+   }
+
+   to {
+      transform: translateX(-50%);
+   }
+}
+
+/* Footer Styles */
+.footer {
+   flex-shrink: 0;
+   grid-column: span 12;
+   background-color: #222;
+   color: white;
+   padding: 20px 0;
+}
+
+.footer-container {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin: 0 auto;
+   padding: 0 20px;
+}
+
+.footer-dev {
+   flex: 1;
+}
+
+.dev {
+   text-align: right;
+   font-size: 8px;
+   align-items: self-end;
+}
+
+/* Center Social Media Links */
+.footer-social {
+   flex: 1;
+   text-align: center;
+}
+
+.footer-social .social-link {
+   color: white;
+   text-decoration: none;
+   margin: 0 10px;
+   font-size: 16px;
+}
+
+.footer-social .social-link img {
+   width: 16px;
+   height: 16px;
+   vertical-align: middle;
+}
+
+.footer-social .social-link:hover {
+   text-decoration: underline;
+}
+
+/* Right-Aligned Paragraph */
+.footer-text {
+   flex: 1;
+   text-align: right;
+   font-size: 12px;
+}
+
+/* Gallery page  */
+/* Gallery Container */
+.gallery-container {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+   gap: 20px;
+   padding: 20px;
+}
+
+/* Year Box */
+.gallery-year {
+   background: #555;
+   padding: 15px;
+   border-radius: 7px;
+   border-style: groove;
+   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+   text-align: center;
+   color: #f8f8f8;
+   cursor: pointer;
+   transition: transform 0.3s ease-in-out;
+}
+
+.gallery-year:hover {
+   transform: scale(1.05);
+}
+
+/* Preview Images */
+.gallery-preview {
+   display: flex;
+   justify-content: center;
+   gap: 5px;
+   margin-top: 10px;
+}
+
+.gallery-preview img {
+   width: 60px;
+   height: 60px;
+   object-fit: cover;
+   border-radius: 3px;
+   border-style: ridge;
+}
+
+/* Fullscreen Modal */
+.gallery-modal {
+   display: none;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.8);
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+
+/* Close Button */
+.gallery-modal .close {
+   position: absolute;
+   top: 10px;
+   right: 20px;
+   font-size: 30px;
+   color: white;
+   cursor: pointer;
+}
+
+/* Main Large Image Section */
+.gallery-main {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 80%;
+   max-width: 600px;
+   position: relative;
+}
+
+.main-image {
+   width: 100%;
+   height: auto;
+   border-radius: 5px;
+   object-fit: cover;
+}
+
+/* Left and Right Navigation Buttons */
+.prev,
+.next {
+   position: absolute;
+   background: rgba(0, 0, 0, 0.5);
+   color: white;
+   border: none;
+   padding: 10px 15px;
+   font-size: 24px;
+   cursor: pointer;
+   border-radius: 5px;
+   top: 50%;
+   transform: translateY(-50%);
+}
+
+.prev {
+   left: -50px;
+}
+
+.next {
+   right: -50px;
+}
+
+.prev:hover,
+.next:hover {
+   background: rgba(255, 255, 255, 0.5);
+   color: black;
+}
+
+/* Thumbnails Row */
+.gallery-thumbnails {
+   display: flex;
+   gap: 10px;
+   overflow-x: auto;
+   margin-top: 20px;
+   max-width: 90%;
+   padding: 10px 0;
+}
+
+.gallery-thumbnails img {
+   width: 80px;
+   height: 80px;
+   border-radius: 5px;
+   cursor: pointer;
+   object-fit: cover;
+   transition: transform 0.2s ease-in-out;
+}
+
+.gallery-thumbnails img:hover {
+   transform: scale(1.1);
+   border: 2px solid white;
+}
+
+
+/* Responsive Mobile Styles */
+@media (max-width: 768px) {
+   .header {
+      flex-direction: row;
+      justify-content: flex-end;
+      /* Aligns menu and button to the right */
+   }
+
+   .menu-toggle {
+      display: block;
+      margin-left: auto;
+   }
+
+   .nav-list {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: #3a3a3a;
+      flex-direction: column;
+      width: 200px;
+      text-align: right;
+      display: none;
+      padding: 10px 0;
+      border-radius: 5px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+   }
+
+   .nav-list.active {
+      display: block;
+      top: 1em;
+   }
+
+   .dropdown-menu {
+      right: 0;
+      transform: translateY(-10px);
+      background-color: #222;
+   }
+
+   .hero-img {
+      width: 90%;
+   }
+
+   .about p {
+      width: 90%;
+   }
+
+   .gallery-container {
+      grid-template-columns: 1fr;
+      /* Stack gallery boxes in one column */
+   }
+
+   .gallery-preview img {
+      width: 50px;
+      /* Slightly smaller images for mobile */
+      height: 50px;
+   }
+
+   .gallery-modal-content {
+      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+      /* Smaller columns in modal */
+   }
+}

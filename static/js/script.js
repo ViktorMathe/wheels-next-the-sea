@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+
     const menuToggle = document.querySelector(".menu-toggle");
     const navList = document.querySelector(".nav-list");
     const dropdowns = document.querySelectorAll(".dropdown");
@@ -57,13 +58,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    const yearBoxes = document.querySelectorAll(".gallery-year");
+   /*  const yearBoxes = document.querySelectorAll(".gallery-folder");
     const modal = document.querySelector(".gallery-modal");
     const modalImage = document.querySelector(".main-image");
     const thumbnailsContainer = document.querySelector(".gallery-thumbnails");
     const prevButton = document.querySelector(".prev");
     const nextButton = document.querySelector(".next");
     const closeModal = document.querySelector(".gallery-modal .close");
+    const allImages = document.querySelector(".img-src")
 
     let images = [];
     let currentIndex = 0;
@@ -71,18 +73,25 @@ document.addEventListener("DOMContentLoaded", function () {
     // Open modal and show images
     yearBoxes.forEach(box => {
         box.addEventListener("click", function () {
-            const year = this.getAttribute("data-year");
+            const folderName = this.getAttribute("data-name");
+            const myGallery = cloudinary.galleryWidget({ 
+                container: "#my-gallery", 
+                cloudName: "vikmath1119", 
+                mediaAssets: [{ tag: folderName }]    // by default mediaType: "image"
+              });
+        
+            /* const folderImagesLength = this.childNodes[3].getElementsByClassName('img-src').length
             thumbnailsContainer.innerHTML = ""; // Clear previous thumbnails
             images = []; // Reset images array
-
+            console.log(document.getElementsByClassName('modalrc'))
             // Load full gallery for the selected year
-            for (let i = 1; i <= 10; i++) { // Assuming 10 images per year
-                let imgSrc = `/media/gallery/${year}/image${i}.webp`;
+            for (let i = 1; i <= folderImagesLength; i++) {
+                let imgSrc = document.getElementsByClassName('modalrc')
                 images.push(imgSrc);
 
                 let thumbImg = document.createElement("img");
                 thumbImg.src = imgSrc;
-                thumbImg.alt = `Event ${year}`;
+                thumbImg.alt = `Event ${folderName}`;
                 thumbImg.dataset.index = i - 1;
 
                 // Clicking a thumbnail changes the main image
@@ -95,12 +104,12 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             currentIndex = 0;
-            updateMainImage();
-            modal.style.display = "flex";
+            updateMainImage(); */
+           /*  modal.style.display = "flex";
         });
     });
 
-    // Function to update the main image
+   /*  // Function to update the main image
     function updateMainImage() {
         modalImage.src = images[currentIndex];
     }
@@ -114,7 +123,7 @@ document.addEventListener("DOMContentLoaded", function () {
     nextButton.addEventListener("click", function () {
         currentIndex = (currentIndex + 1) % images.length;
         updateMainImage();
-    });
+    }); 
 
     // Close Modal
     closeModal.addEventListener("click", function () {
@@ -125,5 +134,5 @@ document.addEventListener("DOMContentLoaded", function () {
         if (event.target === modal) {
             modal.style.display = "none";
         }
-    });
+    }); */ 
 });
