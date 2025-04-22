@@ -7,7 +7,6 @@
 <div class="gallery-container">
     {% for folder in get_all_folders %}
     <div class="gallery-folder" data-name="{{folder.name}}">
-        <h2>{{folder.name}}</h2>
         <div class="gallery-preview">
             {% for image in folder_images %}
             {% if image.folder == folder.path %}
@@ -15,10 +14,26 @@
             {% endif %}
             {% endfor %}
         </div>
+        <h2>{{folder.name}}</h2>
     </div>
+    {% endfor %}
+
     {% if user.is_superuser %}
+    <div class="add-folder">
+        <div id="add-sign">&plus;</div>
+        <h2>Add New Folder</h2>
+    </div>
+
+    <div class="folder-modal">
+        <form id="folder-form" method="POST" action="{% url 'gallery' %}">
+            {% csrf_token %}
+            {{ folder_form}}
+            <button type="submit">Create folder</button>
+        </form>
+    </div>
+
     <div>
-        <form id="upload-form" method="POST" action="{% url 'upload_images' %}" enctype="multipart/form-data">
+        <form class="add-image" id="upload-form" method="POST" action="{% url 'upload_images' %}" enctype="multipart/form-data">
             {% csrf_token %}
             {{ upload_form.images }}
             {{ upload_form.folder }}
@@ -26,34 +41,20 @@
         </form>
     </div>
     {% endif %}
-    {% endfor %}
-
-    {% if user.is_superuser %}
-    <div class="">
-        <form id="folder-form" method="POST" action="{% url 'gallery' %}">
-            {% csrf_token %}
-            {{ folder_form}}
-            <button type="submit">Create folder</button>
-        </form>
-    </div>
-    {% endif %}
 </div>
 <!-- Fullscreen Gallery Modal -->
 <div class="gallery-modal">
-    <span class="close">&times;</span>
-
-    <!-- Large Image Display -->
+    <button class="close">&times;</button>
     <div class="gallery-main">
-        {% for image in folder_images %}
-        {% if image.folder == folder.path %}
-        <div id="my-gallery" style="max-width:80%">
-        </div>
-        {% endif %}
-        {% endfor %}
+        <img id="main-image" class="main-image" src="" alt="">
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
     </div>
-
-    <!-- Thumbnail Navigation Row -->
-    <div class="gallery-thumbnails"></div>
+    <div class="gallery-thumbnails" id="thumbnail-row">
+        {% if user.is_superuser %}
+        <div id="add-image-modal">&plus;</div>
+        {% endif %}
+    </div>
 </div>
 
 <script src="https://product-gallery.cloudinary.com/all.js" type="text/javascript"></script>
@@ -61,32 +62,75 @@
     const yearBoxes = document.querySelectorAll(".gallery-folder");
     const modal = document.querySelector(".gallery-modal");
     const closeModal = document.querySelector(".gallery-modal .close");
+    const mainImage = document.getElementById("main-image");
+    const thumbnailRow = document.getElementById("thumbnail-row");
+    const prevBtn = document.querySelector(".prev");
+    const nextBtn = document.querySelector(".next");
+    const addImage = document.querySelector("#add-image-modal");
+
+    let currentIndex = 0;
+    let currentImages = [];
+
     yearBoxes.forEach(box => {
         box.addEventListener("click", function () {
             const folderName = this.getAttribute("data-name");
-            settings = {
-                cloud_name: "vikmath1119",
-                api_key: "657483658624369",
-                api_secret: "L2P4QumKhynBnPopLuaVz9h505k",
-                folder: { path: "wheels-next-the-sea", resource_type: "image" },
+            const images = Array.from(this.querySelectorAll("img.img-src")).map(img => img.src);
+
+            if (images.length === 0) {
+                alert("No images available in this folder.");
+                return;
             }
-            const myGallery = cloudinary.galleryWidget(settings, {
-                container: "#my-gallery",
-                cloudName: "vikmath1119",
-                mediaAssets: [{ tag: folderName }],    // by default mediaType: "image"
+
+            currentImages = images;
+            currentIndex = 0;
+
+            // Fill thumbnails
+            thumbnailRow.innerHTML = "";
+            if(addImage){
+            thumbnailRow.appendChild(addImage)
+            }
+            images.forEach((src, idx) => {
+                const thumb = document.createElement("img");
+                thumb.src = src;
+                thumb.addEventListener("click", () => {
+                    currentIndex = idx;
+                    updateMainImage();
+                });
+                thumbnailRow.appendChild(thumb);
             });
-            myGallery.render();
+
+            // Show modal and first image
             modal.style.display = "flex";
+            updateMainImage();
         });
     });
-    closeModal.addEventListener("click", function () {
+
+    function updateMainImage() {
+        mainImage.src = currentImages[currentIndex];
+    }
+
+    closeModal.addEventListener("click", () => {
         modal.style.display = "none";
+        mainImage.src = "";
+        thumbnailRow.innerHTML = "";
     });
 
-    modal.addEventListener("click", function (event) {
-        if (event.target === modal) {
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
             modal.style.display = "none";
+            mainImage.src = "";
+            thumbnailRow.innerHTML = "";
         }
+    });
+
+    prevBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+        updateMainImage();
+    });
+
+    nextBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % currentImages.length;
+        updateMainImage();
     });
 </script>
 {% endblock %}

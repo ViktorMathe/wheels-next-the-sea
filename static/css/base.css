@@ -268,11 +268,13 @@ body {
 }
 
 .created-at {
-   margin-top: auto; /* Pushes the element to the bottom */
+   margin-top: auto;
+   /* Pushes the element to the bottom */
    display: block;
    text-align: left;
    font-size: 12px;
-   color: #ccc; /* Optional: Adjust color */
+   color: #ccc;
+   /* Optional: Adjust color */
 }
 
 .marquee-item p {
@@ -353,13 +355,15 @@ body {
 /* Gallery Container */
 .gallery-container {
    display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+   grid-template-columns: repeat(auto-fit, minmax(350px, 0.5fr));
+   justify-content: space-evenly;
    gap: 20px;
    padding: 20px;
 }
 
 /* Year Box */
-.gallery-folder {
+.gallery-folder,
+.add-folder {
    background: #555;
    padding: 15px;
    border-radius: 7px;
@@ -369,6 +373,16 @@ body {
    color: #f8f8f8;
    cursor: pointer;
    transition: transform 0.3s ease-in-out;
+}
+
+#add-sign {
+   background: #3a3a3a;
+   border-radius: 100%;
+   border-style: ridge;
+   width: 50px;
+   padding: 15px;
+   justify-self: center;
+   font-size: 250%;
 }
 
 .gallery-year:hover {
@@ -392,7 +406,8 @@ body {
 }
 
 /* Fullscreen Modal */
-.gallery-modal {
+.gallery-modal,
+.folder-modal {
    display: none;
    position: fixed;
    top: 0;
@@ -411,7 +426,6 @@ body {
    top: 10px;
    right: 20px;
    font-size: 30px;
-   color: white;
    cursor: pointer;
 }
 
@@ -420,16 +434,21 @@ body {
    display: flex;
    align-items: center;
    justify-content: center;
-   width: 80%;
-   max-width: 600px;
+   width: 100%;
+   max-width: 90vw;
+   max-height: 70vh;
    position: relative;
+   padding: 10px;
+   box-sizing: border-box;
 }
 
 .main-image {
-   width: 100%;
+   max-width: 100%;
+   max-height: 100%;
    height: auto;
+   width: auto;
    border-radius: 5px;
-   object-fit: cover;
+   object-fit: contain;
 }
 
 /* Left and Right Navigation Buttons */
@@ -448,11 +467,11 @@ body {
 }
 
 .prev {
-   left: -50px;
+   left: 20%;
 }
 
 .next {
-   right: -50px;
+   right: 20%;
 }
 
 .prev:hover,
@@ -468,19 +487,23 @@ body {
    overflow-x: auto;
    margin-top: 20px;
    max-width: 90%;
-   padding: 10px 0;
+   padding: 10px 10px;
 }
 
-.gallery-thumbnails img {
+.gallery-thumbnails img, #add-image-modal {
    width: 80px;
    height: 80px;
    border-radius: 5px;
    cursor: pointer;
    object-fit: cover;
    transition: transform 0.2s ease-in-out;
+   text-align: center;
+   place-content: center;
+   background: rgb(221 221 227 / 95%);
+   font-size: 300%;
 }
 
-.gallery-thumbnails img:hover {
+.gallery-thumbnails img:hover, #add-image-modal:hover {
    transform: scale(1.1);
    border: 2px solid white;
 }
@@ -533,7 +556,7 @@ body {
    }
 
    .gallery-container {
-      grid-template-columns: 1fr;
+      grid-template-columns: 0.8fr;
       /* Stack gallery boxes in one column */
    }
 
@@ -546,5 +569,21 @@ body {
    .gallery-modal-content {
       grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
       /* Smaller columns in modal */
+   }
+}
+
+@media (max-width: 600px) {
+   .prev {
+      left: 10px;
+   }
+
+   .next {
+      right: 10px;
+   }
+
+   .prev,
+   .next {
+      font-size: 20px;
+      padding: 5px 10px;
    }
 }
