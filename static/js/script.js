@@ -1,9 +1,38 @@
 document.addEventListener("DOMContentLoaded", function () {
-
+    const addFolderButton = document.getElementById("add-sign");
+    const createFolderModal = document.querySelector("#create-folder");
+    const closeFolderModal = document.querySelector(".folder-modal .close")
+    const allFolders = document.querySelectorAll(".gallery-folder");
+    const modal = document.querySelector(".gallery-modal");
+    const closeModal = document.querySelector(".gallery-modal .close");
+    const mainImage = document.getElementById("main-image");
+    const thumbnailRow = document.getElementById("thumbnail-row");
+    const prevBtn = document.querySelector(".prev");
+    const nextBtn = document.querySelector(".next");
+    const addImageButton = document.querySelector("#add-image-button");
+    const addImageModal = document.querySelector("#add-image-modal");
+    const closeaddImageModal = document.querySelector("#add-image-modal .close");
     const menuToggle = document.querySelector(".menu-toggle");
     const navList = document.querySelector(".nav-list");
     const dropdowns = document.querySelectorAll(".dropdown");
+
     let eventDropdown = document.getElementById("events-dropdown");
+    let currentIndex = 0;
+    let currentImages = [];
+
+    let addImageFunction = function () {
+        thumbnailRow.appendChild(addImageButton)
+        addImageButton.addEventListener("click", function () {
+            modal.style.display = "None";
+            mainImage.src = "";
+            thumbnailRow.innerHTML = "";
+            addImageModal.style.display = "flex";
+            closeaddImageModal.addEventListener("click", function () {
+                addImageModal.style.display = "None";
+            })
+        })
+    }
+
     // Toggle main mobile menu (Right-Aligned)
     menuToggle.addEventListener("click", function () {
         navList.classList.toggle("active");
@@ -57,82 +86,79 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    if (addFolderButton) {
+        addFolderButton.addEventListener("click", function () {
+            createFolderModal.style.display = "flex";
+            closeFolderModal.addEventListener("click", function () {
+                createFolderModal.style.display = "None";
+            })
+        })
+    }
 
-   /*  const yearBoxes = document.querySelectorAll(".gallery-folder");
-    const modal = document.querySelector(".gallery-modal");
-    const modalImage = document.querySelector(".main-image");
-    const thumbnailsContainer = document.querySelector(".gallery-thumbnails");
-    const prevButton = document.querySelector(".prev");
-    const nextButton = document.querySelector(".next");
-    const closeModal = document.querySelector(".gallery-modal .close");
-    const allImages = document.querySelector(".img-src")
 
-    let images = [];
-    let currentIndex = 0;
-
-    // Open modal and show images
-    yearBoxes.forEach(box => {
-        box.addEventListener("click", function () {
+    allFolders.forEach(folder => {
+        folder.addEventListener("click", function () {
             const folderName = this.getAttribute("data-name");
-            const myGallery = cloudinary.galleryWidget({ 
-                container: "#my-gallery", 
-                cloudName: "vikmath1119", 
-                mediaAssets: [{ tag: folderName }]    // by default mediaType: "image"
-              });
-        
-            /* const folderImagesLength = this.childNodes[3].getElementsByClassName('img-src').length
-            thumbnailsContainer.innerHTML = ""; // Clear previous thumbnails
-            images = []; // Reset images array
-            console.log(document.getElementsByClassName('modalrc'))
-            // Load full gallery for the selected year
-            for (let i = 1; i <= folderImagesLength; i++) {
-                let imgSrc = document.getElementsByClassName('modalrc')
-                images.push(imgSrc);
+            const images = Array.from(this.querySelectorAll("img.img-src")).map(img => img.src);
 
-                let thumbImg = document.createElement("img");
-                thumbImg.src = imgSrc;
-                thumbImg.alt = `Event ${folderName}`;
-                thumbImg.dataset.index = i - 1;
-
-                // Clicking a thumbnail changes the main image
-                thumbImg.addEventListener("click", function () {
-                    currentIndex = parseInt(this.dataset.index);
-                    updateMainImage();
-                });
-
-                thumbnailsContainer.appendChild(thumbImg);
+            if (images.length === 0) {
+                if (addImageButton) {
+                    addImageFunction()
+                } else {
+                    alert('No images available in this folder!');
+                    return
+                }
             }
 
+            currentImages = images;
             currentIndex = 0;
-            updateMainImage(); */
-           /*  modal.style.display = "flex";
+
+            // Fill thumbnails
+            thumbnailRow.innerHTML = "";
+            if (addImageButton) {
+                addImageFunction();
+            }
+            images.forEach((src, idx) => {
+                const thumb = document.createElement("img");
+                thumb.src = src;
+                thumb.addEventListener("click", () => {
+                    currentIndex = idx;
+                    updateMainImage();
+                });
+                thumbnailRow.appendChild(thumb);
+            });
+
+            // Show modal and first image
+            modal.style.display = "flex";
+            updateMainImage();
         });
     });
 
-   /*  // Function to update the main image
     function updateMainImage() {
-        modalImage.src = images[currentIndex];
+        mainImage.src = currentImages[currentIndex];
     }
 
-    // Navigation Buttons
-    prevButton.addEventListener("click", function () {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        updateMainImage();
-    });
-
-    nextButton.addEventListener("click", function () {
-        currentIndex = (currentIndex + 1) % images.length;
-        updateMainImage();
-    }); 
-
-    // Close Modal
-    closeModal.addEventListener("click", function () {
+    closeModal.addEventListener("click", () => {
         modal.style.display = "none";
+        mainImage.src = "";
+        thumbnailRow.innerHTML = "";
     });
 
-    modal.addEventListener("click", function (event) {
-        if (event.target === modal) {
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
             modal.style.display = "none";
+            mainImage.src = "";
+            thumbnailRow.innerHTML = "";
         }
-    }); */ 
+    });
+
+    prevBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+        updateMainImage();
+    });
+
+    nextBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % currentImages.length;
+        updateMainImage();
+    });
 });
