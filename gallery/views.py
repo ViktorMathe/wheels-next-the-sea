@@ -49,27 +49,33 @@ def upload_images(request):
     if request.method == 'POST':
         form = GalleryImageForm(request.POST, request.FILES)
         cloudinary.api_key = settings.CLOUDINARY_STORAGE['API_KEY']
-        image =  request.FILES.get('images', None)
+        image =  request.FILES.getlist('images')
         if not image:
             return HttpResponse("No file was uploaded.")
-        image_folder_id = request.POST.get('folder')
-        upload_folder = Folder.objects.get(pk=image_folder_id)
+        folder_name = request.POST.get("targetFolder")
+        try:
+            upload_folder = Folder.objects.get(name=folder_name)
+        except Folder.DoesNotExist:
+            return HttpResponse("Folder not found", status=404)
         image_folder = upload_folder.name
-        upload_preset = {"folder": f"wheels-next-the-sea/{image_folder}",
-                                 "tags": image_folder,
-                                 "transformation": [
-                                                {"width": 500, "height": 500, "crop": "fill"},
-                                                        ],
-                                 "auto_tagging": 0.9}
+        upload_preset = {
+            "folder": f"wheels-next-the-sea/{image_folder}",
+            "tags": image_folder,
+            "transformation": [
+                {"width": 100, "height": 100, "crop": "fill", "gravity": "auto"},
+                {"fetch_format": "auto", "quality": "auto"}
+            ],
+            "auto_tagging": 0.9,
+        }
         if form.is_valid():
-            new_image = cloudinary.uploader.upload(image, **upload_preset)
-            image_url = new_image['secure_url']
-            print(image_url)
-            UploadImages.objects.create(
-                  folder=upload_folder,
-                  pic=image_url
-            )
-            form.save()
+            for img in request.FILES.getlist('images'):
+                new_image = cloudinary.uploader.upload(img, **upload_preset)
+                image_url = new_image['secure_url']
+                UploadImages.objects.create(
+                    folder=upload_folder,
+                    pic=image_url,
+                    uploaded_by=request.user.username
+                )
             return redirect('gallery')
         else:
             print(form.errors)
