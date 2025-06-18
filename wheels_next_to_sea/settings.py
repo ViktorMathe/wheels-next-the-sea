@@ -16,12 +16,10 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
-
-load_dotenv()
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+load_dotenv(dotenv_path=os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -30,7 +28,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEVELOPMENT' in os.environ
+DEBUG = os.getenv("DEVELOPMENT", "False") == "True"
+print(DEBUG)
 
 ALLOWED_HOSTS = ['*']
 
@@ -41,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'allauth',
+    'allauth.account',
     'home',
     'wheels_next_to_sea',
     'gallery',
@@ -59,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'wheels_next_to_sea.urls'
@@ -91,8 +93,11 @@ WSGI_APPLICATION = 'wheels_next_to_sea.wsgi.application'
 if 'DEVELOPMENT' in os.environ:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3'
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'defaultdb',
+            'USER': 'viktormathe',
+            'HOST': 'localhost',
+            'PORT': '5432',
         }
     }
 else:
@@ -112,7 +117,7 @@ else:
     }
 
 
-CSRF_TRUSTED_ORIGINS = ['https://*.gitpod.io', 'https://*.herokuapp.com']
+CSRF_TRUSTED_ORIGINS = ['https://*.devtunnels.ms', 'https://*.herokuapp.com']
 
 SITE_ID = 1
 
@@ -135,6 +140,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by email
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+LOGIN_REDIRECT_URL = '/'
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
@@ -154,21 +169,17 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-CLOUDINARY_URL= "cloudinary://657483658624369:L2P4QumKhynBnPopLuaVz9h505k@vikmath1119"
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': "vikmath1119",
-    'API_KEY': "657483658624369",
-    'API_SECRET': "L2P4QumKhynBnPopLuaVz9h505k",
+    'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
 }
 
 cloudinary.config(
-cloud_name = "vikmath1119",
-api_key = "657483658624369",
-api_secret = "L2P4QumKhynBnPopLuaVz9h505k",
-api_proxy = "http://proxy.server:9999",
-signature_algorithm = "sha256",
+    cloud_name = CLOUDINARY_STORAGE['CLOUD_NAME'],
+    api_key = CLOUDINARY_STORAGE['API_KEY'],
+    api_secret = CLOUDINARY_STORAGE['API_SECRET'],
 )
-
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 

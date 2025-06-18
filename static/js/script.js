@@ -16,8 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.querySelector(".menu-toggle");
     const navList = document.querySelector(".nav-list");
     const dropdowns = document.querySelectorAll(".dropdown");
-    const fileInput = document.querySelector("#id_images");
     const previewContainer = document.getElementById("uploaded-file");
+    let fileInput = document.querySelector("#id_images");
     let draggableFileArea = document.querySelector(".drag-file-area");
     let browseFileText = document.querySelector(".browse-files");
     let uploadIcon = document.querySelector(".upload-icon");
@@ -111,45 +111,135 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     allFolders.forEach(folder => {
-        folder.addEventListener("click", function () {
+        folder.addEventListener("click", function (event) {
             targetFolder = this.getAttribute("data-name");
-            if(addImageButton){
-            document.getElementById("id_folder").value = targetFolder;
+            if (addImageButton) {
+                document.getElementById("id_folder").value = targetFolder;
             }
-            const images = Array.from(this.querySelectorAll("img.img-src")).map(img => img.src);
+
+            const imageElements = Array.from(this.querySelectorAll("img.img-src"));
+            const images = imageElements.map(img => img.src);
 
             if (images.length === 0) {
                 if (addImageButton) {
-                    addImageFunction()
+                    addImageFunction();
                 } else {
                     alert('No images available in this folder!');
-                    return
+                    return;
                 }
             }
 
+            // Determine clicked image index if the user clicked a specific thumbnail
+            let clickedImageIndex = 0;
+            if (event.target.tagName === "IMG" && event.target.classList.contains("img-src")) {
+                const clickedSrc = event.target.src;
+                clickedImageIndex = images.indexOf(clickedSrc);
+            }
+
             currentImages = images;
-            currentIndex = 0;
+            currentIndex = clickedImageIndex;
 
             // Fill thumbnails
             thumbnailRow.innerHTML = "";
             if (addImageButton) {
                 addImageFunction();
             }
+
             images.forEach((src, idx) => {
+                // Create a wrapper div for thumbnail and remove button
+                const thumbWrapper = document.createElement("div");
+                thumbWrapper.classList.add("thumbnail-wrapper");
+                thumbWrapper.style.position = "relative";
+                thumbWrapper.style.display = "inline-block";
+
+                // Create the thumbnail image
                 const thumb = document.createElement("img");
                 thumb.src = src;
+                thumb.classList.add("thumbnail");
+                if (idx === currentIndex) {
+                    thumb.classList.add("active");
+                }
+
                 thumb.addEventListener("click", () => {
                     currentIndex = idx;
                     updateMainImage();
+                    updateThumbnailHighlight();
                 });
-                thumbnailRow.appendChild(thumb);
+
+                thumbWrapper.appendChild(thumb);
+
+                // Only show remove button for superuser
+                if (addImageButton) {
+                    const removeBtn = document.createElement("button");
+                    removeBtn.textContent = "✕";
+                    removeBtn.classList.add("remove-file-icon");
+
+                    removeBtn.addEventListener("click", async (e) => {
+                        e.stopPropagation(); // Prevent triggering thumbnail click
+                        const imageName = thumb.src.split("/").pop().split(".")[0]
+                        if (!confirm(`Are you sure you want to delete this image? \
+                            "${imageName}"`)) return;
+
+                        try {
+                            const response = await fetch("./delete-image/", {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                    "X-CSRFToken": getCSRFToken()
+                                },
+                                body: JSON.stringify({ image_url: new URL(src).href }), // e.g. /media/gallery/2021/img.jpg
+                            });
+
+                            const result = await response.json();
+
+                            if (result.success) {
+                                // Remove from image list
+                                currentImages.splice(idx, 1);
+                                thumbWrapper.remove();
+
+                                // Remove from preview grid
+                                const previewImg = document.querySelector(`img.img-src[src="${src}"]`);
+                                if (previewImg) previewImg.remove();
+
+                                if (currentIndex >= currentImages.length) {
+                                    currentIndex = currentImages.length - 1;
+                                }
+
+                                if (currentImages.length === 0) {
+                                    modal.style.display = "none";
+                                } else {
+                                    updateMainImage();
+                                    updateThumbnailHighlight();
+                                }
+                            } else {
+                                alert(result.error || "Failed to delete image");
+                            }
+                        } catch (err) {
+                            console.error("Error deleting image:", err);
+                            alert("Server error");
+                        }
+                    });
+
+                    thumbWrapper.appendChild(removeBtn);
+                }
+
+                // Append wrapper to thumbnail row
+                thumbnailRow.appendChild(thumbWrapper);
             });
 
-            // Show modal and first image
+
+            // Show modal and image based on click
             modal.style.display = "flex";
             updateMainImage();
         });
     });
+
+    function updateThumbnailHighlight() {
+        const allThumbs = thumbnailRow.querySelectorAll("img");
+        allThumbs.forEach((thumb, idx) => {
+            thumb.classList.toggle("active", idx === currentIndex);
+        });
+    }
 
     let addImageFunction = function () {
         if (!thumbnailRow.contains(addImageButton)) {
@@ -184,15 +274,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
         fileInput.addEventListener("change", e => {
             const newFiles = Array.from(e.target.files);
-        
+
             // Append new files without duplicates (by name + size)
             newFiles.forEach(newFile => {
-                const exists = selectedFiles.some(existingFile => 
+                const exists = selectedFiles.some(existingFile =>
                     existingFile.name === newFile.name && existingFile.size === newFile.size
                 );
                 if (!exists) selectedFiles.push(newFile);
             });
-        
+
             updatePreview();
             fileInput.value = ''; // Reset input so same file can be re-added
         });
@@ -220,7 +310,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 cannotUploadMessage.style.cssText = "display: flex; animation: fadeIn linear 1.5s;";
             }
         });
-    } 
+    }
     if (cancelAlertButton) {
         cancelAlertButton.addEventListener("click", () => {
             cannotUploadMessage.style.cssText = "display: none;";
@@ -249,15 +339,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 uploadIcon.innerHTML = 'check_circle';
                 dragDropText.innerHTML = 'File Dropped Successfully!';
                 document.querySelector(".label").innerHTML = `drag & drop or <span class="browse-files"> <input type="file" class="default-file-input"/> <span class="browse-files-text"> browse file</span></span>`;
-            
+                rebindFileInput();
                 const droppedFiles = Array.from(e.dataTransfer.files);
                 droppedFiles.forEach(file => {
-                    const exists = selectedFiles.some(existingFile => 
+                    const exists = selectedFiles.some(existingFile =>
                         existingFile.name === file.name && existingFile.size === file.size
                     );
                     if (!exists) selectedFiles.push(file);
                 });
-            
+
                 updatePreview();
             });
         }
@@ -270,6 +360,7 @@ document.addEventListener("DOMContentLoaded", function () {
             uploadIcon.innerHTML = 'file_upload';
             dragDropText.innerHTML = 'Drag & drop any file here';
             document.querySelector(".label").innerHTML = `or <span class="browse-files"> <input type="file" class="default-file-input"/> <span class="browse-files-text">browse file</span> <span>from device</span> </span>`;
+            rebindFileInput();
             uploadButton.innerHTML = "Upload";
         });
     }
@@ -322,19 +413,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function updatePreview() {
         uploadedFile.innerHTML = ""; // Clear previous previews
-    
+
         if (selectedFiles.length === 0) {
             uploadedFile.innerHTML = "<p>No files selected.</p>";
             return;
         }
-    
+
         selectedFiles.forEach((file, index) => {
             const fileBlock = document.createElement("div");
             fileBlock.className = "file-preview";
-    
+
             if (file.type.startsWith("image/")) {
                 const reader = new FileReader();
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     const img = document.createElement("img");
                     img.src = e.target.result;
                     img.alt = file.name;
@@ -348,7 +439,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 text.textContent = file.name;
                 fileBlock.appendChild(text);
             }
-    
+
             const removeBtn = document.createElement("button");
             removeBtn.className = "remove-file-icon";
             removeBtn.innerHTML = "×";
@@ -357,41 +448,76 @@ document.addEventListener("DOMContentLoaded", function () {
                 selectedFiles.splice(index, 1);
                 updatePreview();
             };
-    
+
             fileBlock.appendChild(removeBtn);
             uploadedFile.appendChild(fileBlock);
         });
-    
+
         fileFlag = 0;
         progressBar.style.width = 0;
         uploadButton.innerHTML = "Upload";
     }
 
-    function updateMainImage() {
-        mainImage.src = currentImages[currentIndex];
+    function rebindFileInput() {
+        const newInput = document.querySelector(".default-file-input");
+        if (!newInput) return;
+
+        fileInput = newInput; // ❌ ERROR: trying to reassign a const
+        fileInput = document.querySelector(".default-file-input"); // reselect input
+        if (fileInput) {
+            fileInput.addEventListener("click", () => {
+                fileInput.value = '';
+            });
+
+            fileInput.addEventListener("change", e => {
+                const newFiles = Array.from(e.target.files);
+
+                // Append new files without duplicates (by name + size)
+                newFiles.forEach(newFile => {
+                    const exists = selectedFiles.some(existingFile =>
+                        existingFile.name === newFile.name && existingFile.size === newFile.size
+                    );
+                    if (!exists) selectedFiles.push(newFile);
+                });
+
+                updatePreview();
+                fileInput.value = ''; // Reset input so same file can be re-added
+            });
+        }
     }
 
-    closeModal.addEventListener("click", () => {
-        modal.style.display = "none";
-        mainImage.src = "";
-        thumbnailRow.innerHTML = "";
-    });
+    function updateMainImage() {
+        mainImage.src = currentImages[currentIndex];
+        updateThumbnailHighlight();
+    }
 
-    modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
+    if (modal != null) {
+        closeModal.addEventListener("click", () => {
             modal.style.display = "none";
             mainImage.src = "";
             thumbnailRow.innerHTML = "";
-        }
-    });
+        });
 
-    prevBtn.addEventListener("click", () => {
-        currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-        updateMainImage();
-    });
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.style.display = "none";
+                mainImage.src = "";
+                thumbnailRow.innerHTML = "";
+            }
+        });
+    }
 
-    nextBtn.addEventListener("click", () => {
-        currentIndex = (currentIndex + 1) % currentImages.length;
-        updateMainImage();
-    });
+    if (prevBtn != null) {
+        prevBtn.addEventListener("click", () => {
+            currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+            updateMainImage();
+        });
+    }
+
+    if (nextBtn != null) {
+        nextBtn.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % currentImages.length;
+            updateMainImage();
+        });
+    }
 });

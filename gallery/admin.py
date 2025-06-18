@@ -7,4 +7,4 @@ class FolderAdmin(admin.ModelAdmin):
 
 @admin.register(UploadImages)
 class GalleryImageAdmin(admin.ModelAdmin):
-    list_display = ('pic', 'folder', 'uploaded_at', 'uploaded_by')
+    list_display = ('title', 'folder', 'uploaded_by', 'uploaded_at', 'url')

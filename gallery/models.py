@@ -13,7 +13,8 @@ class Folder(models.Model):
 
 class UploadImages(models.Model):
     folder = models.ForeignKey(Folder, on_delete=models.CASCADE, related_name='images')
-    pic = CloudinaryField('images')
+    url = CloudinaryField('images')
+    title = models.CharField(max_length=100)
     uploaded_by = models.CharField(max_length=100)
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
