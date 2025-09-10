@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="review-detail">
+    <div class="review-card">
+        <h2 class="review-title">{{ review.title }}</h2>
+        <div class="review-text">{{ review.text }}</div>
+        <small class="created-at">
+            Written: {{ review.created_at|date:"d M Y H:i" }} <br>
+            By {{ review.name }}
+        </small>
+    </div>
+    <a href="{% url 'reviews' %}" class="back-btn">← Back to all reviews</a>
+</div>
+{% endblock %}

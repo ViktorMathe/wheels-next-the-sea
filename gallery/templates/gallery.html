@@ -55,22 +55,21 @@
                         </span>
                     </label>
                 </div>
-
                 <span class="cannot-upload-message">
                     <span class="material-icons-outlined">error</span> Please select a file first
-                    <span class="material-icons-outlined cancel-alert-button">cancel</span>
+                    <span class="material-icons-outlined cancel-alert-button">Cancel</span>
                 </span>
-
                 <div class="file-block">
                     <div class="file-info">
-                        <span class="material-icons-outlined file-icon">description</span>
+                        <span class="material-icons-outlined file-icon">Description</span>
                         <span class="file-name"> </span> |
                         <span class="file-size"> </span>
                     </div>
-                    <span class="material-icons remove-file-icon">delete</span>
-                    <div class="progress-bar"> </div>
+                    <span class="material-icons remove-file-icon">Delete</span>
                 </div>
-
+                <div class="progress-wrapper">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
                 <button type="submit" class="upload-button">Upload</button>
             </div>
         </form>
@@ -87,7 +86,7 @@
     </div>
     <div class="gallery-thumbnails" id="thumbnail-row">
         {% if user.is_superuser %}
-        <div id="add-image-button">&plus;</div>
+        <div id="add-image-button"><span>&plus;</span></div>
         {% endif %}
     </div>
 </div>

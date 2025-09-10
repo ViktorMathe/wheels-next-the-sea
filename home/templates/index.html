@@ -2,46 +2,79 @@
 {% load static %}
 
 {% block content %}
-<div class="welcome">
+  <div class="welcome">
     <div class="hero">
-        <img class="hero-img" src="{{MEDIA_URL}}hero.png" alt="Hero image">
+      <img class="hero-img" src="{{ MEDIA_URL }}hero.png" alt="Hero image" />
     </div>
-</div>
-<div class="about">
-    <h2>Next event:</h2>
-    <h3>22/06/2025</h3>
-    <p>For more information click <a href="#" class="click-here">here</a>!</p>
-    <h2>About us:</h2>
-    <p>Please fill out here with relevant information</p>
-    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum.""Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum.""Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum."</p>
+  </div>
 
-</div>
-<div class="marquee">
-    <div class="marquee-content">
-        {% for review in reviews %}
-        <span class="marquee-item">
-            <p>{{review.title}}</p>
-            <p> {{ review.text }} </p> <small class="created-at">Written : {{ review.created_at }} <br> By {{review.name}}</small>
-        </span>
-        {% endfor %}
-        {% for review in reviews %}
-        <span class="marquee-item">
-            <p>{{review.title}}</p>
-            <p> {{ review.text }} </p> <small class="created-at">Written : {{ review.created_at }} <br> By {{review.name}}</small>
-        </span>
-        {% endfor %}
+  <div class="next-event">
+    {% if next_events %}
+      {% with next_event=next_events.0 %}
+        <h2>{{ next_event.title }}</h2>
+        <h3>{{ next_event.date|date:'d M Y H:i' }}</h3>
+        <p>{{ next_event.description }}</p>
+        {% if next_event.flyer %}
+          <img src="{{ next_event.flyer.url }}" alt="Event Flyer" width="200" />
+        {% endif %}
+
+        {% if request.user.is_superuser %}
+          <a href="{% url 'manage_events_edit' next_event.id %}" class="edit-btn">Edit</a>
+          <a href="{% url 'add_event' %}" class="edit-btn">Add New Event</a>
+        {% endif %}
+      {% endwith %}
+    {% else %}
+      <p>No upcoming events.</p>
+      {% if request.user.is_superuser %}
+        <a href="{% url 'add_event' %}" class="edit-btn">Add Event</a>
+      {% endif %}
+    {% endif %}
+  </div>
+
+  <div class="about">
+    <div id="about_us">
+      <h2>About us:</h2>
+      {{ about.content|safe }}
+
+      {% if user.is_superuser %}
+        <!-- Edit button -->
+        <button id="openModalBtn" class="edit-btn">Edit About Us</button>
+      {% endif %}
     </div>
-</div>
+  </div>
+
+  {% if user.is_superuser %}
+    <!-- Modal -->
+    <div id="aboutUsModal" class="aboutModal">
+      <div class="aboutContent">
+        <!-- Close button -->
+        <button id="closeModalBtn" class="aboutModalClose">&times;</button>
+
+        <h3>Edit About Us</h3>
+
+        <form method="post">
+          {% csrf_token %}
+          {{ form.media }}
+          {{ form.as_p }}
+          <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mt-2">Save</button>
+        </form>
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="marquee">
+    <div class="marquee-content">
+      {% for review in reviews %}
+        <div class="marquee-item">
+          <p class="review-title">{{ review.title }}</p>
+          <p class="review-text">{{ review.text }}</p>
+          <a href="{% url 'review_detail' review.id review.slug %}" class="read-more">Read more</a>
+          <small class="created-at">
+            Written: {{ review.created_at|date:'d M Y' }} <br />
+            By {{ review.name }}
+          </small>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
 {% endblock %}

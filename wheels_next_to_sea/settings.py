@@ -29,7 +29,6 @@ SECRET_KEY = os.getenv('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEVELOPMENT", "False") == "True"
-print(DEBUG)
 
 ALLOWED_HOSTS = ['*']
 
@@ -49,6 +48,7 @@ INSTALLED_APPS = [
     'events',
     'contact',
     'cloudinary',
+    'django_ckeditor_5',
 ]
 
 MIDDLEWARE = [
@@ -84,6 +84,20 @@ TEMPLATES = [
     },
 ]
 
+CKEDITOR_5_CONFIGS = {
+    'default': {
+        'toolbar': [
+            'heading', '|',
+            'bold', 'italic', 'underline', 'strikethrough', 'link', '|',
+            'fontColor', 'fontBackgroundColor', 'fontSize', '|',
+            'bulletedList', 'numberedList', 'blockQuote', '|',
+            'undo', 'redo'
+        ],
+        'height': 300,
+        'width': '100%',
+    }
+}
+
 WSGI_APPLICATION = 'wheels_next_to_sea.wsgi.application'
 
 
@@ -117,7 +131,7 @@ else:
     }
 
 
-CSRF_TRUSTED_ORIGINS = ['https://*.devtunnels.ms', 'https://*.herokuapp.com']
+CSRF_TRUSTED_ORIGINS = ['http://localhost*', 'https://*.devtunnels.ms', 'https://*.herokuapp.com', 'https://wheelsnextthesea.co.uk*']
 
 SITE_ID = 1
 

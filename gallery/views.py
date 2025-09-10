@@ -30,11 +30,7 @@ def gallery(request):
         folder_images = []
         for cloud_folder in get_all_folders:
             folder_name = cloud_folder['name']
-
-            # 1. Create folder in DB if missing
             folder_obj, created = Folder.objects.get_or_create(name=folder_name)
-
-            # 2. Get all images in that folder
             resources = cloudinary.api.resources(
                 type='upload',
                 prefix=f"wheels-next-the-sea/{folder_name}/",
@@ -44,12 +40,11 @@ def gallery(request):
             for image in resources:
                 secure_url = image['secure_url']
                 unique_title = secure_url.rsplit('/', 1)[1]
-                # 3. Check if image is in DB by Cloudinary public_id
                 if not UploadImages.objects.filter(url=secure_url, title=unique_title).exists():
                     UploadImages.objects.create(
                         title = unique_title,
                         folder=folder_obj,
-                        url=secure_url,  # CloudinaryField supports public_id directly
+                        url=secure_url,
                         uploaded_by=request.user.username
                     )
 
@@ -76,38 +71,43 @@ def upload_images(request):
         form = GalleryImageForm(request.POST, request.FILES)
         cloudinary.api_key = settings.CLOUDINARY_STORAGE['API_KEY']
         image =  request.FILES.getlist('images')
-        if not image:
-            return HttpResponse("No file was uploaded.")
-        folder_name = request.POST.get("targetFolder")
-        try:
-            upload_folder = Folder.objects.get(name=folder_name)
-        except Folder.DoesNotExist:
-            return HttpResponse("Folder not found", status=404)
-        image_folder = upload_folder.name
-        upload_preset = {
-            "folder": f"wheels-next-the-sea/{image_folder}",
-            "tags": image_folder,
-            "transformation": [
-                {"width": 100, "height": 100, "crop": "fill", "gravity": "auto"},
-                {"fetch_format": "auto", "quality": "auto"}
-            ],
-            "auto_tagging": 0.9,
-        }
-        if form.is_valid():
-            for img in request.FILES.getlist('images'):
-                new_image = cloudinary.uploader.upload(img, **upload_preset)
-                image_url = new_image['secure_url']
-                image_title = image_url.rsplit('/', 1)[1]
-                UploadImages.objects.create(
-                    title = image_title,
-                    folder=upload_folder,
-                    url=image_url,
-                    uploaded_by=request.user.username
-                )
-            return redirect('gallery')
+        if image:
+            folder_name = request.POST.get("targetFolder")
+            try:
+                upload_folder = Folder.objects.get(name=folder_name)
+                for img in image:
+                    check_img = img.__dict__
+                    img_name = check_img['_name']
+                    if UploadImages.objects.filter(folder=upload_folder, title=img_name).exists():
+                        return HttpResponse("An image with a same name has been already uploaded! Try a different file!")
+            except Folder.DoesNotExist:
+                return HttpResponse("Folder not found", status=404)
+            image_folder = upload_folder.name
+            upload_preset = {
+                "folder": f"wheels-next-the-sea/{image_folder}",
+                "tags": image_folder,
+                "transformation": [
+                    {"width": "auto", "crop": "auto", "gravity": "auto"},
+                    {"fetch_format": "auto", "quality": "auto"}
+                ],
+                "auto_tagging": 0.9,
+            }
+            if form.is_valid():
+                for img in request.FILES.getlist('images'):
+                    new_image = cloudinary.uploader.upload(img, **upload_preset)
+                    image_url = new_image['secure_url']
+                    image_title = image_url.rsplit('/', 1)[1]
+                    UploadImages.objects.create(
+                        title = image_title,
+                        folder=upload_folder,
+                        url=image_url,
+                        uploaded_by=request.user.username
+                    )
+                return redirect('gallery')
+            else:
+                return HttpResponse(f"Form submission failed. {form.errors}.")
         else:
-            print(form.errors)
-            return HttpResponse("Form submission failed. Check console.")
+            return HttpResponse("No file was uploaded.")
     else:
         form = GalleryImageForm()
     context = {'cloud_signin' : cloud_signin, 'folder':folder} 

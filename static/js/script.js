@@ -17,7 +17,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const navList = document.querySelector(".nav-list");
     const dropdowns = document.querySelectorAll(".dropdown");
     const previewContainer = document.getElementById("uploaded-file");
-    let fileInput = document.querySelector("#id_images");
+    const fileInput = document.querySelector("#id_images");
+    const progressBar = document.getElementById("progressBar");
+    const uploadButton = document.querySelector(".upload-button");
     let draggableFileArea = document.querySelector(".drag-file-area");
     let browseFileText = document.querySelector(".browse-files");
     let uploadIcon = document.querySelector(".upload-icon");
@@ -28,13 +30,31 @@ document.addEventListener("DOMContentLoaded", function () {
     let uploadedFile = document.querySelector(".file-block");
     let fileName = document.querySelector(".file-name");
     let fileSize = document.querySelector(".file-size");
-    let progressBar = document.querySelector(".progress-bar");
     let removeFileButton = document.querySelector(".remove-file-icon");
-    let uploadButton = document.querySelector(".upload-button");
     let fileFlag = 0;
     let currentIndex = 0;
     let currentImages = [];
     let selectedFiles = [];
+    const aboutModal = document.getElementById("aboutUsModal");
+    const openBtn = document.getElementById("openModalBtn");
+    const closeBtn = document.getElementById("closeModalBtn");
+
+    if (openBtn) {
+        openBtn.addEventListener("click", () => {
+            aboutModal.style.display = "block";
+        });
+    }
+    if (closeBtn) {
+        closeBtn.addEventListener("click", () => {
+            aboutModal.style.display = "none";
+        });
+    }
+
+    window.addEventListener("click", function(event) {
+        if (event.target === aboutModal) {
+            aboutModal.style.display = "none";
+        }
+    });
 
 
     function getCSRFToken() {
@@ -284,30 +304,45 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             updatePreview();
-            fileInput.value = ''; // Reset input so same file can be re-added
         });
 
     }
     if (uploadButton) {
         uploadButton.addEventListener("click", () => {
-            let isFileUploaded = fileInput.value;
-            if (isFileUploaded != '') {
-                if (fileFlag == 0) {
-                    fileFlag = 1;
-                    var width = 0;
-                    var id = setInterval(frame, 50);
-                    function frame() {
-                        if (width >= 390) {
-                            clearInterval(id);
-                            uploadButton.innerHTML = `<span class="material-icons-outlined upload-button-icon"> check_circle </span> Uploaded`;
-                        } else {
-                            width += 5;
-                            progressBar.style.width = width + "px";
-                        }
-                    }
-                }
-            } else {
+            if (!selectedFiles.length > 0) {
                 cannotUploadMessage.style.cssText = "display: flex; animation: fadeIn linear 1.5s;";
+            } else {
+                const formData = new FormData();
+                formData.append("file", selectedFiles);
+
+                const xhr = new XMLHttpRequest();
+                xhr.open("POST", "/upload/");  // Change to your actual upload URL
+
+                // Track progress
+                xhr.upload.addEventListener("progress", (e) => {
+                    if (e.lengthComputable) {
+                        const percent = (e.loaded / e.total) * 100;
+                        progressBar.style.width = percent + "%";
+                    }
+                });
+
+                // When upload completes
+                xhr.onload = () => {
+                    if (xhr.status === 200) {
+                        alert("Upload complete!");
+                        progressBar.style.width = "100%";
+                        setTimeout(() => progressBar.style.width = "0%", 1000);
+                    } else {
+                        alert("Upload failed!");
+                    }
+                };
+
+                xhr.onerror = () => {
+                    alert("Upload error!");
+                };
+
+                xhr.send(formData);
+                uploadForm.requestSubmit();
             }
         });
     }
@@ -460,10 +495,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function rebindFileInput() {
         const newInput = document.querySelector(".default-file-input");
-        if (!newInput) return;
-
-        fileInput = newInput; // ❌ ERROR: trying to reassign a const
-        fileInput = document.querySelector(".default-file-input"); // reselect input
+        fileInput = newInput;
         if (fileInput) {
             fileInput.addEventListener("click", () => {
                 fileInput.value = '';
