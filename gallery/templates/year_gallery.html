@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Gallery: {{ folder.name }}</h2>
+<div class="gallery-grid">
+    {% for image in folder_images %}
+  <div class="event-card">
+      <img src="{{ image.url }}" alt="{{ image.title }}">
+      <p>{{ image.title }}</p>
+  </div>
+{% endfor %}
+</div>
+{% endblock %}

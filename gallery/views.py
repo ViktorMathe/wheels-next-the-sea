@@ -1,10 +1,9 @@
 from django.shortcuts import render, redirect, HttpResponse, get_object_or_404, reverse
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.views.decorators.csrf import csrf_exempt
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from .models import Folder, UploadImages
 from .forms import GalleryImageForm, FolderForm
-from django.core.files.base import ContentFile
 from django.conf import settings
 import cloudinary
 import cloudinary.uploader
@@ -13,136 +12,135 @@ import json
 import os
 
 
+def is_superuser(user):
+    return user.is_superuser
+
+
 def gallery(request):
-    folder = Folder.objects.all()
+    folders = Folder.objects.all()
+    folder_images = {}
+
     if request.method == 'POST':
         folder_form = FolderForm(request.POST)
-        image_folder = folder_form['name'].value()
         if folder_form.is_valid():
-            create_folder = cloudinary.api.create_folder(f'wheels-next-the-sea/{image_folder}')
+            folder_name = folder_form.cleaned_data['name']
+            cloudinary.api.create_folder(f'wheels-next-the-sea/{folder_name}')
             folder_form.save()
             return redirect('gallery')
     else:
         folder_form = FolderForm()
         upload_form = GalleryImageForm()
         get_all_folders = cloudinary.api.subfolders('wheels-next-the-sea')['folders']
-        get_folder = {}
-        folder_images = []
+
         for cloud_folder in get_all_folders:
             folder_name = cloud_folder['name']
-            folder_obj, created = Folder.objects.get_or_create(name=folder_name)
+            folder_obj, _ = Folder.objects.get_or_create(name=folder_name)
+
             resources = cloudinary.api.resources(
                 type='upload',
                 prefix=f"wheels-next-the-sea/{folder_name}/",
                 max_results=100
             )['resources']
 
+            images_list = []
             for image in resources:
                 secure_url = image['secure_url']
                 unique_title = secure_url.rsplit('/', 1)[1]
-                if not UploadImages.objects.filter(url=secure_url, title=unique_title).exists():
-                    UploadImages.objects.create(
-                        title = unique_title,
-                        folder=folder_obj,
-                        url=secure_url,
-                        uploaded_by=request.user.username
-                    )
 
-                folder_images.append(image)
-            
-    context = {'folder_form':folder_form, 'upload_form': upload_form, 'get_all_folders':get_all_folders, 'folder_images': folder_images, 'folder':folder}
+                upload_img, _ = UploadImages.objects.get_or_create(
+                    url=secure_url,
+                    title=unique_title,
+                    folder=folder_obj,
+                    defaults={'uploaded_by': request.user.username}
+                )
+                images_list.append(upload_img)
+
+            folder_images[folder_obj] = images_list
+
+    context = {
+        'folder_form': folder_form,
+        'upload_form': upload_form,
+        'folders': folders,
+        'folder_images': folder_images,
+    }
     return render(request, 'gallery.html', context)
 
-# Superuser check
-def is_superuser(user):
-    return user.is_superuser
+
+def year_gallery(request, folder_name):
+    folder = get_object_or_404(Folder, name=folder_name)
+    images = folder.images.all()
+    return render(request, "year_gallery.html", {
+        "folder": folder,
+        "images": images,
+    })
+
 
 @login_required
 @user_passes_test(is_superuser)
 def upload_images(request):
-    folder = Folder.objects.all()
-    cloud_signin = cloudinary.utils.api_sign_request({
-        'cloud_name' : settings.CLOUDINARY_STORAGE['CLOUD_NAME'],
-        'api_key' : settings.CLOUDINARY_STORAGE['API_KEY'],
-        'signature_algorithm' : "sha256",
-        'timestamp': 1315060510
-    }, settings.CLOUDINARY_STORAGE['API_SECRET'])
     if request.method == 'POST':
         form = GalleryImageForm(request.POST, request.FILES)
-        cloudinary.api_key = settings.CLOUDINARY_STORAGE['API_KEY']
-        image =  request.FILES.getlist('images')
-        if image:
-            folder_name = request.POST.get("targetFolder")
-            try:
-                upload_folder = Folder.objects.get(name=folder_name)
-                for img in image:
-                    check_img = img.__dict__
-                    img_name = check_img['_name']
-                    if UploadImages.objects.filter(folder=upload_folder, title=img_name).exists():
-                        return HttpResponse("An image with a same name has been already uploaded! Try a different file!")
-            except Folder.DoesNotExist:
-                return HttpResponse("Folder not found", status=404)
-            image_folder = upload_folder.name
+        images = request.FILES.getlist('images')
+        folder_name = request.POST.get("targetFolder")
+
+        if not images:
+            return HttpResponse("No file uploaded.")
+
+        try:
+            upload_folder = Folder.objects.get(name=folder_name)
+        except Folder.DoesNotExist:
+            return HttpResponse("Folder not found.", status=404)
+
+        if form.is_valid():
             upload_preset = {
-                "folder": f"wheels-next-the-sea/{image_folder}",
-                "tags": image_folder,
+                "folder": f"wheels-next-the-sea/{folder_name}",
+                "tags": folder_name,
                 "transformation": [
                     {"width": "auto", "crop": "auto", "gravity": "auto"},
                     {"fetch_format": "auto", "quality": "auto"}
                 ],
                 "auto_tagging": 0.9,
             }
-            if form.is_valid():
-                for img in request.FILES.getlist('images'):
-                    new_image = cloudinary.uploader.upload(img, **upload_preset)
-                    image_url = new_image['secure_url']
-                    image_title = image_url.rsplit('/', 1)[1]
-                    UploadImages.objects.create(
-                        title = image_title,
-                        folder=upload_folder,
-                        url=image_url,
-                        uploaded_by=request.user.username
-                    )
-                return redirect('gallery')
-            else:
-                return HttpResponse(f"Form submission failed. {form.errors}.")
+            for img in images:
+                new_image = cloudinary.uploader.upload(img, **upload_preset)
+                image_url = new_image['secure_url']
+                image_title = image_url.rsplit('/', 1)[1]
+                UploadImages.objects.create(
+                    title=image_title,
+                    folder=upload_folder,
+                    url=image_url,
+                    uploaded_by=request.user.username
+                )
+            return redirect('gallery')
         else:
-            return HttpResponse("No file was uploaded.")
-    else:
-        form = GalleryImageForm()
-    context = {'cloud_signin' : cloud_signin, 'folder':folder} 
-    return redirect(reverse('gallery'))
+            return HttpResponse(f"Form submission failed: {form.errors}")
+    return redirect('gallery')
+
 
 @login_required
 @user_passes_test(is_superuser)
 @csrf_exempt
 def delete_image(request):
-    if request.method == "POST" and request.user.is_superuser:
+    if request.method == "POST":
         data = json.loads(request.body)
         image_url = data.get("image_url", "")
         if not image_url.startswith("https://res.cloudinary.com/"):
             return JsonResponse({"error": "Invalid image path"}, status=400)
 
         try:
-            # Assumes format: https://res.cloudinary.com/yourcloud/image/upload/v1234567/folder/image.jpg
-            # Extract everything after `/upload/` and remove extension
             path = image_url.split("/upload/")[1]
             parts = path.split("wheels-next-the-sea", 1)
-            if len(parts) != 2:
-                return JsonResponse({"error": "Unexpected image path format"}, status=400)
-
             public_id = "wheels-next-the-sea" + parts[1]
-            public_id = os.path.splitext(public_id)[0]  # Remove file extension
+            public_id = os.path.splitext(public_id)[0]
 
-            # Delete from Cloudinary
             result = cloudinary.uploader.destroy(public_id)
             if result.get("result") == "ok":
+                UploadImages.objects.filter(url=image_url).delete()
                 return JsonResponse({"success": True})
             else:
                 return JsonResponse({"error": "Failed to delete from Cloudinary"}, status=500)
         except Exception as e:
             return JsonResponse({"error": str(e)}, status=500)
-
     return JsonResponse({"error": "Unauthorized or invalid request"}, status=403)
 
 
@@ -157,15 +155,14 @@ def delete_folder(request):
         if not folder_name:
             return JsonResponse({"error": "Missing folder name"}, status=400)
 
-        # Delete all images in that folder
-        images = UploadImages.objects.filter(folder__name=folder_name)
         errors = []
 
+        # Delete all images
+        images = UploadImages.objects.filter(folder__name=folder_name)
         for image in images:
             try:
-                path = image.image.url.split("/upload/")[1]
+                path = image.url.split("/upload/")[1]
                 public_id = os.path.splitext(path)[0]
-
                 result = cloudinary.uploader.destroy(public_id)
                 if result.get("result") != "ok":
                     errors.append(f"Failed to delete {public_id}")
@@ -174,21 +171,17 @@ def delete_folder(request):
             except Exception as e:
                 errors.append(str(e))
 
-        # Try deleting the folder itself in Cloudinary
+        # Delete Cloudinary folder
         try:
             cloudinary.api.delete_folder(folder_name)
         except cloudinary.exceptions.Error as e:
-            errors.append(f"Cloudinary folder delete error: {str(e)}")
+            errors.append(str(e))
 
-        # Delete folder model (if using a Folder model)
-        try:
-            Folder.objects.get(name=folder_name).delete()
-        except Folder.DoesNotExist:
-            pass
+        # Delete Folder model
+        Folder.objects.filter(name=folder_name).delete()
 
         if errors:
             return JsonResponse({"error": "Some issues occurred", "details": errors}, status=500)
-
         return JsonResponse({"success": True})
 
     return JsonResponse({"error": "Invalid request"}, status=400)

@@ -1,18 +1,51 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Upcoming Events</h2>
-<ul>
-    {% for event in events %}
-    <li>
-        <h3>{{ event.title }}</h3>
-        <p>{{ event.description }}</p>
-        <p>Date: {{ event.date }}</p>
+
+<h2 class="page-title">Upcoming Events</h2>
+
+<div class="event-grid">
+    {% for event in next_events %}
+    <div class="event-card">
+        <h3 class="event-title">{{ event.title }}</h3>
+        <p class="event-description">{{ event.description }}</p>
+        <p class="event-date">Date: {{ event.date|date:"d M Y H:i" }}</p>
+
         {% if event.flyer %}
-            <img src="{{ event.flyer.url }}" alt="Event Flyer" width="200">
+        <img class="event-flyer" src="{{ event.flyer.url }}" alt="{{ event.title }}" data-src="{{ event.flyer.url }}">
         {% endif %}
-    </li>
+
+        {% if event.folder %}
+        <a href="{% url 'year_gallery' event.folder.name %}" class="image-btn">Images</a>
+        {% endif %}
+    </div>
     {% empty %}
     <p>No upcoming events.</p>
     {% endfor %}
-</ul>
+</div>
+
+<!-- Flyer Modal -->
+<div id="flyerModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="flyerModalImg">
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Modal for flyer image
+    const modal = document.getElementById("flyerModal");
+    const modalImg = document.getElementById("flyerModalImg");
+
+    document.querySelectorAll('.event-flyer').forEach(img => {
+        img.addEventListener('click', () => {
+            modal.style.display = "block";
+            modalImg.src = img.dataset.src;
+        });
+    });
+
+    document.querySelector(".close").addEventListener('click', () => {
+        modal.style.display = "none";
+    });
+</script>
 {% endblock %}

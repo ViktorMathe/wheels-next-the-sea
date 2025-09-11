@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Manage Events</h2>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save Event</button>
-</form>
+<div class="form-container">
+    <h2 class="form-title">➕ Add Event</h2>
+    <form method="post" enctype="multipart/form-data" class="event-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn-submit">Save Event</button>
+    </form>
+</div>
 {% endblock %}
