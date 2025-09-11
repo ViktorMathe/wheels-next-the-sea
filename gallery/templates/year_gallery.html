@@ -1,12 +1,21 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+{% load static %}
+
 {% block content %}
-<h2>Gallery: {{ folder.name }}</h2>
-<div class="gallery-grid">
-    {% for image in folder_images %}
-  <div class="event-card">
-      <img src="{{ image.url }}" alt="{{ image.title }}">
-      <p>{{ image.title }}</p>
+<div class="year-gallery">
+  <h2>{{ folder.name }}</h2>
+
+  <div class="images-grid">
+    {% for image in images %}
+      <div class="image-card">
+        <img src="{{ image.url }}" alt="{{ image.title }}">
+        {% if is_superuser %}
+          <button class="delete-image-btn" data-url="{{ image.url }}">✖</button>
+        {% endif %}
+      </div>
+    {% empty %}
+      <p>No images found in this folder.</p>
+    {% endfor %}
   </div>
-{% endfor %}
 </div>
 {% endblock %}

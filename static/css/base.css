@@ -299,33 +299,33 @@ body {
 
 /* Container */
 .form-container {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+   max-width: 600px;
+   margin: 2rem auto;
+   padding: 2rem;
+   background: #fff;
+   border-radius: 12px;
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Title */
 .form-title {
-    text-align: center;
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    color: #333;
+   text-align: center;
+   font-size: 1.8rem;
+   font-weight: 600;
+   margin-bottom: 1.5rem;
+   color: #333;
 }
 
 /* Form fields */
 .event-form p {
-    margin-bottom: 1.2rem;
+   margin-bottom: 1.2rem;
 }
 
 .event-form label {
-    display: block;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-    color: #444;
+   display: block;
+   font-weight: 500;
+   margin-bottom: 0.5rem;
+   color: #444;
 }
 
 .event-form input[type="text"],
@@ -333,46 +333,46 @@ body {
 .event-form input[type="date"],
 .event-form textarea,
 .event-form select {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+   width: 100%;
+   padding: 0.75rem;
+   border: 1px solid #ccc;
+   border-radius: 8px;
+   font-size: 1rem;
+   transition: border 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 /* Focus effect */
 .event-form input:focus,
 .event-form textarea:focus,
 .event-form select:focus {
-    outline: none;
-    border-color: #0077cc;
-    box-shadow: 0 0 0 3px rgba(0,119,204,0.2);
+   outline: none;
+   border-color: #0077cc;
+   box-shadow: 0 0 0 3px rgba(0, 119, 204, 0.2);
 }
 
 /* Submit button */
 .btn-submit {
-    display: inline-block;
-    width: 100%;
-    padding: 0.9rem;
-    margin-top: 1rem;
-    background: #0077cc;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s ease-in-out, transform 0.1s ease-in-out;
+   display: inline-block;
+   width: 100%;
+   padding: 0.9rem;
+   margin-top: 1rem;
+   background: #0077cc;
+   color: #fff;
+   border: none;
+   border-radius: 8px;
+   font-size: 1.1rem;
+   font-weight: 600;
+   cursor: pointer;
+   transition: background 0.2s ease-in-out, transform 0.1s ease-in-out;
 }
 
 .btn-submit:hover {
-    background: #005fa3;
-    transform: translateY(-2px);
+   background: #005fa3;
+   transform: translateY(-2px);
 }
 
 .btn-submit:active {
-    transform: translateY(0);
+   transform: translateY(0);
 }
 
 .click-here {
@@ -704,137 +704,137 @@ body {
 }
 
 .events-page {
-    padding: 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
+   padding: 2rem;
+   max-width: 1000px;
+   margin: 0 auto;
 }
 
 .page-title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: var(--primary-color, #333);
+   text-align: center;
+   font-size: 2rem;
+   margin-bottom: 2rem;
+   color: var(--primary-color, #333);
 }
 
 .events-page {
-    padding: 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
+   padding: 2rem;
+   max-width: 1000px;
+   margin: 0 auto;
 }
 
 .page-title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: var(--primary-color, #333);
+   text-align: center;
+   font-size: 2rem;
+   margin-bottom: 2rem;
+   color: var(--primary-color, #333);
 }
 
 .event-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    justify-content: space-evenly;
-    justify-items: center;
-    gap: 1.5rem;
-    margin: 3%;
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+   justify-content: space-evenly;
+   justify-items: center;
+   gap: 1.5rem;
+   margin: 3%;
 }
 
 .event-card {
-    background: #fff;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    width: 350px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-sizing: border-box;
+   background: #fff;
+   padding: 1.5rem;
+   border-radius: 12px;
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+   width: 350px;
+   transition: transform 0.2s ease, box-shadow 0.2s ease;
+   box-sizing: border-box;
 }
 
 .event-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+   transform: translateY(-4px);
+   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 .event-title {
-    font-size: 1.25rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
+   font-size: 1.25rem;
+   font-weight: bold;
+   margin-bottom: 0.5rem;
 }
 
 .event-date {
-    color: #666;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
+   color: #666;
+   font-size: 0.9rem;
+   margin-bottom: 1rem;
 }
 
 .event-description {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    color: #333;
+   font-size: 1rem;
+   margin-bottom: 1rem;
+   color: #333;
 }
 
 .event-flyer {
-    width: 100%;
-    max-height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
+   width: 100%;
+   max-height: 200px;
+   object-fit: cover;
+   border-radius: 8px;
 }
 
 .empty-msg {
-    text-align: center;
-    font-style: italic;
-    color: #888;
+   text-align: center;
+   font-style: italic;
+   color: #888;
 }
 
 .gallery-btn {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.6rem 1.2rem;
-    background: var(--primary-color, #0077cc);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: background 0.2s ease;
+   display: inline-block;
+   margin-top: 1rem;
+   padding: 0.6rem 1.2rem;
+   background: var(--primary-color, #0077cc);
+   color: #fff;
+   text-decoration: none;
+   border-radius: 8px;
+   transition: background 0.2s ease;
 }
 
 .gallery-btn:hover {
-    background: var(--primary-hover, #005fa3);
+   background: var(--primary-hover, #005fa3);
 }
 
 /* Flyer Modal */
 .flyer-modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    padding-top: 60px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.85);
+   display: none;
+   position: fixed;
+   z-index: 1000;
+   padding-top: 60px;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   overflow: auto;
+   background-color: rgba(0, 0, 0, 0.85);
 }
 
 .flyer-modal-content {
-    display: block;
-    margin: auto;
-    max-width: 90%;
-    max-height: 80vh;
-    border-radius: 10px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+   display: block;
+   margin: auto;
+   max-width: 90%;
+   max-height: 80vh;
+   border-radius: 10px;
+   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
 }
 
 .close-btn {
-    position: absolute;
-    top: 20px;
-    right: 35px;
-    color: #fff;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.2s ease;
+   position: absolute;
+   top: 20px;
+   right: 35px;
+   color: #fff;
+   font-size: 40px;
+   font-weight: bold;
+   cursor: pointer;
+   transition: color 0.2s ease;
 }
 
 .close-btn:hover {
-    color: #ff6666;
+   color: #ff6666;
 }
 
 /* Footer Styles */
@@ -1176,6 +1176,77 @@ body {
    100% {
       opacity: 1;
    }
+}
+
+#loading-overlay {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   backdrop-filter: blur(4px);
+   background-color: rgba(0, 0, 0, 0.4);
+   z-index: 9999;
+   /* on top of everything */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+#loading-overlay .overlay-content {
+   text-align: center;
+   color: white;
+   font-size: 1.2em;
+}
+
+#loading-overlay .spinner {
+   width: 50px;
+   height: 50px;
+   border: 5px solid rgba(255, 255, 255, 0.3);
+   border-top-color: white;
+   border-radius: 50%;
+   animation: spin 1s linear infinite;
+   margin: 0 auto 10px;
+}
+
+@keyframes spin {
+   0% {
+      transform: rotate(0deg);
+   }
+
+   100% {
+      transform: rotate(360deg);
+   }
+}
+
+.image-card {
+   position: relative;
+   display: inline-block;
+   margin: 10px;
+}
+
+.image-card img {
+   max-width: 200px;
+   border-radius: 8px;
+   display: block;
+}
+
+.delete-image-btn {
+   position: absolute;
+   top: 5px;
+   right: 5px;
+   background: rgba(255, 0, 0, 0.7);
+   border: none;
+   color: white;
+   font-size: 16px;
+   padding: 4px 6px;
+   border-radius: 50%;
+   cursor: pointer;
+   transition: background 0.2s;
+}
+
+.delete-image-btn:hover {
+   background: rgba(255, 0, 0, 0.9);
 }
 
 .cannot-upload-message span,

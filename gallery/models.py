@@ -12,10 +12,12 @@ class Folder(models.Model):
 
 
 class UploadImages(models.Model):
-    folder = models.ForeignKey(Folder, on_delete=models.CASCADE, related_name='images')
-    url = CloudinaryField('images')
-    title = models.CharField(max_length=100)
-    uploaded_by = models.CharField(max_length=100)
+    title = models.CharField(max_length=255)
+    url = models.URLField()
+    folder = models.ForeignKey(Folder, related_name="images", on_delete=models.CASCADE)
     uploaded_at = models.DateTimeField(auto_now_add=True)
+    uploaded_by = models.CharField(max_length=255)
+    class Meta:
+        unique_together = ('title', 'folder')
 
 
