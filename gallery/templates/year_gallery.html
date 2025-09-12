@@ -60,59 +60,6 @@
         overlay.classList.add('hidden')
       }
     
-      // DELETE SINGLE IMAGE
-      document.querySelectorAll('.delete-image-btn').forEach((btn) => {
-        btn.addEventListener('click', function () {
-          const url = this.dataset.url
-          if (!confirm('Delete this image?')) return
-    
-          showOverlay('Deleting image...')
-          fetch('/delete_image/', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'X-CSRFToken': getCSRFToken()
-            },
-            body: JSON.stringify({ url })
-          })
-            .then((r) => r.json())
-            .then((data) => {
-              hideOverlay()
-              if (data.success) location.reload()
-              else alert('Error: ' + data.error)
-            })
-        })
-      })
-    
-      // MULTI DELETE
-      const deleteSelectedBtn = document.getElementById('delete-selected')
-      if (deleteSelectedBtn) {
-        deleteSelectedBtn.addEventListener('click', function () {
-          const selected = [...document.querySelectorAll('.select-image:checked')].map((c) => c.dataset.url)
-          if (!selected.length) {
-            alert('No images selected')
-            return
-          }
-          if (!confirm('Delete selected images?')) return
-    
-          showOverlay('Deleting selected images...')
-          fetch('/delete_multiple_images/', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'X-CSRFToken': getCSRFToken()
-            },
-            body: JSON.stringify({ urls: selected })
-          })
-            .then((r) => r.json())
-            .then((data) => {
-              hideOverlay()
-              if (data.success) location.reload()
-              else alert('Error: ' + data.error)
-            })
-        })
-      }
-    
       // IMAGE MODAL VIEWER
       const modal = document.getElementById('image-modal')
       const modalImg = document.getElementById('modal-img')

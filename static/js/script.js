@@ -310,6 +310,58 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    document.querySelectorAll('.delete-image-btn').forEach((btn) => {
+        btn.addEventListener('click', function () {
+            const url = this.dataset.url
+            if (!confirm('Delete this image?')) return
+
+            showOverlay('Deleting image...')
+            fetch('/gallery/delete_image/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCSRFToken()
+                },
+                body: JSON.stringify({ image_url: url })
+            })
+                .then((r) => r.json())
+                .then((data) => {
+                    hideOverlay()
+                    if (data.success) location.reload()
+                    else alert('Error: ' + data.error)
+                })
+        })
+    })
+
+    // MULTI DELETE
+    const deleteSelectedBtn = document.getElementById('delete-selected')
+    if (deleteSelectedBtn) {
+        deleteSelectedBtn.addEventListener('click', function () {
+            const selected = [...document.querySelectorAll('.select-image:checked')].map((c) => c.dataset.url)
+            if (!selected.length) {
+                alert('No images selected')
+                return
+            }
+            if (!confirm('Delete selected images?')) return
+
+            showOverlay('Deleting selected images...')
+            fetch('./delete_multiple_images/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCSRFToken()
+                },
+                body: JSON.stringify({ urls: selected })
+            })
+                .then((r) => r.json())
+                .then((data) => {
+                    hideOverlay()
+                    if (data.success) location.reload()
+                    else alert('Error: ' + data.error)
+                })
+        })
+    }
+
     function updateMainImage() { if (currentImages.length > 0) mainImage.src = currentImages[currentIndex]; updateThumbnailHighlight(); }
 
     if (modal) {

@@ -165,7 +165,6 @@ def delete_image(request):
 
         # Parse Cloudinary public_id
         parsed = urlparse(image_url)
-        parsed = urlparse(image_url)
         public_id = os.path.splitext(parsed.path.split("/wheels-next-the-sea/")[1])[0]
 
         result = cloudinary.uploader.destroy(f"wheels-next-the-sea/{public_id}")
@@ -180,6 +179,37 @@ def delete_image(request):
 
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=500)
+
+
+@login_required
+@user_passes_test(is_superuser)
+@csrf_exempt
+def delete_multiple_images(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            print(data)
+            images = data.get("urls", [])  # <-- FIXED
+            if not images:
+                return JsonResponse({"success": False, "error": "No images provided"})
+
+            for image_url in images:
+                try:
+                    img = UploadImages.objects.get(url=image_url)
+                    # extract correct public_id
+                    parsed = urlparse(image_url)
+                    public_id = os.path.splitext(parsed.path.split("/wheels-next-the-sea/")[1])[0]
+                    cloudinary.uploader.destroy(f"wheels-next-the-sea/{public_id}")
+                    img.delete()
+                except UploadImages.DoesNotExist:
+                    continue
+
+            return JsonResponse({"success": True})
+        except Exception as e:
+            print(e)
+            return JsonResponse({"success": False, "error": str(e)})
+
+    return JsonResponse({"success": False, "error": "Invalid request"})
 
 
 @login_required
