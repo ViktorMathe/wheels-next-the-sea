@@ -3,199 +3,33 @@
 {% load cloudinary %}
 
 {% block content %}
-  <div class="gallery-container">
-    {% for folder, images in folder_images.items %}
-      <div class="gallery-folder" data-name="{{ folder.name }}">
-        <div class="gallery-preview">
-          {% for image in images %}
-            <img class="img-src" src="{{ image.url }}" alt="{{ folder.name }}" />
-          {% endfor %}
-        </div>
-        <a href="{% url 'year_gallery' folder.name %}">
-          <h3>{{ folder.name }}</h3>
-          {% if is_superuser %}
-            <button class="delete-folder" data-folder="{{ folder.name }}">Delete Folder</button>
-          {% endif %}
-        </a>
+<div class="gallery-container">
+  {% for folder, images in folder_images.items %}
+    <div class="gallery-folder" data-name="{{ folder.name }}">
+      <div class="gallery-preview">
+        {% for image in images %}
+          <img class="img-src" src="{{ image.url }}" alt="{{ folder.name }}" />
+        {% endfor %}
       </div>
-    {% endfor %}
-
-    {% if user.is_superuser %}
-      <div class="add-folder">
-        <div id="add-sign">&plus;</div>
-        <h2>Add New Folder</h2>
-      </div>
-
-      <div id="create-folder" class="folder-modal">
-        <button class="close">&times;</button>
-        <form id="folder-form" method="POST" action="{% url 'gallery' %}">
-          {% csrf_token %}
-          {{ folder_form }}
-          <button type="submit">Create folder</button>
-        </form>
-      </div>
-
-      <div id="add-image-modal">
-        <button class="close">&times;</button>
-        <form class="form-container" id="upload-form" method="POST" action="{% url 'upload_images' %}" enctype="multipart/form-data">
-          {% csrf_token %}
-          <input type="hidden" name="targetFolder" id="id_folder" />
-
-          <div class="upload-files-container">
-            <div class="drag-file-area">
-              <span class="material-icons-outlined upload-icon">file_upload</span>
-              <h3 class="dynamic-message">Drag & drop any file here</h3>
-              <label class="label">
-                or
-                <br />
-                <span class="browse-files">
-                  <input type="file" name="images" id="id_images" multiple />
-                  <span class="browse-files-text">browse file</span>
-                  <span>from device</span>
-                  <div class="uploaded-file" id="uploaded-file"></div>
-                </span>
-              </label>
-            </div>
-            <span class="cannot-upload-message">
-              <span class="material-icons-outlined">error</span> Please select a file first
-              <span class="material-icons-outlined cancel-alert-button">Cancel</span>
-            </span>
-            <div class="file-block">
-              <div class="file-info">
-                <span class="material-icons-outlined file-icon">Description</span>
-                <span class="file-name"></span> |
-                <span class="file-size"></span>
-              </div>
-              <span class="material-icons remove-file-icon">Delete</span>
-            </div>
-            <div class="progress-wrapper">
-              <div class="progress-bar" id="progressBar"></div>
-            </div>
-            <button type="submit" class="upload-button">Upload</button>
-          </div>
-        </form>
-      </div>
-    {% endif %}
-  </div>
-  <!-- Fullscreen Gallery Modal -->
-  <div class="gallery-modal">
-    <button class="close">&times;</button>
-    <div class="gallery-main">
-      <img id="main-image" class="main-image" src="" alt="" />
-      <button class="prev">&#10094;</button>
-      <button class="next">&#10095;</button>
+      <a href="{% url 'year_gallery' folder.name %}">
+        <h3>{{ folder.name }}</h3>
+        {% if is_superuser %}
+          <button class="delete-folder" data-folder="{{ folder.name }}">Delete Folder</button>
+        {% endif %}
+      </a>
     </div>
-    <div class="gallery-thumbnails" id="thumbnail-row">
-      {% if user.is_superuser %}
-        <div id="add-image-button">
-          <span>&plus;</span>
-        </div>
-      {% endif %}
+  {% endfor %}
+</div>
+
+<!-- Upload/Delete Overlay -->
+<div id="overlay" class="overlay hidden">
+  <div class="overlay-content">
+    <div class="loader"></div>
+    <p id="progress-text">Please wait...</p>
+    <div id="progress-bar-container">
+      <div id="progress-bar"></div>
     </div>
+    <p class="small-text">⚠️ Do not refresh the page while uploading/deleting</p>
   </div>
-
-  <!-- Upload/Delete Overlay -->
-  <div id="overlay" class="overlay hidden">
-    <div class="overlay-content">
-      <div class="loader"></div>
-      <p id="progress-text">Please wait...</p>
-      <div id="progress-bar-container">
-        <div id="progress-bar"></div>
-      </div>
-      <p class="small-text">⚠️ Do not refresh the page while uploading/deleting</p>
-    </div>
-  </div>
-
-  <style>
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 2000;
-    }
-    .overlay.hidden {
-      display: none;
-    }
-    .overlay-content {
-      background: #fff;
-      padding: 20px 30px;
-      border-radius: 10px;
-      text-align: center;
-      max-width: 400px;
-      width: 90%;
-    }
-    .loader {
-      border: 6px solid #f3f3f3;
-      border-top: 6px solid #3498db;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      animation: spin 1s linear infinite;
-      margin: 0 auto 15px;
-    }
-    @keyframes spin {
-      0% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-    #progress-bar-container {
-      width: 100%;
-      background: #ddd;
-      border-radius: 5px;
-      height: 10px;
-      margin: 10px 0;
-    }
-    #progress-bar {
-      height: 10px;
-      width: 0;
-      background: #3498db;
-      border-radius: 5px;
-      transition: width 0.3s ease;
-    }
-    .small-text {
-      font-size: 12px;
-      color: #666;
-    }
-  </style>
-
-  <script src="https://product-gallery.cloudinary.com/all.js" type="text/javascript"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const deleteButtons = document.querySelectorAll('.delete-folder')
-      deleteButtons.forEach((button) => {
-        button.addEventListener('click', function () {
-          const folderName = this.getAttribute('data-folder')
-          fetch('/delete_folder/', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'X-CSRFToken': '{{ csrf_token }}'
-            },
-            body: JSON.stringify({ folder: folderName })
-          })
-            .then((response) => response.json())
-            .then((data) => {
-              if (data.success) {
-                alert('Folder deleted successfully')
-                location.reload() // Reload the page to reflect changes
-              } else {
-                alert('Error deleting folder: ' + data.error)
-              }
-            })
-            .catch((error) => {
-              alert('Request failed: ' + error)
-            })
-        })
-      })
-    })
-  </script>
+</div>
 {% endblock %}

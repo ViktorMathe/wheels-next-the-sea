@@ -2,20 +2,147 @@
 {% load static %}
 
 {% block content %}
-<div class="year-gallery">
-  <h2>{{ folder.name }}</h2>
+  <div class="year-gallery">
+    <h2>{{ folder.name }}</h2>
 
-  <div class="images-grid">
-    {% for image in images %}
-      <div class="image-card">
-        <img src="{{ image.url }}" alt="{{ image.title }}">
-        {% if is_superuser %}
-          <button class="delete-image-btn" data-url="{{ image.url }}">✖</button>
-        {% endif %}
+    {% if user.is_superuser %}
+      <div class="gallery-actions">
+        <button id="delete-selected">Delete Selected</button>
       </div>
-    {% empty %}
-      <p>No images found in this folder.</p>
-    {% endfor %}
+    {% endif %}
+
+    <div class="images-grid">
+      {% for image in images %}
+        <div class="image-card">
+          <img src="{{ image.url }}" alt="{{ image.title }}" class="enlargeable" />
+          {% if user.is_superuser %}
+            <input type="checkbox" class="select-image" data-url="{{ image.url }}" />
+            <button class="delete-image-btn" data-url="{{ image.url }}">✖</button>
+          {% endif %}
+        </div>
+      {% empty %}
+        <p>No images found in this folder.</p>
+      {% endfor %}
+    </div>
   </div>
-</div>
+
+  <!-- Fullscreen Viewer -->
+  <div id="image-modal" class="modal hidden">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modal-img" />
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+  </div>
+
+  <!-- Overlay -->
+  <div id="overlay" class="overlay hidden">
+    <div class="overlay-content">
+      <div class="loader"></div>
+      <p id="progress-text">Please wait...</p>
+      <div id="progress-bar-container">
+        <div id="progress-bar"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const overlay = document.getElementById('overlay')
+      const progressText = document.getElementById('progress-text')
+      const progressBar = document.getElementById('progress-bar')
+    
+      function showOverlay(msg) {
+        overlay.classList.remove('hidden')
+        progressText.textContent = msg || 'Processing...'
+        progressBar.style.width = '0%'
+      }
+    
+      function hideOverlay() {
+        overlay.classList.add('hidden')
+      }
+    
+      // DELETE SINGLE IMAGE
+      document.querySelectorAll('.delete-image-btn').forEach((btn) => {
+        btn.addEventListener('click', function () {
+          const url = this.dataset.url
+          if (!confirm('Delete this image?')) return
+    
+          showOverlay('Deleting image...')
+          fetch('/delete_image/', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-CSRFToken': getCSRFToken()
+            },
+            body: JSON.stringify({ url })
+          })
+            .then((r) => r.json())
+            .then((data) => {
+              hideOverlay()
+              if (data.success) location.reload()
+              else alert('Error: ' + data.error)
+            })
+        })
+      })
+    
+      // MULTI DELETE
+      const deleteSelectedBtn = document.getElementById('delete-selected')
+      if (deleteSelectedBtn) {
+        deleteSelectedBtn.addEventListener('click', function () {
+          const selected = [...document.querySelectorAll('.select-image:checked')].map((c) => c.dataset.url)
+          if (!selected.length) {
+            alert('No images selected')
+            return
+          }
+          if (!confirm('Delete selected images?')) return
+    
+          showOverlay('Deleting selected images...')
+          fetch('/delete_multiple_images/', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-CSRFToken': getCSRFToken()
+            },
+            body: JSON.stringify({ urls: selected })
+          })
+            .then((r) => r.json())
+            .then((data) => {
+              hideOverlay()
+              if (data.success) location.reload()
+              else alert('Error: ' + data.error)
+            })
+        })
+      }
+    
+      // IMAGE MODAL VIEWER
+      const modal = document.getElementById('image-modal')
+      const modalImg = document.getElementById('modal-img')
+      const images = [...document.querySelectorAll('.enlargeable')]
+      let currentIndex = -1
+    
+      function openModal(index) {
+        currentIndex = index
+        modalImg.src = images[index].src
+        modal.style.display = 'block'
+      }
+    
+      function closeModal() {
+        modal.style.display = 'none'
+      }
+    
+      images.forEach((img, i) => {
+        img.addEventListener('click', () => openModal(i))
+      })
+    
+      document.querySelector('#image-modal .close').onclick = closeModal
+      document.querySelector('#image-modal .prev').onclick = () => openModal((currentIndex - 1 + images.length) % images.length)
+      document.querySelector('#image-modal .next').onclick = () => openModal((currentIndex + 1) % images.length)
+    
+      function getCSRFToken() {
+        return document.cookie
+          .split('; ')
+          .find((r) => r.startsWith('csrftoken='))
+          ?.split('=')[1]
+      }
+    })
+  </script>
 {% endblock %}
