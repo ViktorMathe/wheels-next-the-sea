@@ -1,4 +1,0 @@
-{
-    "terminal.explorerKind": "integrated",
-    "python.envFile": "${WHEELS-NEXT-THE-SEA}/.env"
-}

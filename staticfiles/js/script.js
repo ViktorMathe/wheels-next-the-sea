@@ -1,129 +1,443 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navList = document.querySelector(".nav-list");
-    const dropdowns = document.querySelectorAll(".dropdown");
-    let eventDropdown = document.getElementById("events-dropdown");
-    // Toggle main mobile menu (Right-Aligned)
-    menuToggle.addEventListener("click", function () {
-        navList.classList.toggle("active");
+  // === NAVBAR ===
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navList = document.querySelector(".nav-list");
+  const eventsDropdown = document.getElementById("events-dropdown");
+  const dropdownMenu = eventsDropdown.querySelector(".dropdown-menu");
+  const editAboutUs = document.getElementById("openModalBtn");
+
+  // Mobile menu toggle
+  menuToggle.addEventListener("click", (e) => {
+    navList.classList.toggle("active");
+  });
+
+  // Events dropdown toggle
+  eventsDropdown.querySelector("a").addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation(); // prevent the menu click from interfering
+    dropdownMenu.classList.toggle("active");
+  });
+
+  // Close dropdown if clicked outside
+  document.addEventListener("click", (e) => {
+    if (!eventsDropdown.contains(e.target)) {
+      dropdownMenu.classList.remove("active");
+    }
+  });
+
+  if (editAboutUs) {
+    editAboutUs.addEventListener("click", () => {
+      const aboutUsModal = document.getElementById("aboutUsModal");
+      const close = document.querySelector(".close-btn");
+      if (aboutUsModal) {
+        aboutUsModal.style.display = "block";
+      };
+      if (close) {
+        close.addEventListener("click", () => {
+          aboutUsModal.style.display = "none";
+        });
+      };
     });
-    // Handle dropdown menu opening/closing
-    eventDropdown.addEventListener("click", function (event) {
-        if (eventDropdown.classList.contains("active")) {
-            eventDropdown.classList.remove("active");
+  }
+
+  const editBtn = document.getElementById("edit-contact-btn");
+  const cancelBtn = document.getElementById("cancel-edit-btn");
+  const editDiv = document.getElementById("contact-edit-modal");
+
+  if (editBtn) {
+    editBtn.addEventListener("click", () => {
+      const close = document.querySelector(".close-btn");
+      editDiv.style.display = "block";
+
+      if (close) {
+        close.addEventListener("click", () => {
+          editDiv.style.display = "none";
+        });
+      };
+    })
+
+
+    if (cancelBtn) {
+      cancelBtn.addEventListener("click", () => {
+        editDiv.style.display = "none";
+      });
+
+    }
+  }
+
+  // === OVERLAY ===
+  const overlay = document.getElementById("overlay");
+  const progressText = document.getElementById("progress-text");
+
+  function showOverlay(msg) {
+    if (overlay) {
+      overlay.classList.remove("hidden");
+      if (progressText) progressText.textContent = msg || "Processing...";
+    }
+  }
+  function hideOverlay() {
+    if (overlay) overlay.classList.add("hidden");
+  }
+
+  // === CSRF ===
+  function getCSRFToken() {
+    return document.cookie
+      .split("; ")
+      .find((r) => r.startsWith("csrftoken="))
+      ?.split("=")[1];
+  }
+
+  // === WRITE REVIEW MODAL === //
+  const writeReViewBtn = document.getElementById("write-review");
+  const reviewFormModal = document.getElementById("review-form-modal");
+  if (writeReViewBtn) {
+    const close = reviewFormModal.querySelector(".close-btn");
+    writeReViewBtn.addEventListener('click', () => {
+      reviewFormModal.style.display = "block";
+    });
+    if (close) {
+      close.addEventListener("click", () => (reviewFormModal.style.display = "none"))
+    }
+  }
+
+  const galleryModal = document.querySelector(".gallery-modal");
+  if (!galleryModal) return;
+  // === ADD FOLDER MODAL (gallery.html) ===
+  const addFolderBtn = document.getElementById("add-sign");
+  const folderModal = document.getElementById("create-folder");
+  const createFolderBackground = document.querySelector('.create-folder-modal');
+  if (addFolderBtn && folderModal) {
+    const close = folderModal.querySelector(".close");
+    addFolderBtn.addEventListener("click", () => {
+      folderModal.classList.remove('hidden');
+      createFolderBackground.style.display = "block";
+      folderModal.style.display = "flex";
+    });
+    if (close) {
+      close.addEventListener("click", () => { (folderModal.style.display = "none"), (createFolderBackground.style.display = "none") })
+    };
+  }
+
+  // === ADD IMAGE MODAL (year_gallery.html) ===
+  const addImageBtn = document.getElementById("add-image-btn");
+  const addImageModal = document.getElementById("add-image-modal");
+  if (addImageBtn && addImageModal) {
+    const close = addImageModal.querySelector(".close");
+    addImageBtn.addEventListener("click", () => {
+      addImageModal.classList.remove('hidden');
+      addImageModal.style.display = "flex";
+    });
+    if (close)
+      close.addEventListener("click", () => (addImageModal.style.display = "none"));
+  }
+
+  // === IMAGE UPLOAD PREVIEW & AJAX ===
+  const dropArea = document.getElementById("drop-area");
+  const fileInput = document.getElementById("image-input");
+  const browseBtn = document.getElementById("browse-btn");
+  const previewContainer = document.getElementById("preview-container");
+  const uploadForm = document.getElementById("image-upload-form");
+
+  if (dropArea && fileInput && previewContainer && uploadForm) {
+    let files = [];
+
+    function updatePreview() {
+      previewContainer.innerHTML = "";
+      files.forEach((file, index) => {
+        const preview = document.createElement("div");
+        preview.className = "preview";
+
+        const img = document.createElement("img");
+        img.src = URL.createObjectURL(file);
+
+        const removeBtn = document.createElement("button");
+        removeBtn.textContent = "×";
+        removeBtn.className = "remove";
+        removeBtn.addEventListener("click", () => {
+          files.splice(index, 1);
+          updatePreview();
+        });
+
+        preview.appendChild(img);
+        preview.appendChild(removeBtn);
+        previewContainer.appendChild(preview);
+      });
+    }
+
+    browseBtn.addEventListener("click", () => fileInput.click());
+
+    fileInput.addEventListener("change", (e) => {
+      files.push(...e.target.files);
+      updatePreview();
+    });
+
+    dropArea.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      dropArea.classList.add("dragover");
+    });
+    dropArea.addEventListener("dragleave", () =>
+      dropArea.classList.remove("dragover")
+    );
+    dropArea.addEventListener("drop", (e) => {
+      e.preventDefault();
+      dropArea.classList.remove("dragover");
+      files.push(...e.dataTransfer.files);
+      updatePreview();
+    });
+
+    uploadForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!files.length) {
+        alert("No files selected!");
+        return;
+      }
+
+      const formData = new FormData(uploadForm);
+      files.forEach((file) => formData.append("images", file));
+
+      showOverlay("Uploading...");
+      fetch(uploadForm.getAttribute("action") || window.location.pathname, {
+        method: "POST",
+        headers: { "X-CSRFToken": getCSRFToken() },
+        body: formData,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          hideOverlay();
+          if (data.success) {
+            location.reload();
+          } else {
+            alert("Error: " + data.error);
+          }
+        })
+        .catch((err) => {
+          hideOverlay();
+          console.error(err);
+        });
+    });
+  }
+
+  // === DELETE SINGLE IMAGE ===
+  document.querySelectorAll(".delete-image-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const url = btn.dataset.url;
+      const endpoint = btn.dataset.deleteUrl;
+      if (!confirm("Delete this image?")) return;
+
+      showOverlay("Deleting image...");
+      fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRFToken": getCSRFToken(),
+        },
+        body: JSON.stringify({ image_url: url }),
+      })
+        .then((r) => r.json())
+        .then((data) => {
+          hideOverlay();
+          if (data.success) location.reload();
+          else alert("Error: " + data.error);
+        })
+        .catch((err) => {
+          hideOverlay();
+          console.error(err);
+        });
+    });
+  });
+
+  // === DELETE MULTIPLE IMAGES ===
+  const deleteSelectedBtn = document.getElementById("delete-selected");
+  if (deleteSelectedBtn) {
+    deleteSelectedBtn.addEventListener("click", () => {
+      const selected = [
+        ...document.querySelectorAll(".select-image:checked"),
+      ].map((c) => c.dataset.url);
+      const endpoint = deleteSelectedBtn.dataset.deleteUrl;
+      if (!selected.length) {
+        alert("No images selected");
+        return;
+      }
+      if (!confirm("Delete selected images?")) return;
+
+      showOverlay("Deleting selected images...");
+      fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRFToken": getCSRFToken(),
+        },
+        body: JSON.stringify({ images: selected }),
+      })
+        .then((r) => r.json())
+        .then((data) => {
+          hideOverlay();
+          if (data.success) location.reload();
+          else alert("Error: " + data.error);
+        })
+        .catch((err) => {
+          hideOverlay();
+          console.error(err);
+        });
+    });
+  }
+
+  // === DELETE FOLDER (gallery) === //
+  document.querySelectorAll(".delete-folder").forEach(btn => {
+    btn.addEventListener("click", async (e) => {
+      e.preventDefault();
+      const folderName = btn.dataset.folder;
+      if (!confirm(`Delete folder "${folderName}" and all its images?`)) return;
+      showOverlay("Deleting selected folder with images...");
+
+      try {
+        const res = await fetch("./delete-folder/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": getCSRFToken()
+          },
+          body: JSON.stringify({ folder_name: folderName })
+        });
+
+        const result = await res.json();
+        if (result.success) {
+          alert(`Folder "${folderName}" deleted`);
+          hideOverlay();
+          location.reload();
         } else {
-            eventDropdown.classList.add("active");
+          alert(result.error || "Failed to delete folder");
         }
+      } catch (err) {
+        alert("Server error while deleting folder");
+      }
     });
+  });
 
-    // Clicking inside nav-list closes dropdowns but keeps the mobile menu open
-    navList.addEventListener("click", function (event) {
-        if (!event.target.closest(".dropdown")) {
-            closeAllDropdowns(); // Close dropdowns but not the whole menu
-        }
-    });
+  // === IMAGE MODAL VIEWER (year_gallery) ===
+  const modal = document.getElementById("image-modal");
+  const modalImg = document.getElementById("modal-img");
+  if (modal && modalImg) {
+    const images = [...document.querySelectorAll(".images-grid img")];
+    let currentIndex = -1;
 
-    // Close dropdowns and nav-list when clicking outside
-    document.addEventListener("click", function (event) {
-        if (!event.target.closest(".nav-list") && !event.target.closest(".menu-toggle")) {
-            navList.classList.remove("active");
-            closeAllDropdowns();
-        }
-    });
-    // Function to close all dropdowns
-    function closeAllDropdowns() {
-        dropdowns.forEach(dropdown => {
-            dropdown.classList.remove("active");
-        });
+    function openModal(index) {
+      currentIndex = index;
+      modalImg.src = images[index].src;
+      modal.classList.remove('hidden');
+      modal.style.display = "flex";
+    }
+    function closeModal() {
+      modal.style.display = "none";
     }
 
-    document.querySelectorAll(".review-items").forEach(function (item) {
-        let textElement = item.querySelector(".review-text");
-        let fullText = textElement.getAttribute("data-full");
-        let readMoreBtn = item.querySelector(".read-more");
+    images.forEach((img, i) =>
+      img.addEventListener("click", () => openModal(i))
+    );
+    modal.querySelector(".close-btn").onclick = closeModal;
+    modal.querySelector(".prev").onclick = () =>
+      openModal((currentIndex - 1 + images.length) % images.length);
+    modal.querySelector(".next").onclick = () =>
+      openModal((currentIndex + 1) % images.length);
+  }
 
-        // Hide "Read More" if content is already short
-        if (textElement.scrollHeight <= textElement.clientHeight) {
-            readMoreBtn.style.display = "none";
+  const mainImage = document.getElementById("main-image");
+  const thumbnailRow = document.getElementById("thumbnail-row");
+  const prevBtn = galleryModal.querySelector(".prev");
+  const nextBtn = galleryModal.querySelector(".next");
+  const closeBtn = galleryModal.querySelector(".close");
+  const addImageButton = document.getElementById("add-image-button");
+
+  let currentImages = [];
+  let currentIndex = 0;
+
+  // Open gallery modal when clicking any folder image
+  document.querySelectorAll(".gallery-preview").forEach((folder) => {
+    folder.addEventListener("click", (e) => {
+      e.preventDefault();
+      const imageElements = Array.from(folder.querySelectorAll("img.img-src"));
+      const images = imageElements.map((img) => img.src);
+      if (!images.length) return;
+
+      currentImages = images;
+      currentIndex = 0;
+
+      // Highlight clicked image if clicked directly
+      if (e.target.tagName === "IMG") {
+        currentIndex = images.indexOf(e.target.src);
+      }
+
+      thumbnailRow.innerHTML = "";
+      images.forEach((src, idx) => {
+        const wrapper = document.createElement("div");
+        wrapper.classList.add("thumbnail-wrapper");
+
+        const thumb = document.createElement("img");
+        thumb.src = src;
+        thumb.classList.add("thumbnail");
+        if (idx === currentIndex) thumb.classList.add("active");
+
+        thumb.addEventListener("click", () => {
+          currentIndex = idx;
+          updateMainImage();
+          updateThumbnailHighlight();
+        });
+
+        wrapper.appendChild(thumb);
+
+        // Delete button if superuser
+        if (addImageButton) {
+          const removeBtn = document.createElement("button");
+          removeBtn.textContent = "✕";
+          removeBtn.classList.add("remove-file-icon");
+          removeBtn.addEventListener("click", (ev) => {
+            ev.stopPropagation();
+            if (!confirm("Delete this image?")) return;
+            deleteImage(src); // your existing deleteImage function
+          });
+          wrapper.appendChild(removeBtn);
         }
 
-        readMoreBtn.addEventListener("click", function () {
-            textElement.textContent = fullText; // Replace with full text
-            textElement.style.display = "block";
-            textElement.style.overflow = "visible";
-            textElement.style.webkitLineClamp = "unset"; // Remove line clamp
-            readMoreBtn.remove(); // Remove button after expanding
-        });
+        thumbnailRow.appendChild(wrapper);
+      });
+
+      galleryModal.style.display = "flex";
+      updateMainImage();
     });
+  });
 
+  function updateMainImage() {
+    if (currentImages.length > 0) mainImage.src = currentImages[currentIndex];
+    updateThumbnailHighlight();
+  }
 
-    const yearBoxes = document.querySelectorAll(".gallery-year");
-    const modal = document.querySelector(".gallery-modal");
-    const modalImage = document.querySelector(".main-image");
-    const thumbnailsContainer = document.querySelector(".gallery-thumbnails");
-    const prevButton = document.querySelector(".prev");
-    const nextButton = document.querySelector(".next");
-    const closeModal = document.querySelector(".gallery-modal .close");
-
-    let images = [];
-    let currentIndex = 0;
-
-    // Open modal and show images
-    yearBoxes.forEach(box => {
-        box.addEventListener("click", function () {
-            const year = this.getAttribute("data-year");
-            thumbnailsContainer.innerHTML = ""; // Clear previous thumbnails
-            images = []; // Reset images array
-
-            // Load full gallery for the selected year
-            for (let i = 1; i <= 10; i++) { // Assuming 10 images per year
-                let imgSrc = `/media/gallery/${year}/image${i}.webp`;
-                images.push(imgSrc);
-
-                let thumbImg = document.createElement("img");
-                thumbImg.src = imgSrc;
-                thumbImg.alt = `Event ${year}`;
-                thumbImg.dataset.index = i - 1;
-
-                // Clicking a thumbnail changes the main image
-                thumbImg.addEventListener("click", function () {
-                    currentIndex = parseInt(this.dataset.index);
-                    updateMainImage();
-                });
-
-                thumbnailsContainer.appendChild(thumbImg);
-            }
-
-            currentIndex = 0;
-            updateMainImage();
-            modal.style.display = "flex";
-        });
-    });
-
-    // Function to update the main image
-    function updateMainImage() {
-        modalImage.src = images[currentIndex];
+  function updateThumbnailHighlight() {
+    if (thumbnailRow) {
+      thumbnailRow.querySelectorAll("img").forEach((t, i) => {
+        t.classList.toggle("active", i === currentIndex);
+      });
     }
+  }
 
-    // Navigation Buttons
-    prevButton.addEventListener("click", function () {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        updateMainImage();
-    });
+  prevBtn?.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+    updateMainImage();
+  });
 
-    nextButton.addEventListener("click", function () {
-        currentIndex = (currentIndex + 1) % images.length;
-        updateMainImage();
-    });
+  nextBtn?.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % currentImages.length;
+    updateMainImage();
+  });
 
-    // Close Modal
-    closeModal.addEventListener("click", function () {
-        modal.style.display = "none";
-    });
+  closeBtn?.addEventListener("click", () => {
+    galleryModal.style.display = "none";
+    mainImage.src = "";
+    thumbnailRow.innerHTML = "";
+  });
 
-    modal.addEventListener("click", function (event) {
-        if (event.target === modal) {
-            modal.style.display = "none";
-        }
-    });
+  // Open add image modal from gallery modal
+  addImageButton?.addEventListener("click", () => {
+    addImageModal.style.display = "flex";
+  });
+
 });
