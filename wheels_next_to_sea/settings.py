@@ -103,19 +103,7 @@ WSGI_APPLICATION = 'wheels_next_to_sea.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
-if 'DEVELOPMENT' in os.environ:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'defaultdb',
-            'USER': 'viktormathe',
-            'HOST': 'localhost',
-            'PORT': '5432',
-        }
-    }
-else:
-    DATABASES = {
+DATABASES = {
             'default': {
                 'ENGINE': 'django.db.backends.postgresql_psycopg2',
                 'NAME': str('defaultdb'),
