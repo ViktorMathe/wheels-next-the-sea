@@ -107,17 +107,12 @@ WSGI_APPLICATION = 'wheels_next_to_sea.wsgi.application'
 if 'DEVELOPMENT' in os.environ:
     DATABASES = {
         'default': {
-                'ENGINE': 'django.db.backends.postgresql_psycopg2',
-                'NAME': str('defaultdb'),
-                'USER': os.environ.get('DB_USER'),
-                'PASSWORD': os.environ.get('DB_PASSWORD'),
-                'HOST': os.environ.get('DB_HOST'),
-                'PORT': os.environ.get('DB_PORT'),
-                'OPTIONS': {
-                    'sslmode': 'require',
-                    'sslrootcert': 'static/ssl_cert/ca.pem',
-                },
-            }
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'defaultdb',
+            'USER': 'viktormathe',
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
     }
 else:
     DATABASES = {
