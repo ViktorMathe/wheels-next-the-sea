@@ -215,7 +215,7 @@ def delete_multiple_images(request):
 def delete_folder(request):
     if request.method == "POST":
         data = json.loads(request.body)
-        folder_name = data.get("folder")
+        folder_name = data.get("folder_name")
 
         if not folder_name:
             return JsonResponse({"error": "Missing folder name"}, status=400)
@@ -224,22 +224,23 @@ def delete_folder(request):
         images = UploadImages.objects.filter(folder__name=folder_name)
         errors = []
 
-        for image in images:
-            try:
-                path = image.image.url.split("/upload/")[1]
-                public_id = os.path.splitext(path)[0]
-
-                result = cloudinary.uploader.destroy(public_id)
-                if result.get("result") != "ok":
-                    errors.append(f"Failed to delete {public_id}")
-                else:
-                    image.delete()
-            except Exception as e:
-                errors.append(str(e))
+        for image_url in images:
+                try:
+                    img = UploadImages.objects.get(url=image_url.url)
+                    # extract public_id
+                    parsed = urlparse(image_url.url)
+                    public_id = os.path.splitext(parsed.path.split("/wheels-next-the-sea/")[1])[0]
+                    result = cloudinary.uploader.destroy(f"wheels-next-the-sea/{public_id}")
+                    if result.get("result") != "ok":
+                        errors.append(f"Failed to delete {public_id}")
+                    else:
+                        img.delete()
+                except Exception as e:
+                    errors.append(str(e))
 
         # Try deleting the folder itself in Cloudinary
         try:
-            cloudinary.api.delete_folder(folder_name)
+            cloudinary.api.delete_folder(f'wheels-next-the-sea/{folder_name}')
         except cloudinary.exceptions.Error as e:
             errors.append(f"Cloudinary folder delete error: {str(e)}")
 
@@ -250,6 +251,7 @@ def delete_folder(request):
             pass
 
         if errors:
+            print(errors)
             return JsonResponse({"error": "Some issues occurred", "details": errors}, status=500)
 
         return JsonResponse({"success": True})

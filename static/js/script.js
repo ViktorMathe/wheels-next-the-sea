@@ -27,13 +27,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // === OVERLAY ===
   const overlay = document.getElementById("overlay");
   const progressText = document.getElementById("progress-text");
-  const progressBar = document.getElementById("progress-bar");
 
   function showOverlay(msg) {
     if (overlay) {
       overlay.classList.remove("hidden");
       if (progressText) progressText.textContent = msg || "Processing...";
-      if (progressBar) progressBar.style.width = "0%";
     }
   }
   function hideOverlay() {
@@ -48,17 +46,21 @@ document.addEventListener("DOMContentLoaded", function () {
       ?.split("=")[1];
   }
 
+  const galleryModal = document.querySelector(".gallery-modal");
+  if (!galleryModal) return;
   // === ADD FOLDER MODAL (gallery.html) ===
   const addFolderBtn = document.getElementById("add-sign");
   const folderModal = document.getElementById("create-folder");
+  const createFolderBackground = document.querySelector('.create-folder-modal');
   if (addFolderBtn && folderModal) {
     const close = folderModal.querySelector(".close");
     addFolderBtn.addEventListener("click", () => {
       folderModal.classList.remove('hidden');
+      createFolderBackground.style.display = "block";
       folderModal.style.display = "flex";
     });
     if (close)
-      close.addEventListener("click", () => (folderModal.style.display = "none"));
+      close.addEventListener("click", () => {(folderModal.style.display = "none"), (createFolderBackground.style.display = "none")});
   }
 
   // === ADD IMAGE MODAL (year_gallery.html) ===
@@ -75,90 +77,90 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // === IMAGE UPLOAD PREVIEW & AJAX ===
-const dropArea = document.getElementById("drop-area");
-const fileInput = document.getElementById("image-input");
-const browseBtn = document.getElementById("browse-btn");
-const previewContainer = document.getElementById("preview-container");
-const uploadForm = document.getElementById("image-upload-form");
+  const dropArea = document.getElementById("drop-area");
+  const fileInput = document.getElementById("image-input");
+  const browseBtn = document.getElementById("browse-btn");
+  const previewContainer = document.getElementById("preview-container");
+  const uploadForm = document.getElementById("image-upload-form");
 
-if (dropArea && fileInput && previewContainer && uploadForm) {
-  let files = [];
+  if (dropArea && fileInput && previewContainer && uploadForm) {
+    let files = [];
 
-  function updatePreview() {
-    previewContainer.innerHTML = "";
-    files.forEach((file, index) => {
-      const preview = document.createElement("div");
-      preview.className = "preview";
+    function updatePreview() {
+      previewContainer.innerHTML = "";
+      files.forEach((file, index) => {
+        const preview = document.createElement("div");
+        preview.className = "preview";
 
-      const img = document.createElement("img");
-      img.src = URL.createObjectURL(file);
+        const img = document.createElement("img");
+        img.src = URL.createObjectURL(file);
 
-      const removeBtn = document.createElement("button");
-      removeBtn.textContent = "×";
-      removeBtn.className = "remove";
-      removeBtn.addEventListener("click", () => {
-        files.splice(index, 1);
-        updatePreview();
+        const removeBtn = document.createElement("button");
+        removeBtn.textContent = "×";
+        removeBtn.className = "remove";
+        removeBtn.addEventListener("click", () => {
+          files.splice(index, 1);
+          updatePreview();
+        });
+
+        preview.appendChild(img);
+        preview.appendChild(removeBtn);
+        previewContainer.appendChild(preview);
       });
-
-      preview.appendChild(img);
-      preview.appendChild(removeBtn);
-      previewContainer.appendChild(preview);
-    });
-  }
-
-  browseBtn.addEventListener("click", () => fileInput.click());
-
-  fileInput.addEventListener("change", (e) => {
-    files.push(...e.target.files);
-    updatePreview();
-  });
-
-  dropArea.addEventListener("dragover", (e) => {
-    e.preventDefault();
-    dropArea.classList.add("dragover");
-  });
-  dropArea.addEventListener("dragleave", () =>
-    dropArea.classList.remove("dragover")
-  );
-  dropArea.addEventListener("drop", (e) => {
-    e.preventDefault();
-    dropArea.classList.remove("dragover");
-    files.push(...e.dataTransfer.files);
-    updatePreview();
-  });
-
-  uploadForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    if (!files.length) {
-      alert("No files selected!");
-      return;
     }
 
-    const formData = new FormData(uploadForm);
-    files.forEach((file) => formData.append("images", file));
+    browseBtn.addEventListener("click", () => fileInput.click());
 
-    showOverlay("Uploading...");
-    fetch(uploadForm.getAttribute("action") || window.location.pathname, {
-      method: "POST",
-      headers: { "X-CSRFToken": getCSRFToken() },
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        hideOverlay();
-        if (data.success) {
-          location.reload();
-        } else {
-          alert("Error: " + data.error);
-        }
+    fileInput.addEventListener("change", (e) => {
+      files.push(...e.target.files);
+      updatePreview();
+    });
+
+    dropArea.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      dropArea.classList.add("dragover");
+    });
+    dropArea.addEventListener("dragleave", () =>
+      dropArea.classList.remove("dragover")
+    );
+    dropArea.addEventListener("drop", (e) => {
+      e.preventDefault();
+      dropArea.classList.remove("dragover");
+      files.push(...e.dataTransfer.files);
+      updatePreview();
+    });
+
+    uploadForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!files.length) {
+        alert("No files selected!");
+        return;
+      }
+
+      const formData = new FormData(uploadForm);
+      files.forEach((file) => formData.append("images", file));
+
+      showOverlay("Uploading...");
+      fetch(uploadForm.getAttribute("action") || window.location.pathname, {
+        method: "POST",
+        headers: { "X-CSRFToken": getCSRFToken() },
+        body: formData,
       })
-      .catch((err) => {
-        hideOverlay();
-        console.error(err);
-      });
-  });
-}
+        .then((res) => res.json())
+        .then((data) => {
+          hideOverlay();
+          if (data.success) {
+            location.reload();
+          } else {
+            alert("Error: " + data.error);
+          }
+        })
+        .catch((err) => {
+          hideOverlay();
+          console.error(err);
+        });
+    });
+  }
 
   // === DELETE SINGLE IMAGE ===
   document.querySelectorAll(".delete-image-btn").forEach((btn) => {
@@ -225,6 +227,38 @@ if (dropArea && fileInput && previewContainer && uploadForm) {
     });
   }
 
+  // === DELETE FOLDER (gallery) === //
+  document.querySelectorAll(".delete-folder").forEach(btn => {
+    btn.addEventListener("click", async (e) => {
+      e.preventDefault();
+      const folderName = btn.dataset.folder;
+      if (!confirm(`Delete folder "${folderName}" and all its images?`)) return;
+      showOverlay("Deleting selected folder with images...");
+
+      try {
+        const res = await fetch("./delete-folder/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": getCSRFToken()
+          },
+          body: JSON.stringify({ folder_name: folderName })
+        });
+
+        const result = await res.json();
+        if (result.success) {
+          alert(`Folder "${folderName}" deleted`);
+          hideOverlay();
+          location.reload();
+        } else {
+          alert(result.error || "Failed to delete folder");
+        }
+      } catch (err) {
+        alert("Server error while deleting folder");
+      }
+    });
+  });
+
   // === IMAGE MODAL VIEWER (year_gallery) ===
   const modal = document.getElementById("image-modal");
   const modalImg = document.getElementById("modal-img");
@@ -236,7 +270,7 @@ if (dropArea && fileInput && previewContainer && uploadForm) {
       currentIndex = index;
       modalImg.src = images[index].src;
       modal.classList.remove('hidden');
-      modal.style.display = "block";
+      modal.style.display = "flex";
     }
     function closeModal() {
       modal.style.display = "none";
@@ -245,28 +279,25 @@ if (dropArea && fileInput && previewContainer && uploadForm) {
     images.forEach((img, i) =>
       img.addEventListener("click", () => openModal(i))
     );
-    modal.querySelector(".close").onclick = closeModal;
+    modal.querySelector(".close-btn").onclick = closeModal;
     modal.querySelector(".prev").onclick = () =>
       openModal((currentIndex - 1 + images.length) % images.length);
     modal.querySelector(".next").onclick = () =>
       openModal((currentIndex + 1) % images.length);
   }
-});
 
-const galleryModal = document.querySelector(".gallery-modal");
   const mainImage = document.getElementById("main-image");
   const thumbnailRow = document.getElementById("thumbnail-row");
   const prevBtn = galleryModal.querySelector(".prev");
   const nextBtn = galleryModal.querySelector(".next");
   const closeBtn = galleryModal.querySelector(".close");
   const addImageButton = document.getElementById("add-image-button");
-  const addImageModal = document.getElementById("add-image-modal");
 
   let currentImages = [];
   let currentIndex = 0;
 
   // Open gallery modal when clicking any folder image
-  document.querySelectorAll(".gallery-folder").forEach((folder) => {
+  document.querySelectorAll(".gallery-preview").forEach((folder) => {
     folder.addEventListener("click", (e) => {
       e.preventDefault();
       const imageElements = Array.from(folder.querySelectorAll("img.img-src"));
@@ -326,9 +357,11 @@ const galleryModal = document.querySelector(".gallery-modal");
   }
 
   function updateThumbnailHighlight() {
-    thumbnailRow.querySelectorAll("img").forEach((t, i) => {
-      t.classList.toggle("active", i === currentIndex);
-    });
+    if (thumbnailRow) {
+      thumbnailRow.querySelectorAll("img").forEach((t, i) => {
+        t.classList.toggle("active", i === currentIndex);
+      });
+    }
   }
 
   prevBtn?.addEventListener("click", () => {
@@ -351,3 +384,5 @@ const galleryModal = document.querySelector(".gallery-modal");
   addImageButton?.addEventListener("click", () => {
     addImageModal.style.display = "flex";
   });
+
+});

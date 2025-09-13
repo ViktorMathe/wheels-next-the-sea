@@ -12,11 +12,11 @@
           {% endfor %}
         </div>
         <a href="{% url 'year_gallery' folder.name %}">
-          <h3>{{ folder.name }}</h3>
+          <h3 class="btn">{{ folder.name }}</h3>
+          </a>
           {% if is_superuser %}
             <button class="delete-folder" data-folder="{{ folder.name }}">Delete Folder</button>
           {% endif %}
-        </a>
       </div>
     {% endfor %}
 
@@ -48,21 +48,19 @@
               </span>
             </label>
           </div>
-          <div class="progress-wrapper">
-            <div class="progress-bar" id="progressBar"></div>
-          </div>
           <button type="submit" class="upload-button">Upload</button>
         </div>
       </form>
     </div>
-
+    <div class="create-folder-modal">
     <div id="create-folder" class="folder-modal hidden">
   <button class="close">&times;</button>
   <form id="folder-form" method="POST" action="{% url 'gallery' %}">
     {% csrf_token %}
     {{ folder_form }}
-    <button type="submit">Create folder</button>
+    <button class="btn" type="submit">Create folder</button>
   </form>
+</div>
 </div>
   {% endif %}
 

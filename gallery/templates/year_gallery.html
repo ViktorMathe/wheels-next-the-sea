@@ -32,46 +32,43 @@
   {% if user.is_superuser %}
     <!-- Add Image Modal -->
     <div id="add-image-modal" class="folder-modal hidden">
-  <button class="close">&times;</button>
-  <form id="image-upload-form" class="form-container"  method="POST" action="{% url 'upload_images' %}" enctype="multipart/form-data">
-    {% csrf_token %}
-    <input type="hidden" name="targetFolder" value="{{ folder.name }}">
+      <button class="close">&times;</button>
+      <form id="image-upload-form" class="form-container" method="POST" action="{% url 'upload_images' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="targetFolder" value="{{ folder.name }}" />
 
-    <div class="upload-files-container">
-    <div id="drop-area" class="drag-file-area">
-       <span class="material-icons-outlined upload-icon"></span>
-      <h3 class="dynamic-message">Drag & drop images here or click to select</h3>
-      <label class="label">
+        <div class="upload-files-container">
+          <div id="drop-area" class="drag-file-area">
+            <span class="material-icons-outlined upload-icon"></span>
+            <h3 class="dynamic-message">Drag & drop images here or click to select</h3>
+            <label class="label">
               or
               <br />
               <span class="browse-files">
-      <input type="file" id="image-input" name="images" multiple hidden>
-      <span class="browse-files-text">browse file</span>
+                <input type="file" id="image-input" name="images" multiple hidden />
+                <span class="browse-files-text">browse file</span>
                 <span>from device</span>
                 <button type="button" id="browse-btn" class="btn">Browse Files</button>
                 <div class="uploaded-file" id="uploaded-file"></div>
               </span>
             </label>
           </div>
-          <div class="progress-wrapper">
-            <div class="progress-bar" id="progressBar"></div>
-          </div>
           <div id="preview-container" class="preview-container"></div>
-          <br>
-           <button type="submit" class="btn upload-btn">Upload</button>
+          <br />
+          <button type="submit" class="btn upload-btn">Upload</button>
+        </div>
+      </form>
     </div>
-
-
-  </form>
-</div>
   {% endif %}
 
   <!-- Fullscreen Viewer -->
-  <div id="image-modal" class="modal hidden">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="modal-img" />
-    <button class="prev">&#10094;</button>
-    <button class="next">&#10095;</button>
+  <div id="image-modal" class="gallery-modal hidden">
+    <span class="close-btn">&times;</span>
+    <div class="gallery-main">
+      <img class="main-image" id="modal-img" />
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+    </div>
   </div>
 
   <!-- Overlay -->
@@ -79,9 +76,6 @@
     <div class="overlay-content">
       <div class="loader"></div>
       <p id="progress-text">Please wait...</p>
-      <div id="progress-bar-container">
-        <div id="progress-bar"></div>
-      </div>
       <p class="small-text">⚠️ Do not refresh the page while uploading/deleting</p>
     </div>
   </div>
