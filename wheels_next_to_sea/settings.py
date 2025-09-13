@@ -34,7 +34,8 @@ if "DEVELOPMENT" in os.environ:
     ALLOWED_HOSTS = ['*']
     
 else:
-    ALLOWED_HOSTS = ['https://wheelsnextthesea.co.uk/*', 'https://wheels-next-the-sea-ef8cbe80b186.herokuapp.com/*']
+    ALLOWED_HOSTS = ['wheelsnextthesea.co.uk',
+        'wheels-next-the-sea-ef8cbe80b186.herokuapp.com']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -122,10 +123,17 @@ DATABASES = {
             }
     }
 
+
 if 'DEVELOPMENT' in os.environ:
-    CSRF_TRUSTED_ORIGINS = ['http://localhost*', 'https://*.devtunnels.ms']
+    CSRF_TRUSTED_ORIGINS = [
+        'http://localhost',
+        'https://*.devtunnels.ms'
+    ]
 else:
-    CSRF_TRUSTED_ORIGINS = ['https://*.herokuapp.com', 'https://wheelsnextthesea.co.uk*']
+    CSRF_TRUSTED_ORIGINS = [
+        'https://wheelsnextthesea.co.uk',
+        'https://*.herokuapp.com'
+    ]
 
 SITE_ID = 1
 
