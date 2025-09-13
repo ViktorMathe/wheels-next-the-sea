@@ -3,33 +3,89 @@
 {% load cloudinary %}
 
 {% block content %}
-<div class="gallery-container">
-  {% for folder, images in folder_images.items %}
-    <div class="gallery-folder" data-name="{{ folder.name }}">
-      <div class="gallery-preview">
-        {% for image in images %}
-          <img class="img-src" src="{{ image.url }}" alt="{{ folder.name }}" />
-        {% endfor %}
+  <div class="gallery-container">
+    {% for folder, images in folder_images.items %}
+      <div class="gallery-folder" data-name="{{ folder.name }}">
+        <div class="gallery-preview">
+          {% for image in images %}
+            <img class="img-src" src="{{ image.url }}" alt="{{ folder.name }}" />
+          {% endfor %}
+        </div>
+        <a href="{% url 'year_gallery' folder.name %}">
+          <h3>{{ folder.name }}</h3>
+          {% if is_superuser %}
+            <button class="delete-folder" data-folder="{{ folder.name }}">Delete Folder</button>
+          {% endif %}
+        </a>
       </div>
-      <a href="{% url 'year_gallery' folder.name %}">
-        <h3>{{ folder.name }}</h3>
-        {% if is_superuser %}
-          <button class="delete-folder" data-folder="{{ folder.name }}">Delete Folder</button>
-        {% endif %}
-      </a>
-    </div>
-  {% endfor %}
-</div>
-
-<!-- Upload/Delete Overlay -->
-<div id="overlay" class="overlay hidden">
-  <div class="overlay-content">
-    <div class="loader"></div>
-    <p id="progress-text">Please wait...</p>
-    <div id="progress-bar-container">
-      <div id="progress-bar"></div>
-    </div>
-    <p class="small-text">⚠️ Do not refresh the page while uploading/deleting</p>
+    {% endfor %}
   </div>
-</div>
+
+  <!-- Fullscreen Gallery Modal -->
+  <div class="gallery-modal">
+    <button class="close">&times;</button>
+    <div class="gallery-main">
+      <img id="main-image" class="main-image" src="" alt="" />
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+    </div>
+    <div class="gallery-thumbnails" id="thumbnail-row">
+      {% if user.is_superuser %}
+        <div id="add-image-button">
+          <span>&plus;</span>
+        </div>
+      {% endif %}
+      {% if user.is_superuser %}
+        <div id="add-image-button">
+          <span>&plus;</span>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if user.is_superuser %}
+    <!-- Add Image Modal -->
+    <div id="add-image-modal" class="folder-modal hidden">
+      <button class="close">&times;</button>
+      <form class="form-container" id="upload-form" method="POST" action="{% url 'upload_images' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="targetFolder" value="{{ folder.name }}" />
+
+        <div class="upload-files-container">
+          <div class="drag-file-area">
+            <span class="material-icons-outlined upload-icon">file_upload</span>
+            <h3 class="dynamic-message">Drag & drop any file here</h3>
+            <label class="label">
+              or
+              <br />
+              <span class="browse-files">
+                <input type="file" name="images" id="id_images" multiple />
+                <span class="browse-files-text">browse file</span>
+                <span>from device</span>
+                <div class="uploaded-file" id="uploaded-file"></div>
+              </span>
+            </label>
+          </div>
+          <div class="progress-wrapper">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+          <button type="submit" class="upload-button">Upload</button>
+        </div>
+      </form>
+    </div>
+  {% endif %}
+
+  <script src="https://product-gallery.cloudinary.com/all.js" type="text/javascript"></script>
+
+  <!-- Upload/Delete Overlay -->
+  <div id="overlay" class="overlay hidden">
+    <div class="overlay-content">
+      <div class="loader"></div>
+      <p id="progress-text">Please wait...</p>
+      <div id="progress-bar-container">
+        <div id="progress-bar"></div>
+      </div>
+      <p class="small-text">⚠️ Do not refresh the page while uploading/deleting</p>
+    </div>
+  </div>
 {% endblock %}

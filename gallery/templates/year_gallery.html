@@ -3,28 +3,63 @@
 
 {% block content %}
   <div class="year-gallery">
-    <h2>{{ folder.name }}</h2>
-
-    {% if user.is_superuser %}
-      <div class="gallery-actions">
-        <button id="delete-selected">Delete Selected</button>
+    <div class="year-gallery-header">
+      <h2>{{ folder.name }}</h2>
+      <div class="year-gallery-actions">
+        <a href="{% url 'gallery' %}" class="btn back-btn">← Back to Gallery</a>
+        {% if user.is_superuser %}
+          <button id="add-image-btn" class="btn add-btn">+ Add Images</button>
+          <button id="delete-selected" class="btn danger-btn">🗑 Delete Selected</button>
+        {% endif %}
       </div>
-    {% endif %}
+    </div>
 
     <div class="images-grid">
       {% for image in images %}
         <div class="image-card">
-          <img src="{{ image.url }}" alt="{{ image.title }}" class="enlargeable" />
           {% if user.is_superuser %}
             <input type="checkbox" class="select-image" data-url="{{ image.url }}" />
             <button class="delete-image-btn" data-url="{{ image.url }}">✖</button>
           {% endif %}
+          <img src="{{ image.url }}" alt="{{ image.title }}" />
         </div>
       {% empty %}
         <p>No images found in this folder.</p>
       {% endfor %}
     </div>
   </div>
+
+  {% if user.is_superuser %}
+    <!-- Add Image Modal -->
+    <div id="add-image-modal" class="folder-modal hidden">
+      <button class="close">&times;</button>
+      <form class="form-container" id="upload-form" method="POST" action="{% url 'upload_images' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="targetFolder" value="{{ folder.name }}" />
+
+        <div class="upload-files-container">
+          <div class="drag-file-area">
+            <span class="material-icons-outlined upload-icon">file_upload</span>
+            <h3 class="dynamic-message">Drag & drop any file here</h3>
+            <label class="label">
+              or
+              <br />
+              <span class="browse-files">
+                <input type="file" name="images" id="id_images" multiple />
+                <span class="browse-files-text">browse file</span>
+                <span>from device</span>
+                <div class="uploaded-file" id="uploaded-file"></div>
+              </span>
+            </label>
+          </div>
+          <div class="progress-wrapper">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+          <button type="submit" class="upload-button">Upload</button>
+        </div>
+      </form>
+    </div>
+  {% endif %}
 
   <!-- Fullscreen Viewer -->
   <div id="image-modal" class="modal hidden">
@@ -44,52 +79,5 @@
       </div>
     </div>
   </div>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const overlay = document.getElementById('overlay')
-      const progressText = document.getElementById('progress-text')
-      const progressBar = document.getElementById('progress-bar')
-    
-      function showOverlay(msg) {
-        overlay.classList.remove('hidden')
-        progressText.textContent = msg || 'Processing...'
-        progressBar.style.width = '0%'
-      }
-    
-      function hideOverlay() {
-        overlay.classList.add('hidden')
-      }
-    
-      // IMAGE MODAL VIEWER
-      const modal = document.getElementById('image-modal')
-      const modalImg = document.getElementById('modal-img')
-      const images = [...document.querySelectorAll('.enlargeable')]
-      let currentIndex = -1
-    
-      function openModal(index) {
-        currentIndex = index
-        modalImg.src = images[index].src
-        modal.style.display = 'block'
-      }
-    
-      function closeModal() {
-        modal.style.display = 'none'
-      }
-    
-      images.forEach((img, i) => {
-        img.addEventListener('click', () => openModal(i))
-      })
-    
-      document.querySelector('#image-modal .close').onclick = closeModal
-      document.querySelector('#image-modal .prev').onclick = () => openModal((currentIndex - 1 + images.length) % images.length)
-      document.querySelector('#image-modal .next').onclick = () => openModal((currentIndex + 1) % images.length)
-    
-      function getCSRFToken() {
-        return document.cookie
-          .split('; ')
-          .find((r) => r.startsWith('csrftoken='))
-          ?.split('=')[1]
-      }
-    })
-  </script>
+
 {% endblock %}

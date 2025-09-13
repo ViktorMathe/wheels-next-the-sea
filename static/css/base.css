@@ -37,6 +37,10 @@ body {
    border-end-start-radius: 5px;
 }
 
+.hidden {
+   display: none;
+}
+
 /* Logo */
 .logo {
    margin-right: auto;
@@ -264,7 +268,7 @@ body {
    height: auto;
    border-radius: 6px;
    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-   background: linear-gradient(180deg, #dadada, #393838f7);
+   background: linear-gradient(180deg, #ffffff, #bbbbbbf7);
    border-style: groove;
    border-color: #210101;
 }
@@ -298,13 +302,17 @@ body {
 }
 
 /* Container */
-.form-container {
+.event .form-container {
    max-width: 600px;
    margin: 2rem auto;
    padding: 2rem;
-   background: #fff;
    border-radius: 12px;
-   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+   box-shadow: 0 4px 12px rgb(217 217 217 / 95%);
+   display: block;
+   border-style: ridge;
+   justify-content: center;
+   align-items: center;
+   background-color: #64b8ed;
 }
 
 /* Title */
@@ -313,7 +321,7 @@ body {
    font-size: 1.8rem;
    font-weight: 600;
    margin-bottom: 1.5rem;
-   color: #333;
+   color: #000000;
 }
 
 /* Form fields */
@@ -325,7 +333,12 @@ body {
    display: block;
    font-weight: 500;
    margin-bottom: 0.5rem;
-   color: #444;
+   color: #000000;
+   font-weight: bold;
+}
+
+.event-form input[type="file"] {
+   display: block !important;
 }
 
 .event-form input[type="text"],
@@ -1219,23 +1232,85 @@ body {
    }
 }
 
+.year-gallery {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 2rem 1rem;
+}
+
+.year-gallery-header {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   margin-bottom: 1.5rem;
+   flex-wrap: wrap;
+}
+
+.year-gallery-header h2 {
+   font-size: 2rem;
+   margin: 0;
+}
+
+.year-gallery-actions {
+   display: flex;
+   gap: 0.5rem;
+   flex-wrap: wrap;
+}
+
+.btn {
+   background: #3498db;
+   color: #fff;
+   border: none;
+   padding: 0.6rem 1rem;
+   border-radius: 6px;
+   font-size: 0.9rem;
+   cursor: pointer;
+   transition: background 0.2s ease;
+   text-decoration: none;
+   display: inline-block;
+}
+
+.btn:hover {
+   background: #2980b9;
+}
+
+.btn.danger-btn {
+   background: #e74c3c;
+}
+
+.btn.danger-btn:hover {
+   background: #c0392b;
+}
+
+.btn.add-btn {
+   background: #27ae60;
+}
+
+.btn.add-btn:hover {
+   background: #1e8449;
+}
+
 .images-grid {
    display: grid;
-   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-   gap: 15px;
+   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+   gap: 1rem;
 }
 
 .image-card {
    position: relative;
-   border-radius: 8px;
    overflow: hidden;
+   border-radius: 10px;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .image-card img {
    width: 100%;
+   height: 200px;
+   object-fit: cover;
    display: block;
+   border-radius: 10px;
    cursor: pointer;
-   transition: transform 0.2s;
+   transition: transform 0.3s ease;
 }
 
 .image-card img:hover {
@@ -1244,22 +1319,27 @@ body {
 
 .delete-image-btn {
    position: absolute;
-   top: 8px;
-   right: 8px;
-   background: rgba(255, 0, 0, 0.8);
+   top: 6px;
+   right: 6px;
+   background: rgba(231, 76, 60, 0.9);
    border: none;
-   color: white;
-   padding: 4px 6px;
+   color: #fff;
    border-radius: 50%;
-   cursor: pointer;
    font-size: 14px;
+   width: 26px;
+   height: 26px;
+   cursor: pointer;
+   line-height: 24px;
+   text-align: center;
 }
 
 .select-image {
    position: absolute;
-   bottom: 8px;
-   left: 8px;
-   transform: scale(1.3);
+   top: 6px;
+   left: 6px;
+   width: 18px;
+   height: 18px;
+   cursor: pointer;
 }
 
 .gallery-actions {

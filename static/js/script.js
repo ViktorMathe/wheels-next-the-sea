@@ -141,7 +141,12 @@ document.addEventListener("DOMContentLoaded", function () {
     allFolders.forEach(folder => {
         folder.addEventListener("click", event => {
             const targetFolder = folder.getAttribute("data-name");
-            if (addImageButton) document.getElementById("id_folder").value = targetFolder;
+            console.log(document.getElementById("id_folder"))
+            
+            const folderInput = document.getElementById("id_folder");
+                if (addImageButton && folderInput) {
+                    folderInput.value = targetFolder;
+        }
 
             const imageElements = Array.from(folder.querySelectorAll("img.img-src"));
             const images = imageElements.map(img => img.src);
@@ -316,7 +321,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!confirm('Delete this image?')) return
 
             showOverlay('Deleting image...')
-            fetch('/gallery/delete_image/', {
+            fetch('/gallery/delete-image/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -333,33 +338,40 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     })
 
-    // MULTI DELETE
-    const deleteSelectedBtn = document.getElementById('delete-selected')
+    const deleteSelectedBtn = document.getElementById('delete-selected');
     if (deleteSelectedBtn) {
         deleteSelectedBtn.addEventListener('click', function () {
-            const selected = [...document.querySelectorAll('.select-image:checked')].map((c) => c.dataset.url)
+            const selected = [...document.querySelectorAll('.select-image:checked')].map(c => c.dataset.url);
             if (!selected.length) {
-                alert('No images selected')
-                return
+                alert('No images selected');
+                return;
             }
-            if (!confirm('Delete selected images?')) return
+            if (!confirm('Delete selected images?')) return;
 
-            showOverlay('Deleting selected images...')
-            fetch('./delete_multiple_images/', {
+            showOverlay('Deleting selected images...');
+            fetch("./delete-multiple-images/", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'X-CSRFToken': getCSRFToken()
                 },
-                body: JSON.stringify({ urls: selected })
+                body: JSON.stringify({ images: selected })  // note “images”
             })
-                .then((r) => r.json())
-                .then((data) => {
-                    hideOverlay()
-                    if (data.success) location.reload()
-                    else alert('Error: ' + data.error)
+                .then(r => r.json())
+                .then(data => {
+                    hideOverlay();
+                    if (data.success) {
+                        location.reload();
+                    } else {
+                        alert('Error: ' + data.error);
+                    }
                 })
-        })
+                .catch(err => {
+                    hideOverlay();
+                    console.error(err);
+                    alert('Server error while deleting selected images');
+                });
+        });
     }
 
     function updateMainImage() { if (currentImages.length > 0) mainImage.src = currentImages[currentIndex]; updateThumbnailHighlight(); }
