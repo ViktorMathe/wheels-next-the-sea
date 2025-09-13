@@ -19,32 +19,14 @@
         </a>
       </div>
     {% endfor %}
-  </div>
 
-  <!-- Fullscreen Gallery Modal -->
-  <div class="gallery-modal">
-    <button class="close">&times;</button>
-    <div class="gallery-main">
-      <img id="main-image" class="main-image" src="" alt="" />
-      <button class="prev">&#10094;</button>
-      <button class="next">&#10095;</button>
+   {% if user.is_superuser %}
+    <div class="add-folder">
+        <div id="add-sign">&plus;</div>
+        <h2>Add New Folder</h2>
     </div>
-    <div class="gallery-thumbnails" id="thumbnail-row">
-      {% if user.is_superuser %}
-        <div id="add-image-button">
-          <span>&plus;</span>
-        </div>
-      {% endif %}
-      {% if user.is_superuser %}
-        <div id="add-image-button">
-          <span>&plus;</span>
-        </div>
-      {% endif %}
-    </div>
-  </div>
 
-  {% if user.is_superuser %}
-    <!-- Add Image Modal -->
+    </div>
     <div id="add-image-modal" class="folder-modal hidden">
       <button class="close">&times;</button>
       <form class="form-container" id="upload-form" method="POST" action="{% url 'upload_images' %}" enctype="multipart/form-data">
@@ -73,6 +55,32 @@
         </div>
       </form>
     </div>
+
+    <div id="create-folder" class="folder-modal hidden">
+  <button class="close">&times;</button>
+  <form id="folder-form" method="POST" action="{% url 'gallery' %}">
+    {% csrf_token %}
+    {{ folder_form }}
+    <button type="submit">Create folder</button>
+  </form>
+</div>
+  {% endif %}
+
+
+  <!-- Fullscreen Gallery Modal -->
+  <div class="gallery-modal">
+    <button class="close">&times;</button>
+    <div class="gallery-main">
+      <img id="main-image" class="main-image" src="" alt="" />
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+    </div>
+    <div class="gallery-thumbnails" id="thumbnail-row">
+    </div>
+  </div>
+
+  {% if user.is_superuser %}
+    <!-- Add Image Modal -->
   {% endif %}
 
   <script src="https://product-gallery.cloudinary.com/all.js" type="text/javascript"></script>
