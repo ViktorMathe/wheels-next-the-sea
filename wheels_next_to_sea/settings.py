@@ -30,7 +30,11 @@ SECRET_KEY = os.getenv('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEVELOPMENT", "False") == "True"
 
-ALLOWED_HOSTS = ['*']
+if "DEVELOPMENT" in os.environ:
+    ALLOWED_HOSTS = ['*']
+    
+else:
+    ALLOWED_HOSTS = ['https://wheelsnextthesea.co.uk/*', 'https://wheels-next-the-sea-ef8cbe80b186.herokuapp.com/*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -118,8 +122,10 @@ DATABASES = {
             }
     }
 
-
-CSRF_TRUSTED_ORIGINS = ['http://localhost*', 'https://*.devtunnels.ms', 'https://*.herokuapp.com', 'https://wheelsnextthesea.co.uk*']
+if 'DEVELOPMENT' in os.environ:
+    CSRF_TRUSTED_ORIGINS = ['http://localhost*', 'https://*.devtunnels.ms']
+else:
+    CSRF_TRUSTED_ORIGINS = ['https://*.herokuapp.com', 'https://wheelsnextthesea.co.uk*']
 
 SITE_ID = 1
 
