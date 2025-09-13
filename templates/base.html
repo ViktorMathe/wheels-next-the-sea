@@ -32,12 +32,14 @@
                         <ul class="dropdown-menu">
                             <li><a href="{% url 'current_events' %}">Upcoming Event</a></li>
                             <li><a href="{% url 'past_events' %}">Past Events</a></li>
+                            {% if request.user.is_superuser %}
                             <li><a href="{% url 'add_event' %}">Add Event</a></li>
+                            {% endif %}
                         </ul>
                     </li>
                     <li><a href="{% url 'gallery' %}">Gallery</a></li>
                     <li><a href="{% url 'reviews' %}">Reviews</a></li>
-                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                    <li><a href="{% url 'contact_page' %}">Contact</a></li>
                 </ul>
             </nav>
         </header>

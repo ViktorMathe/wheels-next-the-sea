@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const navList = document.querySelector(".nav-list");
   const eventsDropdown = document.getElementById("events-dropdown");
   const dropdownMenu = eventsDropdown.querySelector(".dropdown-menu");
+  const editAboutUs = document.getElementById("openModalBtn");
 
   // Mobile menu toggle
   menuToggle.addEventListener("click", (e) => {
@@ -23,6 +24,46 @@ document.addEventListener("DOMContentLoaded", function () {
       dropdownMenu.classList.remove("active");
     }
   });
+
+  if (editAboutUs) {
+    editAboutUs.addEventListener("click", () => {
+      const aboutUsModal = document.getElementById("aboutUsModal");
+      const close = document.querySelector(".close-btn");
+      if (aboutUsModal) {
+        aboutUsModal.style.display = "block";
+      };
+      if (close) {
+        close.addEventListener("click", () => {
+          aboutUsModal.style.display = "none";
+        });
+      };
+    });
+  }
+
+  const editBtn = document.getElementById("edit-contact-btn");
+  const cancelBtn = document.getElementById("cancel-edit-btn");
+  const editDiv = document.getElementById("contact-edit-modal");
+
+  if (editBtn) {
+    editBtn.addEventListener("click", () => {
+      const close = document.querySelector(".close-btn");
+      editDiv.style.display = "block";
+
+      if (close) {
+        close.addEventListener("click", () => {
+          editDiv.style.display = "none";
+        });
+      };
+    })
+
+
+    if (cancelBtn) {
+      cancelBtn.addEventListener("click", () => {
+        editDiv.style.display = "none";
+      });
+
+    }
+  }
 
   // === OVERLAY ===
   const overlay = document.getElementById("overlay");
@@ -46,6 +87,19 @@ document.addEventListener("DOMContentLoaded", function () {
       ?.split("=")[1];
   }
 
+  // === WRITE REVIEW MODAL === //
+  const writeReViewBtn = document.getElementById("write-review");
+  const reviewFormModal = document.getElementById("review-form-modal");
+  if (writeReViewBtn) {
+    const close = reviewFormModal.querySelector(".close-btn");
+    writeReViewBtn.addEventListener('click', () => {
+      reviewFormModal.style.display = "block";
+    });
+    if (close) {
+      close.addEventListener("click", () => (reviewFormModal.style.display = "none"))
+    }
+  }
+
   const galleryModal = document.querySelector(".gallery-modal");
   if (!galleryModal) return;
   // === ADD FOLDER MODAL (gallery.html) ===
@@ -59,8 +113,9 @@ document.addEventListener("DOMContentLoaded", function () {
       createFolderBackground.style.display = "block";
       folderModal.style.display = "flex";
     });
-    if (close)
-      close.addEventListener("click", () => {(folderModal.style.display = "none"), (createFolderBackground.style.display = "none")});
+    if (close) {
+      close.addEventListener("click", () => { (folderModal.style.display = "none"), (createFolderBackground.style.display = "none") })
+    };
   }
 
   // === ADD IMAGE MODAL (year_gallery.html) ===

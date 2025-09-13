@@ -505,12 +505,18 @@ body {
    width: 35%;
    min-width: 250px;
    max-width: 350px;
-   padding: 25px;
+   max-height: 250px;
+   padding: 15px;
    overflow: hidden;
    position: relative;
    color: #f1f1f1;
    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
    transition: transform 0.2s ease-in-out, border-color 0.2s ease-in-out;
+   line-break: anywhere;
+}
+
+.review-items button[type="submit"] {
+   background: var(--danger-color)
 }
 
 .review-items:hover {
@@ -522,6 +528,20 @@ body {
 .review-items ul {
    list-style: none;
    padding: 0;
+}
+
+.review-items .review-title {
+   margin-top: -5%;
+}
+
+.review-text {
+   max-height: 80px;
+   overflow: hidden;
+   overflow-y: scroll;
+}
+
+.review-detail .review-text {
+   max-height: fit-content;
 }
 
 .marquee .review-text {
@@ -581,7 +601,8 @@ body {
 .marquee-item {
    display: inline-block;
    vertical-align: top;
-   width: 250px;
+   min-width: 200px;
+   max-width: 200px;
    /* card width */
    margin-right: 15px;
    background: #2b2b2b;
@@ -681,6 +702,43 @@ body {
    opacity: 0.7;
 }
 
+/* === REVIEW PAGE === */
+
+.review-h2,
+.leave-review {
+   margin: 20px;
+   color: #fafafa;
+   padding: 20px;
+}
+
+.leave-review a {
+   margin: 20px;
+   padding: 20px;
+   color: #1a73e8;
+   text-decoration: none;
+}
+
+.review-header {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+
+#review-form-modal {
+   display: none;
+   position: fixed;
+   background: rgb(0 0 0 / 80%);
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: 1;
+}
+
+.review-form {
+   float: right !important;
+}
+
 /* Keyframes for row scrolling */
 @keyframes marquee {
    0% {
@@ -701,7 +759,7 @@ body {
    SUPERUSER EDIT BUTTON GENERIC
 ============================= */
 .edit-btn {
-   background: #e63946;
+   background: #1a73e8;
    color: #f1f1f1;
    border: none;
    padding: 6px 12px;
@@ -923,7 +981,7 @@ body {
    position: absolute;
    top: 20px;
    right: 35px;
-   color: #fff;
+   color: #e82d2d;
    font-size: 40px;
    font-weight: bold;
    cursor: pointer;
@@ -1592,6 +1650,144 @@ body {
    margin: 10px;
    padding: 7.5px 50px;
    cursor: pointer;
+}
+
+/* ====== Common Form Styles ====== */
+
+#review-form-modal form,
+#contactus-form form {
+   background: #f4f4f4;
+   float: left;
+   padding: 20px;
+   border-radius: 10px;
+   max-width: fit-content;
+   margin: 20px;
+   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-h2 {
+   color: #1a73e8;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+   width: 95%;
+   padding: 10px 12px;
+   margin-bottom: 15px;
+   border-radius: 6px;
+   border: 1px solid #ccc;
+   font-size: 1rem;
+}
+
+form textarea {
+   resize: vertical;
+   min-height: 100px;
+}
+
+form button[type="submit"] {
+   background: #049045;
+   ;
+   color: white;
+   border: none;
+   padding: 10px 18px;
+   border-radius: 6px;
+   font-size: 1rem;
+   cursor: pointer;
+   transition: 0.2s ease;
+}
+
+form button[type="submit"]:hover {
+   opacity: 0.9;
+}
+
+#contact-page {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 2rem;
+}
+
+.contact-container {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 2rem;
+   margin-bottom: 2rem;
+}
+
+#contact-display {
+   width: 100%;
+   justify-items: end;
+}
+
+
+.contact-info {
+   background: #f9fafb;
+   padding: 1.5rem;
+   border-radius: 12px;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+   justify-items: end;
+   height: fit-content;
+   margin: 20px;
+}
+
+.contact-info h3 {
+   margin-bottom: 1rem;
+}
+
+.contact-info p {
+   margin: 0.5rem 0;
+}
+
+#edit-contact-btn {
+   float: right;
+   margin: 10px;
+}
+
+#contact-edit-modal {
+   display: none;
+   position: fixed;
+   z-index: 1000;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   overflow: auto;
+   background: rgba(0, 0, 0, 0.5);
+}
+
+#contact-edit-modal .close-btn {
+   top: 40px;
+   right: 45px;
+}
+
+#contact-edit {
+   width: fit-content;
+   background: #fafafa;
+   float: right;
+   margin: 3%;
+   padding: 30px;
+   border-radius: 15px;
+}
+
+.contact-map {
+   margin-top: 15px;
+   width: 100%;
+}
+
+.social-links a {
+   color: #1e3a8a;
+   text-decoration: none;
+   margin: 0 0.3rem;
+   font-weight: 500;
+}
+
+.social-links a:hover {
+   text-decoration: underline;
+}
+
+.contact-map iframe {
+   border-radius: 12px;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* style.css */

@@ -1,34 +1,49 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% block content %}
-<div id="review-page">
-    <h2>Submit a Review</h2>
-    <form class="review-form" method="post">
+  <div id="review-page">
+    <div class="review-header">
+      <h2 class="review-h2">Reviews</h2>
+      <h3 class="leave-review"><a id="write-review" href="#">Leave a Review!</a></h3>
+    </div>
+    <div class="review-list">
+      {% csrf_token %}
+      {% for review in all_reviews %}
+        <div class="review-items">
+          <ul>
+            <li>
+              <p class="review-title">{{ review.title }}</p>
+            </li>
+            <li>
+              <p class="review-text" data-full="{{ review.text }}">{{ review.text }}</p>
+              {% if review.text|length > 200 %}
+                <a href="{% url 'review_detail' review.id review.slug %}" class="read-more">Read More</a>
+              {% endif %}
+            </li>
+            <li>
+              <p>
+                <small>Written : {{ review.created_at }} <br /> By {{ review.name }}</small>
+              </p>
+            </li>
+            {% if user.is_superuser %}
+              <li>
+                <form method="post" action="{% url 'delete_review' review.id %}" style="display:inline;">
+                  {% csrf_token %}
+                  <button type="submit" class="remove-btn">Delete</button>
+                </form>
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+      {% endfor %}
+    </div>
+    <div id="review-form-modal">
+      <div class="close-btn">x</div>
+      <form class="review-form" method="post">
+        <h2 class="form-h2">Submit a Review</h2>
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Submit</button>
-    </form>
-
-    <h2>Reviews</h2>
-    <div class="review-list">
-        {% csrf_token %}
-        {% for review in reviews %}
-        <div class="review-items">
-            <ul>
-                <li>
-                    <p>{{review.title}}</p>
-                </li>
-                <li>
-                        <p class="review-text" data-full="{{ review.text }}">
-                            {{ review.text }}
-                        </p>
-                        <span class="read-more">Read More</span>
-                </li>
-                <li>
-                    <p><small>Written : {{ review.created_at }} <br> By {{review.name}}</small></p>
-                </li>
-            </ul>
-        </div>
-        {% endfor %}
+      </form>
     </div>
-</div>
+  </div>
 {% endblock %}
