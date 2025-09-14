@@ -317,7 +317,6 @@ body {
 
 .no-events {
    background: #ff0044;
-   padding: 10px;
    border-radius: 15px;
    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
    text-align: center;
@@ -1097,6 +1096,7 @@ body {
 
 .gallery-folder a {
    text-decoration: none;
+   justify-content: center;
 }
 
 #add-sign {
