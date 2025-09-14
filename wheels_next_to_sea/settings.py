@@ -34,7 +34,7 @@ if DEBUG:
     ALLOWED_HOSTS = ['*']
     
 else:
-    ALLOWED_HOSTS = ['wheelsnextthesea.co.uk',
+    ALLOWED_HOSTS = ['wheelsnextthesea.co.uk','www.wheelsnextthesea.co.uk',
         'wheels-next-the-sea-ef8cbe80b186.herokuapp.com']
 
 INSTALLED_APPS = [
@@ -183,12 +183,12 @@ USE_I18N = True
 USE_TZ = True
 
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_DIRS = [BASE_DIR / 'static']
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = BASE_DIR / 'media'
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
     'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
