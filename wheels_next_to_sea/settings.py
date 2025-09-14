@@ -132,10 +132,14 @@ if 'DEVELOPMENT' in os.environ:
 else:
     CSRF_TRUSTED_ORIGINS = [
         'https://wheelsnextthesea.co.uk',
+        'https://www.wheelsnextthesea.co.uk',
         'https://*.herokuapp.com'
     ]
 
 SITE_ID = 1
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 
 
 # Password validation
