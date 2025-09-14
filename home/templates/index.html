@@ -9,20 +9,18 @@
   </div>
 
   <div class="next-event">
-    {% if next_events %}
-      {% with next_event=next_events.0 %}
-        <h2>{{ next_event.title }}</h2>
-        <h3>{{ next_event.date|date:'d M Y H:i' }}</h3>
-        <p>{{ next_event.description }}</p>
-        {% if next_event.flyer %}
-          <img src="{{ next_event.flyer.url }}" alt="Event Flyer" width="200" />
-        {% endif %}
+    {% if next_event %}
+      <h2>{{ next_event.title }}</h2>
+      <h3>{{ next_event.date|date:'d M Y H:i' }}</h3>
+      <p>{{ next_event.description }}</p>
+      {% if next_event.flyer %}
+        <img src="{{ next_event.flyer.url }}" alt="Event Flyer" width="200" />
+      {% endif %}
 
-        {% if request.user.is_superuser %}
-          <a href="{% url 'manage_events_edit' next_event.id %}" class="edit-btn">Edit</a>
-          <a href="{% url 'add_event' %}" class="edit-btn">Add New Event</a>
-        {% endif %}
-      {% endwith %}
+      {% if request.user.is_superuser %}
+        <a href="{% url 'manage_events_edit' next_event.id %}" class="edit-btn">Edit</a>
+        <a href="{% url 'add_event' %}" class="edit-btn">Add New Event</a>
+      {% endif %}
     {% else %}
       <p>No events has been announced</p>
       {% if request.user.is_superuser %}
@@ -48,7 +46,7 @@
     <div id="aboutUsModal" class="aboutModal">
       <div class="aboutContent">
         <!-- Close button -->
-        <button id="closeModalBtn" class="close-btn">&times;</button>
+        <span id="closeModalBtn" class="close-btn">&times;</span>
 
         <h3>Edit About Us</h3>
 

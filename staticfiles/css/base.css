@@ -1859,6 +1859,12 @@ form button[type="submit"]:hover {
       margin-left: auto;
    }
 
+   .event {
+      display: flex;
+      max-width: 75%;
+      justify-self: center;
+   }
+
    .nav-list {
       position: absolute;
       top: 100%;
@@ -1946,6 +1952,10 @@ form button[type="submit"]:hover {
    .gallery-container {
       grid-template-columns: 0.8fr;
       /* Stack gallery boxes in one column */
+   }
+
+   .event {
+      max-width: 90%;
    }
 
    .prev {
