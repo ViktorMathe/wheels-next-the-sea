@@ -1863,6 +1863,7 @@ form button[type="submit"]:hover {
    .nav-list.active {
       display: block;
       top: 1em;
+      z-index: 99;
    }
 
    .dropdown-menu {
