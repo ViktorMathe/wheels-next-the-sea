@@ -6,6 +6,7 @@
     {% for event in past_events %}
       <div class="event-card">
         <div class="event-title">
+          
           <h3>{{ event.title }}</h3>
         </div>
         <div class="event-description">
@@ -20,11 +21,11 @@
         {% endif %}
 
         {% if event.folder %}
-          <a href="{% url 'year_gallery' event.folder.name %}" class="image-btn">Images</a>
+          <a href="{% url 'year_gallery' event.folder.name %}" class="btn image-btn" style="margin-top=10px">Images</a>
         {% endif %}
       </div>
     {% empty %}
-      <p>No past events available.</p>
+      <p class="no-events">No past events available.</p>
     {% endfor %}
   </div>
 
