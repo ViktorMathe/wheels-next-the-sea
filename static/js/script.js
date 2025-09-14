@@ -431,8 +431,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   closeBtn?.addEventListener("click", () => {
     galleryModal.style.display = "none";
-    mainImage.src = "";
-    thumbnailRow.innerHTML = "";
+    if (mainImage) {
+      mainImage.src = "";
+    }
+    if (thumbnailRow) {
+      thumbnailRow.innerHTML = "";
+    }
   });
 
   // Open add image modal from gallery modal

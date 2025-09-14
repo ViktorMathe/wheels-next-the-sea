@@ -24,7 +24,7 @@
         {% endif %}
       {% endwith %}
     {% else %}
-      <p>No upcoming events.</p>
+      <p>No events has been announced</p>
       {% if request.user.is_superuser %}
         <a href="{% url 'add_event' %}" class="edit-btn">Add Event</a>
       {% endif %}
