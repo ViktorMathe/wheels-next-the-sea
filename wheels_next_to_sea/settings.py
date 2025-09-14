@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEVELOPMENT", "False") == "True"
 
-if "DEVELOPMENT" in os.environ:
+if DEBUG:
     ALLOWED_HOSTS = ['*']
     
 else:
@@ -124,7 +124,7 @@ DATABASES = {
     }
 
 
-if 'DEVELOPMENT' in os.environ:
+if DEBUG:
     CSRF_TRUSTED_ORIGINS = [
         'http://localhost',
         'https://*.devtunnels.ms'
@@ -133,7 +133,7 @@ else:
     CSRF_TRUSTED_ORIGINS = [
         'https://wheelsnextthesea.co.uk',
         'https://www.wheelsnextthesea.co.uk',
-        'https://*.herokuapp.com'
+        'https://wheels-next-the-sea-*.herokuapp.com'
     ]
 
 SITE_ID = 1

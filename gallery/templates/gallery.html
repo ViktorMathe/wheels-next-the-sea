@@ -54,7 +54,7 @@
     </div>
     <div class="create-folder-modal">
     <div id="create-folder" class="folder-modal hidden">
-  <button class="close">&times;</button>
+  <span class="close-btn">&times;</span>
   <form id="folder-form" method="POST" action="{% url 'gallery' %}">
     {% csrf_token %}
     {{ folder_form }}
@@ -67,7 +67,7 @@
 
   <!-- Fullscreen Gallery Modal -->
   <div class="gallery-modal">
-    <button class="close">&times;</button>
+    <span class="close-btn">&times;</span>
     <div class="gallery-main">
       <img id="main-image" class="main-image" src="" alt="" />
       <button class="prev">&#10094;</button>

@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const folderModal = document.getElementById("create-folder");
   const createFolderBackground = document.querySelector('.create-folder-modal');
   if (addFolderBtn && folderModal) {
-    const close = folderModal.querySelector(".close");
+    const close = folderModal.querySelector(".close-btn");
     addFolderBtn.addEventListener("click", () => {
       folderModal.classList.remove('hidden');
       createFolderBackground.style.display = "block";
@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const addImageBtn = document.getElementById("add-image-btn");
   const addImageModal = document.getElementById("add-image-modal");
   if (addImageBtn && addImageModal) {
-    const close = addImageModal.querySelector(".close");
+    const close = addImageModal.querySelector(".close-btn");
     addImageBtn.addEventListener("click", () => {
       addImageModal.classList.remove('hidden');
       addImageModal.style.display = "flex";
@@ -345,7 +345,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const thumbnailRow = document.getElementById("thumbnail-row");
   const prevBtn = galleryModal.querySelector(".prev");
   const nextBtn = galleryModal.querySelector(".next");
-  const closeBtn = galleryModal.querySelector(".close");
+  const closeBtn = galleryModal.querySelector(".close-btn");
   const addImageButton = document.getElementById("add-image-button");
 
   let currentImages = [];

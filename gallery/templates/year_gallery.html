@@ -32,7 +32,7 @@
   {% if user.is_superuser %}
     <!-- Add Image Modal -->
     <div id="add-image-modal" class="folder-modal hidden">
-      <button class="close">&times;</button>
+      <span class="close-btn">&times;</span>
       <form id="image-upload-form" class="form-container" method="POST" action="{% url 'upload_images' %}" enctype="multipart/form-data">
         {% csrf_token %}
         <input type="hidden" name="targetFolder" value="{{ folder.name }}" />
