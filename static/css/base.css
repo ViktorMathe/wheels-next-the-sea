@@ -1096,6 +1096,7 @@ body {
 
 .gallery-folder a {
    text-decoration: none;
+   justify-content: center;
 }
 
 #add-sign {
