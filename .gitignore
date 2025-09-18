@@ -9,6 +9,7 @@ venv.bak/
 wntsVE
 .vscode/
 clean_ghost_files.sh
+staticfiles/
 
 # Ghost files (macOS resource forks)
 ._*

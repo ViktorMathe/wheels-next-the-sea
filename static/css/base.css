@@ -283,7 +283,7 @@ h1, h2, h3, .hero, .nav a {
    background: #1e1e1e;
    /* Dark but lighter than body */
    padding: 20px;
-   margin: 20px auto;
+   margin: 20px 15px;
    border-left: 5px solid #e63946;
    /* Bright red accent */
    border-radius: 6px;
@@ -407,7 +407,7 @@ h1, h2, h3, .hero, .nav a {
 /* Submit button */
 .btn-submit {
    display: inline-block;
-   width: 60%;
+   width: 40%;
    padding: 0.9rem;
    margin-top: 1rem;
    background: #049045;
@@ -448,7 +448,7 @@ h1, h2, h3, .hero, .nav a {
 #about_us {
    background: #2b2b2b;
    padding: 25px;
-   margin: 20px auto;
+   margin: 20px 15px;
    border-radius: 8px;
    max-width: 900px;
    line-height: 1.6;
@@ -1123,6 +1123,7 @@ h1, h2, h3, .hero, .nav a {
    border-style: groove;
    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
    text-align: center;
+   justify-items: center;
    color: #f8f8f8;
    cursor: pointer;
    transition: transform 0.3s ease-in-out;
@@ -1296,7 +1297,6 @@ h1, h2, h3, .hero, .nav a {
 /*Upload drag & drop */
 .form-container {
    width: 100vw;
-   height: 100vh;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -1766,6 +1766,10 @@ form button[type="submit"]:hover {
    justify-items: end;
    height: fit-content;
    margin: 20px;
+}
+
+.contact-info h2{
+   justify-self: end;
 }
 
 .contact-info h3 {
