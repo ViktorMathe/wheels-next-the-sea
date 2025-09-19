@@ -1166,9 +1166,9 @@ h3,
 /* Preview Images */
 .gallery-preview {
    display: flex;
-   justify-content: flex-start;
+   justify-content: center;
    gap: 5px;
-   margin-top: 10px;
+   margin: 10px auto;
    padding: 5px;
    overflow: auto;
 }
@@ -1777,6 +1777,7 @@ form button[type="submit"]:hover {
 
 .contact-info h2 {
    place-items: end;
+   text-align: right;
 }
 
 .contact-info h3 {
@@ -1968,6 +1969,7 @@ form button[type="submit"]:hover {
       width: 50px;
       /* Slightly smaller images for mobile */
       height: 50px;
+      margin: 10px auto;
    }
 
    .gallery-modal-content {
