@@ -4,19 +4,11 @@
 <div class="auth-container">
     <div class="auth-card">
         <h2>Sign Up</h2>
-        {% if request.user.is_superuser %}
-        <form method="post" action="{% url 'account_signup' %}">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn-primary">Sign Up</button>
-        </form>
-        {% else %}
         <div>
             <p>
                 You have no access to use this page. Please contact with the site admin!
             </p>
         </div>
-{% endif %}
     </div>
 </div>
 {% endblock %}

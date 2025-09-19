@@ -987,6 +987,8 @@ h3,
    font-size: 0.9rem;
    cursor: pointer;
    transition: 0.2s;
+   text-align: center;
+   margin: 5px auto;
 }
 
 .delete-folder:hover {
@@ -1140,6 +1142,7 @@ h3,
 .gallery-folder a {
    text-decoration: none;
    justify-self: center;
+   margin: 5px auto;
 }
 
 #add-sign {
@@ -1980,6 +1983,10 @@ form button[type="submit"]:hover {
    .event-card {
       width: 85%;
    }
+
+   .review-items {
+      min-width: 80%;
+   }
 }
 
 @media (max-width: 600px) {
@@ -1994,7 +2001,7 @@ form button[type="submit"]:hover {
    }
 
    .next-event {
-      min-width: 0%
+      min-width: 80%
    }
 
    .event {
