@@ -981,6 +981,7 @@ h3,
 /* ====== Delete Folder Button ====== */
 .delete-folder {
    background: var(--danger-color);
+   display: block;
    color: white;
    padding: 6px 12px;
    border-radius: 6px;
@@ -1140,9 +1141,10 @@ h3,
 }
 
 .gallery-folder a {
+   display: inline-block;
    text-decoration: none;
-   justify-self: center;
    margin: 5px auto;
+   text-align: center;
 }
 
 #add-sign {
