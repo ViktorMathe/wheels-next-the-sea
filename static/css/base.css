@@ -15,10 +15,14 @@ body {
    height: 100%;
 }
 
-h1, h2, h3, .hero, .nav a {
-  font-family: 'Oswald', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+h1,
+h2,
+h3,
+.hero,
+.nav a {
+   font-family: 'Oswald', sans-serif;
+   text-transform: uppercase;
+   letter-spacing: 1px;
 }
 
 /* Grid Container */
@@ -289,6 +293,8 @@ h1, h2, h3, .hero, .nav a {
    border-radius: 6px;
    max-width: 600px;
    text-align: center;
+   justify-self: center;
+   min-width: 50%;
    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
    color: #f8f8f8;
 }
@@ -456,6 +462,7 @@ h1, h2, h3, .hero, .nav a {
    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
    border: 1px solid #444;
    justify-items: anchor-center;
+   align-self: center;
 }
 
 #about_us ul {
@@ -1123,7 +1130,7 @@ h1, h2, h3, .hero, .nav a {
    border-style: groove;
    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
    text-align: center;
-   justify-items: center;
+   place-items: center;
    color: #f8f8f8;
    cursor: pointer;
    transition: transform 0.3s ease-in-out;
@@ -1132,7 +1139,7 @@ h1, h2, h3, .hero, .nav a {
 
 .gallery-folder a {
    text-decoration: none;
-   justify-content: center;
+   justify-self: center;
 }
 
 #add-sign {
@@ -1768,8 +1775,8 @@ form button[type="submit"]:hover {
    margin: 20px;
 }
 
-.contact-info h2{
-   justify-self: end;
+.contact-info h2 {
+   place-items: end;
 }
 
 .contact-info h3 {
@@ -1889,6 +1896,10 @@ form button[type="submit"]:hover {
       margin-left: auto;
    }
 
+   .next-event {
+      min-width: 70%;
+   }
+
    .event {
       display: flex;
       max-width: 75%;
@@ -1976,8 +1987,12 @@ form button[type="submit"]:hover {
    }
 
    .gallery-container {
-      grid-template-columns: 0.8fr;
+      grid-template-columns: 1fr;
       /* Stack gallery boxes in one column */
+   }
+
+   .next-event {
+      min-width: 0%
    }
 
    .event {
