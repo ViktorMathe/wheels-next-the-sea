@@ -162,12 +162,13 @@ else:
     ACCOUNT_LOGIN_METHODS = {"username", "email"}  # replaces ACCOUNT_AUTHENTICATION_METHOD
     ACCOUNT_SIGNUP_FIELDS = ["username*", "email*", "password1*", "password2*"]  # replaces ACCOUNT_EMAIL_REQUIRED
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    EMAIL_USE_TLS = True
     EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
+    EMAIL_USE_SSL=False
     EMAIL_HOST = os.environ.get('EMAIL_HOST')
     EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
-    DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+    DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
 # Password validation
