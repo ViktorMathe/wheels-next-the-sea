@@ -3,12 +3,14 @@ from django.conf import settings
 from django.contrib import messages
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import REDIRECT_FIELD_NAME
 from .forms import ContactForm, ContactInfoForm
 from .models import ContactInfo, ContactNotification
 from django.core.signing import Signer, BadSignature
 from django.urls import reverse
 from django.utils.http import urlencode
-from django.utils.html import format_html
+from django.utils.html import format_html, escape
 import traceback
 import logging
 import os
@@ -71,48 +73,56 @@ def contact_page(request):
 
             signer = Signer()
             reply_links_html = ""
-
             for user in User.objects.filter(email__in=recipients, is_superuser=True):
                 contact_token = signer.sign(f"{email}:{name}")
                 url = request.build_absolute_uri(
                     reverse("admin_reply_contact") + "?" + urlencode({"token": contact_token})
                 )
-                # Nice styled button for each superuser
-                reply_links_html += f'''
-                    <p>
-                        <a href="{url}" target="_blank"
-                        style="
-                                display: inline-block;
-                                padding: 10px 20px;
-                                background-color: #1E40AF;
-                                color: #ffffff;
-                                text-decoration: none;
-                                border-radius: 5px;
-                                font-weight: bold;
-                        ">
-                            Reply to {name}
-                        </a>
-                    </p>
-                '''
-
-            # Construct full HTML email body
-            admin_body_html = format_html(
-                "<p><strong>From:</strong> {} &lt;{}&gt;</p>"
-                "<p><strong>Message received:</strong></p>"
-                "<p>{}</p>"
-                "<hr>"
-                "<h4>Reply via site:</h4>"
-                "{}",
-                name, email, message, reply_links_html
-            )
-
-            # Send admin email
+                reply_links_html += f"""
+                    <tr>
+                        <td align="center" style="padding: 10px 0;">
+                            <a href="{url}" target="_blank" 
+                               style="
+                                    display: inline-block;
+                                    padding: 12px 24px;
+                                    background-color: #1E40AF;
+                                    color: #ffffff;
+                                    text-decoration: none;
+                                    border-radius: 6px;
+                                    font-weight: bold;
+                                    font-family: Arial, sans-serif;
+                               ">
+                               Reply to {escape(name)}
+                            </a>
+                        </td>
+                    </tr>
+                """
+            
+            # Construct full HTML email
+            admin_body_html = f"""
+            <html>
+              <body style="font-family: Arial, sans-serif; color: #111; line-height: 1.5;">
+                <h2>New Contact Message Received</h2>
+                <p><strong>From:</strong> {escape(name)} &lt;{escape(email)}&gt;</p>
+                <p><strong>Message:</strong></p>
+                <p>{escape(message)}</p>
+                <hr style="border: 1px solid #ccc;">
+                <h3>Reply via site:</h3>
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                    {reply_links_html}
+                </table>
+                <p style="color:#555; font-size: 12px;">This email is sent automatically. Only intended recipients (superusers) can use the links.</p>
+              </body>
+            </html>
+            """
+            
+            # Send HTML email
             admin_sent = send_email_message(
                 subject=f"New Contact Message from {name}",
                 body=admin_body_html,
                 to=recipients,
                 from_email=settings.EMAIL_HOST_USER,
-                reply_to=[email],  # reply goes to user if they hit "Reply" in email client
+                reply_to=[email],
                 html=True
             )
 
@@ -155,7 +165,7 @@ def contact_page(request):
     })
 
 
-
+@login_required(login_url='/accounts/login/')
 def admin_reply_contact(request):
     token = request.GET.get("token")
     signer = Signer()
@@ -167,7 +177,6 @@ def admin_reply_contact(request):
         messages.error(request, "Invalid reply link.")
         return redirect("contact_page")
 
-    # Only superusers can access this page
     if not request.user.is_superuser:
         messages.error(request, "You do not have permission to reply.")
         return redirect("contact_page")
