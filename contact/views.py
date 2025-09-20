@@ -23,17 +23,15 @@ def contact_page(request):
                 recipients = [user.email for user in User.objects.filter(is_superuser=True) if user.email]
 
             if recipients:
-                # 1) Send one email with BCC to admins
                 admin_email = EmailMessage(
                     subject=f"New Contact Message from {name}",
                     body=f"From: {name} <{email}>\n\n{message}",
-                    from_email=settings.DEFAULT_FROM_EMAIL,
-                    to=[settings.DEFAULT_FROM_EMAIL],  # just your site address in "To"
-                    bcc=recipients,  # all admins hidden here
+                    from_email=settings.EMAIL_HOST_USER,
+                    to=recipients,  # send directly to superusers
                     reply_to=[email],
                 )
-                admin_email.send()
-
+                admin_email.send(fail_silently=False)
+                
                 # 2) Auto-reply to sender
                 user_email = EmailMessage(
                     subject="Thanks for contacting Wheels Next The Sea",
