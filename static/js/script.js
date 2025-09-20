@@ -6,6 +6,149 @@ document.addEventListener("DOMContentLoaded", function () {
   const dropdownMenu = eventsDropdown.querySelector(".dropdown-menu");
   const editAboutUs = document.getElementById("openModalBtn");
 
+
+  var password1 = document.getElementById("id_password1");
+  var password2 = document.getElementById("id_password2");
+  var passwordRequirements = document.getElementById("password-requirements");
+  var passwordMismatch = document.getElementById("password-mismatch");
+  var passwordMatch = document.getElementById("password-match");
+  var submitButton = document.getElementById("submit_button");
+
+  function checkAvailability(input, url, feedbackElement) {
+    fetch(`${url}?${new URLSearchParams({ [input.name]: input.value })}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok.');
+        }
+        return response.json();
+      })
+      .then(data => {
+        if (data.error) {
+          feedbackElement.textContent = `Error: ${data.error}`;
+          feedbackElement.style.color = 'red';
+        } else if (data.exists) {
+          feedbackElement.textContent = `${input.name.replace(/^\w/, c => c.toUpperCase())} is already taken.`;
+          feedbackElement.style.color = 'red';
+        } else {
+          feedbackElement.textContent = '';
+        }
+        validateForm();
+      })
+      .catch(error => {
+        feedbackElement.textContent = 'Please fill out this field!';
+        feedbackElement.style.color = 'red';
+        validateForm();
+      });
+  }
+
+  function validatePassword() {
+    var length = document.getElementById("length");
+    var uppercase = document.getElementById("uppercase");
+    var numeric = document.getElementById("numeric");
+    var special = document.getElementById("special");
+
+    var isValid = true;
+
+    // Check the length
+    if (password1.value.length >= 8) {
+      length.classList.remove("invalid");
+      length.classList.add("valid");
+    } else {
+      length.classList.remove("valid");
+      length.classList.add("invalid");
+      isValid = false;
+    }
+
+    // Check for uppercase letter
+    if (/[A-Z]/.test(password1.value)) {
+      uppercase.classList.remove("invalid");
+      uppercase.classList.add("valid");
+    } else {
+      uppercase.classList.remove("valid");
+      uppercase.classList.add("invalid");
+      isValid = false;
+    }
+
+    // Check for numeric character
+    if (/[0-9]/.test(password1.value)) {
+      numeric.classList.remove("invalid");
+      numeric.classList.add("valid");
+    } else {
+      numeric.classList.remove("valid");
+      numeric.classList.add("invalid");
+      isValid = false;
+    }
+
+    // Check for special character
+    if (/[\W_]/.test(password1.value)) {
+      special.classList.remove("invalid");
+      special.classList.add("valid");
+    } else {
+      special.classList.remove("valid");
+      special.classList.add("invalid");
+      isValid = false;
+    }
+
+    // Show or hide password requirements
+    passwordRequirements.style.display = "block";
+    if (length.classList.contains("valid") && uppercase.classList.contains("valid") &&
+      numeric.classList.contains("valid") && special.classList.contains("valid")) {
+      passwordRequirements.style.display = "block";
+    }
+
+    if (password1.value !== password2.value) {
+      passwordMatch.style.display = "block";
+      passwordMatch.classList.remove('valid'); // Remove the 'valid' class
+      passwordMatch.classList.add('invalid'); // Add the 'invalid' class
+      passwordMatch.textContent = 'Passwords do not match'; // Set the text content
+      isValid = false;
+    } else {
+      passwordMatch.style.display = "block";
+      passwordMatch.classList.remove('invalid'); // Remove the 'invalid' class
+      passwordMatch.classList.add('valid'); // Add the 'valid' class
+      passwordMatch.textContent = 'Password is matching! :)'; // Set the text content
+    }
+
+    return isValid;
+  }
+
+
+  function validateForm() {
+    var isPasswordValid = validatePassword();
+
+    submitButton.disabled = !(isPasswordValid);
+  }
+
+
+  if (password1 && password2) {
+    password1.addEventListener('input', validatePassword);
+    password2.addEventListener('input', validatePassword);
+  }
+
+  function togglePasswordVisibility(targetId) {
+    var passwordField = document.getElementById(targetId);
+    var type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordField.setAttribute('type', type);
+
+    var eyeIcon = document.querySelector(`.toggle-password[data-target="${targetId}"] i`);
+    eyeIcon.className = type === 'password' ? 'fa fa-eye-slash' : 'fa fa-eye';
+  }
+
+  document.querySelectorAll('.toggle-password').forEach(function (toggleElement) {
+    toggleElement.addEventListener('click', function () {
+      var targetId = this.getAttribute('data-target');
+      togglePasswordVisibility(targetId);
+    });
+  });
+
+  // Remove .remove-bg class when index page loads
+  var elementsWithRemoveBg = document.querySelectorAll('.remove-bg');
+
+  // Loop through each element and remove the class
+  elementsWithRemoveBg.forEach(function (element) {
+    element.classList.remove('remove-bg');
+  });
+
   // Mobile menu toggle
   menuToggle.addEventListener("click", (e) => {
     navList.classList.toggle("active");

@@ -43,12 +43,65 @@ h3,
    color: white;
    padding: 15px;
    position: relative;
-   border-end-end-radius: 5px;
-   border-end-start-radius: 5px;
 }
 
 .hidden {
    display: none !important;
+}
+
+.invalid {
+   color: red;
+   margin: 10px;
+}
+
+.valid {
+   color: green;
+   margin: 10px;
+}
+
+.feedback {
+   color: red;
+   font-size: 0.875em;
+   /* Adjust as needed */
+   margin-top: 0.25em;
+}
+
+.password-container {
+   /* position: absolute; */
+   display: flex;
+   flex-direction: row;
+   margin: 15px;
+}
+
+
+.password-container .toggle-password {
+   margin: 10px;
+   /* transform: translateY(-50%); */
+   cursor: pointer;
+   align-content: center;
+}
+
+.auth-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 80vh;
+}
+
+.auth-container .auth-card {
+   display: flex;
+   flex-direction: column;
+   background: rgba(255, 255, 255, 0.05);
+   padding: 2rem;
+   border-radius: 12px;
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+   max-width: 400px;
+   width: 100%;
+   text-align: center;
+}
+
+.auth-card form input[type="text"] {
+   margin: 10px;
 }
 
 /* Logo */
@@ -146,7 +199,6 @@ h3,
 .content {
    flex-grow: 1;
    background: linear-gradient(180deg, rgba(15, 15, 15, 1) 0%, rgba(44, 44, 44, 1) 100%);
-   border-radius: 5px;
 }
 
 /*Auth pages */
@@ -1745,6 +1797,7 @@ form button[type="submit"] {
    font-size: 1rem;
    cursor: pointer;
    transition: 0.2s ease;
+   width: auto;
 }
 
 form button[type="submit"]:hover {
@@ -1929,7 +1982,7 @@ form button[type="submit"]:hover {
    .nav-list.active {
       display: block;
       top: 1em;
-      z-index: 99;
+      z-index: 99999;
    }
 
    #contact-page {
@@ -2014,5 +2067,12 @@ form button[type="submit"]:hover {
    .next {
       font-size: 20px;
       padding: 5px 10px;
+   }
+
+   .auth-card input[type="checkbox" i] {
+      position: relative;
+      /* left: -45px; */
+      top: -20px;
+      margin-left: 10px;
    }
 }
