@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 from .forms import ContactForm, ContactInfoForm
 from .models import ContactInfo, ContactNotification
 
-
 def contact_page(request):
     contact_info, _ = ContactInfo.objects.get_or_create(id=1)
 
@@ -16,7 +15,7 @@ def contact_page(request):
             email = contact_form.cleaned_data["email"]
             message = contact_form.cleaned_data["message"]
 
-            # Get chosen notification recipients or fallback to all superusers
+            # --- Send email to admins ---
             notification = ContactNotification.objects.first()
             if notification and notification.recipients.exists():
                 recipients = [user.email for user in notification.recipients.all() if user.email]
@@ -28,30 +27,31 @@ def contact_page(request):
                     subject=f"New Contact Message from {name}",
                     body=f"From: {name} <{email}>\n\n{message}",
                     from_email=settings.EMAIL_HOST_USER,
-                    to=recipients,  # send directly to superusers
+                    to=recipients,
                     reply_to=[email],
                 )
                 try:
                     admin_email.send(fail_silently=False)
                 except Exception as e:
                     print(f"Admin email failed: {e}")
-                # 2) Auto-reply to sender
-                user_email = EmailMessage(
-                    subject="Thanks for contacting Wheels Next The Sea",
-                    body=(
-                        f"Hello {name},\n\n"
-                        "Thank you for reaching out to us. "
-                        "We have received your message and will try to respond within 48 hours.\n\n"
-                        "Best regards,\n"
-                        "Wheels Next The Sea Team"
-                    ),
-                    from_email=settings.EMAIL_HOST_USER,
-                    to=[email],
-                )
-                try:
-                    user_email.send(fail_silently=False)
-                except Exception as e:
-                    print(f"User email failed: {e}")
+
+            # --- Send auto-reply to sender (always attempt) ---
+            user_email = EmailMessage(
+                subject="Thanks for contacting Wheels Next The Sea",
+                body=(
+                    f"Hello {name},\n\n"
+                    "Thank you for reaching out to us. "
+                    "We have received your message and will try to respond within 48 hours.\n\n"
+                    "Best regards,\n"
+                    "Wheels Next The Sea Team"
+                ),
+                from_email=settings.EMAIL_HOST_USER,
+                to=[email],
+            )
+            try:
+                user_email.send(fail_silently=False)
+            except Exception as e:
+                print(f"Auto-reply failed: {e}")
 
             return redirect("contact_page")
     else:
