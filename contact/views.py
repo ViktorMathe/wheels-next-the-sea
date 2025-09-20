@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.conf import settings
 from django.core.mail import EmailMessage
 from django.contrib.auth.models import User
+from django.contrib import messages
 from .forms import ContactForm, ContactInfoForm
 from .models import ContactInfo, ContactNotification
 
@@ -35,7 +36,7 @@ def contact_page(request):
                 except Exception as e:
                     print(f"Admin email failed: {e}")
 
-            # --- Send auto-reply to sender (always attempt) ---
+            # --- Send auto-reply to sender ---
             user_email = EmailMessage(
                 subject="Thanks for contacting Wheels Next The Sea",
                 body=(
@@ -47,11 +48,15 @@ def contact_page(request):
                 ),
                 from_email=settings.EMAIL_HOST_USER,
                 to=[email],
+                reply_to=[settings.EMAIL_HOST_USER]
             )
             try:
                 user_email.send(fail_silently=False)
             except Exception as e:
                 print(f"Auto-reply failed: {e}")
+
+            # --- Add success message ---
+            messages.success(request, "Thank you! Your message has been submitted successfully.")
 
             return redirect("contact_page")
     else:
@@ -62,6 +67,7 @@ def contact_page(request):
         info_form = ContactInfoForm(request.POST, instance=contact_info)
         if info_form.is_valid():
             info_form.save()
+            messages.success(request, "Contact information updated successfully.")
             return redirect("contact_page")
     else:
         info_form = ContactInfoForm(instance=contact_info)
