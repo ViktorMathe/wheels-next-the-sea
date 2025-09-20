@@ -70,7 +70,7 @@ h3,
 /* Toast container */
 #toast-container {
     position: fixed;
-    top: 20px;
+    top: 10%;
     right: 20px;
     z-index: 9999;
 }

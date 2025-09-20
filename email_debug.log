@@ -1,0 +1,62 @@
+Watching for file changes with StatReloader
+"POST /contact/ HTTP/1.1" 302 0
+"GET /contact/ HTTP/1.1" 200 7768
+"GET /static/js/script.js HTTP/1.1" 304 0
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 36643
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3544
+"GET /contact/ HTTP/1.1" 200 7540
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 36641
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3544
+"POST /contact/ HTTP/1.1" 302 0
+"GET /contact/ HTTP/1.1" 200 7768
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /contact/ HTTP/1.1" 200 7540
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 36642
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3544
+"POST /contact/ HTTP/1.1" 302 0
+"GET /contact/ HTTP/1.1" 200 7768
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+"POST /contact/ HTTP/1.1" 302 0
+"GET /contact/ HTTP/1.1" 200 7768
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/contact/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/contact/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/contact/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/contact/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/contact/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/contact/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/contact/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/contact/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/contact/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/contact/views.py changed, reloading.
+Watching for file changes with StatReloader

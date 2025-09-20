@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="max-width: 600px; margin: 40px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background: #f9f9f9;">
+    <h2 style="color: #1E40AF;">Reply to {{ contact_name }}</h2>
+    <p><strong>Email:</strong> {{ contact_email }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <div style="margin-bottom: 15px;">
+            <label for="reply_message" style="display:block; margin-bottom:5px;">Your reply:</label>
+            <textarea id="reply_message" name="reply_message" rows="6" style="width:100%; padding:10px; border-radius:5px; border:1px solid #ccc;"></textarea>
+        </div>
+        <button type="submit" style="padding:10px 20px; background-color:#1E40AF; color:white; border:none; border-radius:5px; font-weight:bold; cursor:pointer;">
+            Send Reply
+        </button>
+    </form>
+</div>
+{% endblock %}
