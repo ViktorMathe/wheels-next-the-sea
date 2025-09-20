@@ -42,7 +42,7 @@ def contact_page(request):
                         "Best regards,\n"
                         "Wheels Next The Sea Team"
                     ),
-                    from_email=settings.DEFAULT_FROM_EMAIL,
+                    from_email=settings.EMAIL_HOST_USER,
                     to=[email],
                 )
                 user_email.send()
