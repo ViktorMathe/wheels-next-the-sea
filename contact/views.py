@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.conf import settings
-from django.core.mail import EmailMessage
+from django.core.mail import EmailMessage, get_connection
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import ContactForm, ContactInfoForm
@@ -9,6 +9,35 @@ import traceback
 import os
 
 ADMIN_EMAIL = os.environ.get("ADMIN_EMAIL")
+
+# --- Add this helper function here ---
+def send_email_message(subject, body, to, reply_to=None):
+    try:
+        # Create a new connection for each email
+        connection = get_connection(fail_silently=False)
+        email = EmailMessage(
+            subject=subject,
+            body=body,
+            from_email=settings.EMAIL_HOST_USER,
+            to=to,
+            reply_to=reply_to if reply_to else []
+        )
+        email.connection = connection
+        email.send()
+        return True
+    except Exception as e:
+        if ADMIN_EMAIL:
+            try:
+                error_email = EmailMessage(
+                    subject="Email sending error",
+                    body=f"Error details:\n\n{traceback.format_exc()}",
+                    from_email=settings.EMAIL_HOST_USER,
+                    to=[ADMIN_EMAIL]
+                )
+                error_email.send(fail_silently=True)
+            except:
+                pass
+        return False
 
 def contact_page(request):
     contact_info, _ = ContactInfo.objects.get_or_create(id=1)
@@ -20,75 +49,41 @@ def contact_page(request):
             email = contact_form.cleaned_data["email"]
             message = contact_form.cleaned_data["message"]
 
-            email_success = True
+            # --- Send admin notification ---
+            recipients = []
+            notification = ContactNotification.objects.first()
+            if notification and notification.recipients.exists():
+                recipients = [user.email for user in notification.recipients.all() if user.email]
+            else:
+                recipients = [user.email for user in User.objects.filter(is_superuser=True) if user.email]
 
-            # --- Send email to admins ---
-            try:
-                notification = ContactNotification.objects.first()
-                if notification and notification.recipients.exists():
-                    recipients = [user.email for user in notification.recipients.all() if user.email]
-                else:
-                    recipients = [user.email for user in User.objects.filter(is_superuser=True) if user.email]
+            admin_sent = send_email_message(
+                subject=f"New Contact Message from {name}",
+                body=f"From: {name} <{email}>\n\n{message}",
+                from_email=settings.EMAIL_HOST_USER,
+                to=recipients,
+                reply_to=[email]
+            )
 
-                if recipients:
-                    admin_email = EmailMessage(
-                        subject=f"New Contact Message from {name}",
-                        body=f"From: {name} <{email}>\n\n{message}",
-                        from_email=settings.EMAIL_HOST_USER,
-                        to=recipients,
-                        reply_to=[email],
-                    )
-                    admin_email.send(fail_silently=False)
-                    
-                    # --- Send auto-reply to sender ---
-                try:
-                    user_email = EmailMessage(
-                        subject="Thanks for contacting Wheels Next The Sea",
-                        body=(
-                            f"Hello {name},\n\n"
-                            "Thank you for reaching out to us. "
-                            "We have received your message and will try to respond within 48 hours.\n\n"
-                            "Best regards,\n"
-                            "Wheels Next The Sea Team"
-                        ),
-                        from_email=settings.EMAIL_HOST_USER,
-                        to=[email],
-                        reply_to=[settings.EMAIL_HOST_USER]
-                    )
-                    user_email.send(fail_silently=False)
-                except Exception as e:
-                    email_success = False
-                    if ADMIN_EMAIL:
-                        error_email = EmailMessage(
-                            subject="Error sending auto-reply email",
-                            body=f"Error details:\n\n{traceback.format_exc()}",
-                            from_email=settings.EMAIL_HOST_USER,
-                            to=[ADMIN_EMAIL]
-                        )
-                        try:
-                            error_email.send(fail_silently=True)
-                        except:
-                            pass
-            except Exception as e:
-                email_success = False
-                # send email about this error to ADMIN_EMAIL
-                if ADMIN_EMAIL:
-                    error_email = EmailMessage(
-                        subject="Error sending contact form email",
-                        body=f"Error details:\n\n{traceback.format_exc()}",
-                        from_email=settings.EMAIL_HOST_USER,
-                        to=[ADMIN_EMAIL]
-                    )
-                    try:
-                        error_email.send(fail_silently=True)
-                    except:
-                        pass
+            # --- Send auto-reply to user ---
+            user_sent = send_email_message(
+                subject="Thanks for contacting Wheels Next The Sea",
+                body=(
+                    f"Hello {name},\n\n"
+                    "Thank you for reaching out to us. "
+                    "We have received your message and will try to respond within 48 hours.\n\n"
+                    "Best regards,\n"
+                    "Wheels Next The Sea Team"
+                ),
+                from_email=settings.EMAIL_HOST_USER,
+                to=[email],
+                reply_to=[settings.EMAIL_HOST_USER]
+            )
 
-            # --- User message ---
-            if email_success:
+            if admin_sent and user_sent:
                 messages.success(request, "Your message has been sent successfully!")
             else:
-                messages.error(request, "There is some error, please try again later!")
+                messages.error(request, "There was an error sending your message. Please try again later.")
 
             return redirect("contact_page")
     else:
