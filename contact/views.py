@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from .forms import ContactForm, ContactInfoForm
 from .models import ContactInfo, ContactNotification
 
+
 def contact_page(request):
     contact_info, _ = ContactInfo.objects.get_or_create(id=1)
 

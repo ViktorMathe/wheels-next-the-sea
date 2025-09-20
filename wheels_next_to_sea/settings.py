@@ -67,6 +67,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
+    'middleware.error_email_middleware.ExceptionEmailMiddleware',
 ]
 
 ROOT_URLCONF = 'wheels_next_to_sea.urls'

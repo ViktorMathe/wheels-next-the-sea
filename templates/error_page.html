@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Something went wrong{% endblock %}
+
+{% block content %}
+<div class="error-page-container">
+    <h1>Oops! Something went wrong.</h1>
+    <p>Please contact the site admin if the issue persists.</p>
+    <a href="{{ back_url }}" class="error-back-button">Go Back</a>
+</div>
+{% endblock %}
