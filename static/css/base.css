@@ -1205,9 +1205,16 @@ h3,
    border-style: ridge;
    width: 50px;
    padding: 15px;
-   justify-self: center;
+   /* display: flex
+; */
+   /* justify-content: center; */
+   /* justify-self: center; */
    font-size: 250%;
    cursor: pointer;
+   display: inline-block;
+   text-decoration: none;
+   margin: 5px auto;
+   text-align: center;
 }
 
 #add-sign:hover {

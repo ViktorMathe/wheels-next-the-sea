@@ -157,9 +157,10 @@ if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEFAULT_FROM_EMAIL = 'admin@wheelsnextthesea.co.uk'
 else:
-    ACCOUNT_EMAIL_VERIFICATION = "mandatory"
-    ACCOUNT_EMAIL_REQUIRED = True
-    ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+    # New allauth configuration
+    ACCOUNT_EMAIL_VERIFICATION = "mandatory"  # still valid, not deprecated
+    ACCOUNT_LOGIN_METHODS = {"username", "email"}  # replaces ACCOUNT_AUTHENTICATION_METHOD
+    ACCOUNT_SIGNUP_FIELDS = ["username*", "email*", "password1*", "password2*"]  # replaces ACCOUNT_EMAIL_REQUIRED
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_USE_TLS = True
     EMAIL_PORT = 587
