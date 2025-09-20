@@ -48,8 +48,47 @@
         <main class="content">
             {% block content %}
             {% endblock %}
+            {% if messages %}
+                <div id="toast-container">
+                </div>
+            {% endif %}
         </main>
         <script src="{% static 'js/script.js' %}"></script>
+        <script>
+              function showToast(message, type = 'success', duration = 4000) {
+                const container = document.getElementById('toast-container');
+                if (!container) return;
+
+                const toast = document.createElement('div');
+                toast.className = `toast ${type}`;
+                toast.innerHTML = `
+                    <span class="toast-message">${message}</span>
+                    <span class="toast-close">&times;</span>
+                `;
+
+                container.appendChild(toast);
+
+                // Close button functionality
+                toast.querySelector('.toast-close').onclick = () => {
+                toast.style.animation = 'slideout 0.5s forwards';
+                setTimeout(() => toast.remove(), 500);
+                };
+
+                // Auto-remove after duration
+                setTimeout(() => {
+                toast.style.animation = 'slideout 0.5s forwards';
+                setTimeout(() => toast.remove(), 500);
+                }, duration);
+            }
+            // Render Django messages as toasts
+            document.addEventListener("DOMContentLoaded", () => {
+                {% if messages %}
+                    {% for message in messages %}
+                        showToast("{{ message|escapejs }}", "{{ message.tags }}");
+                    {% endfor %}
+                {% endif %}
+            });
+        </script>
         <footer class="footer">
             <div class="footer-container">
                 <div class="footer-dev">
@@ -74,5 +113,4 @@
         </footer>
     </div>
 </body>
-
 </html>
