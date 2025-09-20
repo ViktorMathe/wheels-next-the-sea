@@ -70,57 +70,49 @@ def contact_page(request):
             )
 
             signer = Signer()
-            reply_links = []
+            reply_links_html = ""
+
             for user in User.objects.filter(email__in=recipients, is_superuser=True):
                 contact_token = signer.sign(f"{email}:{name}")
                 url = request.build_absolute_uri(
                     reverse("admin_reply_contact") + "?" + urlencode({"token": contact_token})
                 )
-                reply_links.append(f"{user.email}: {url}")
-
-            admin_body = f"From: {name} <{email}>\n\nMessage received:\n{message}\n\n"
-            if reply_links:
-                reply_links_html = ""
-                for user in User.objects.filter(email__in=recipients, is_superuser=True):
-                    contact_token = signer.sign(f"{email}:{name}")
-                    url = request.build_absolute_uri(
-                        reverse("admin_reply_contact") + "?" + urlencode({"token": contact_token})
-                    )
-                    reply_links_html += f'''
-                        <p>
-                            <a href="{url}" target="_blank" 
-                            style="
+                # Nice styled button for each superuser
+                reply_links_html += f'''
+                    <p>
+                        <a href="{url}" target="_blank"
+                        style="
                                 display: inline-block;
                                 padding: 10px 20px;
-                                background-color: #1E40AF; 
-                                color: white; 
-                                text-decoration: none; 
+                                background-color: #1E40AF;
+                                color: #ffffff;
+                                text-decoration: none;
                                 border-radius: 5px;
                                 font-weight: bold;
-                            ">
+                        ">
                             Reply to {name}
-                            </a>
-                        </p>
-                        '''
+                        </a>
+                    </p>
+                '''
 
-                # Admin email body (HTML)
-                admin_body_html = format_html(
-                    "<p>From: {} &lt;{}&gt;</p>"
-                    "<p>Message received:</p>"
-                    "<p>{}</p>"
-                    "<hr>"
-                    "<h4>Reply via site:</h4>"
-                    "{}",
-                    name, email, message, reply_links_html
-                )
+            # Construct full HTML email body
+            admin_body_html = format_html(
+                "<p><strong>From:</strong> {} &lt;{}&gt;</p>"
+                "<p><strong>Message received:</strong></p>"
+                "<p>{}</p>"
+                "<hr>"
+                "<h4>Reply via site:</h4>"
+                "{}",
+                name, email, message, reply_links_html
+            )
 
-
+            # Send admin email
             admin_sent = send_email_message(
                 subject=f"New Contact Message from {name}",
                 body=admin_body_html,
                 to=recipients,
                 from_email=settings.EMAIL_HOST_USER,
-                reply_to=[email],
+                reply_to=[email],  # reply goes to user if they hit "Reply" in email client
                 html=True
             )
 
@@ -163,6 +155,7 @@ def contact_page(request):
     })
 
 
+
 def admin_reply_contact(request):
     token = request.GET.get("token")
     signer = Signer()
@@ -171,9 +164,10 @@ def admin_reply_contact(request):
         email_name = signer.unsign(token)
         contact_email, contact_name = email_name.split(":", 1)
     except BadSignature:
-        messages.error(request, "Invalid or expired reply link.")
+        messages.error(request, "Invalid reply link.")
         return redirect("contact_page")
 
+    # Only superusers can access this page
     if not request.user.is_superuser:
         messages.error(request, "You do not have permission to reply.")
         return redirect("contact_page")
