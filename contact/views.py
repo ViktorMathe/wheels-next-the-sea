@@ -60,7 +60,6 @@ def contact_page(request):
             admin_sent = send_email_message(
                 subject=f"New Contact Message from {name}",
                 body=f"From: {name} <{email}>\n\n{message}",
-                from_email=settings.EMAIL_HOST_USER,
                 to=recipients,
                 reply_to=[email]
             )
@@ -75,7 +74,6 @@ def contact_page(request):
                     "Best regards,\n"
                     "Wheels Next The Sea Team"
                 ),
-                from_email=settings.EMAIL_HOST_USER,
                 to=[email],
                 reply_to=[settings.EMAIL_HOST_USER]
             )
