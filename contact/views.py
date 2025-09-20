@@ -16,6 +16,8 @@ def contact_page(request):
             email = contact_form.cleaned_data["email"]
             message = contact_form.cleaned_data["message"]
 
+            email_success = True
+
             # --- Send email to admins ---
             notification = ContactNotification.objects.first()
             if notification and notification.recipients.exists():
@@ -34,7 +36,8 @@ def contact_page(request):
                 try:
                     admin_email.send(fail_silently=False)
                 except Exception as e:
-                    print(f"Admin email failed: {e}")
+                    email_success = False
+                    messages.error(request, f"Admin email failed: {e}")
 
             # --- Send auto-reply to sender ---
             user_email = EmailMessage(
@@ -53,10 +56,11 @@ def contact_page(request):
             try:
                 user_email.send(fail_silently=False)
             except Exception as e:
-                print(f"Auto-reply failed: {e}")
+                email_success = False
+                messages.error(request, f"Auto-reply failed: {e}")
 
-            # --- Add success message ---
-            messages.success(request, "Thank you! Your message has been submitted successfully.")
+            if email_success:
+                messages.success(request, "Thank you! Your message has been submitted successfully.")
 
             return redirect("contact_page")
     else:

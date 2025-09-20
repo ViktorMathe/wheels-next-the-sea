@@ -2,11 +2,11 @@
 {% block content %}
   <div id="contact-page">
     {% if messages %}
-      <ul class="messages">
+      <div id="toast-container">
         {% for message in messages %}
-          <li class="message {{ message.tags }}">{{ message }}</li>
+          <div class="toast {{ message.tags }}">{{ message }}</div>
         {% endfor %}
-      </ul>
+      </div>
     {% endif %}
     <div class="contact-container">
       <!-- Contact Form -->
