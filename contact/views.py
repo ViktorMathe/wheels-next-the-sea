@@ -74,7 +74,8 @@ def contact_page(request):
                     "Best regards,\n"
                     "Wheels Next The Sea Team"
                 ),
-                to=[email],
+                to=[email]
+                from_email=settings.EMAIL_HOST_USER,
                 reply_to=[settings.EMAIL_HOST_USER]
             )
 
