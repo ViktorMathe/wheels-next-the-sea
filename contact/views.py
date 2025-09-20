@@ -39,42 +39,42 @@ def contact_page(request):
                         reply_to=[email],
                     )
                     admin_email.send(fail_silently=False)
+                    
+                    # --- Send auto-reply to sender ---
+                try:
+                    user_email = EmailMessage(
+                        subject="Thanks for contacting Wheels Next The Sea",
+                        body=(
+                            f"Hello {name},\n\n"
+                            "Thank you for reaching out to us. "
+                            "We have received your message and will try to respond within 48 hours.\n\n"
+                            "Best regards,\n"
+                            "Wheels Next The Sea Team"
+                        ),
+                        from_email=settings.EMAIL_HOST_USER,
+                        to=[email],
+                        reply_to=[settings.EMAIL_HOST_USER]
+                    )
+                    user_email.send(fail_silently=False)
+                except Exception as e:
+                    email_success = False
+                    if ADMIN_EMAIL:
+                        error_email = EmailMessage(
+                            subject="Error sending auto-reply email",
+                            body=f"Error details:\n\n{traceback.format_exc()}",
+                            from_email=settings.EMAIL_HOST_USER,
+                            to=[ADMIN_EMAIL]
+                        )
+                        try:
+                            error_email.send(fail_silently=True)
+                        except:
+                            pass
             except Exception as e:
                 email_success = False
                 # send email about this error to ADMIN_EMAIL
                 if ADMIN_EMAIL:
                     error_email = EmailMessage(
                         subject="Error sending contact form email",
-                        body=f"Error details:\n\n{traceback.format_exc()}",
-                        from_email=settings.EMAIL_HOST_USER,
-                        to=[ADMIN_EMAIL]
-                    )
-                    try:
-                        error_email.send(fail_silently=True)
-                    except:
-                        pass
-
-            # --- Send auto-reply to sender ---
-            try:
-                user_email = EmailMessage(
-                    subject="Thanks for contacting Wheels Next The Sea",
-                    body=(
-                        f"Hello {name},\n\n"
-                        "Thank you for reaching out to us. "
-                        "We have received your message and will try to respond within 48 hours.\n\n"
-                        "Best regards,\n"
-                        "Wheels Next The Sea Team"
-                    ),
-                    from_email=settings.EMAIL_HOST_USER,
-                    to=[email],
-                    reply_to=[settings.EMAIL_HOST_USER]
-                )
-                user_email.send(fail_silently=False)
-            except Exception as e:
-                email_success = False
-                if ADMIN_EMAIL:
-                    error_email = EmailMessage(
-                        subject="Error sending auto-reply email",
                         body=f"Error details:\n\n{traceback.format_exc()}",
                         from_email=settings.EMAIL_HOST_USER,
                         to=[ADMIN_EMAIL]
