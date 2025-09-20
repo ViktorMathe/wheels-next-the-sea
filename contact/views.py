@@ -1,14 +1,13 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.core.mail import send_mail
+from django.shortcuts import render, redirect
+from django.conf import settings
+from django.core.mail import EmailMessage
 from django.contrib.auth.models import User
 from .forms import ContactForm, ContactInfoForm
-from .models import ContactInfo
+from .models import ContactInfo, ContactNotification
 
 def contact_page(request):
-    # Get contact info (or create default one)
     contact_info, _ = ContactInfo.objects.get_or_create(id=1)
 
-    # Handle contact form (sends email)
     if request.method == "POST" and "contact_submit" in request.POST:
         contact_form = ContactForm(request.POST)
         if contact_form.is_valid():
@@ -16,21 +15,45 @@ def contact_page(request):
             email = contact_form.cleaned_data["email"]
             message = contact_form.cleaned_data["message"]
 
-            # Get superuser email
-            superuser = User.objects.filter(is_superuser=True).first()
-            if superuser and superuser.email:
-                send_mail(
-                    subject=f"New Contact Message from {name}",
-                    message=f"From: {name} <{email}>\n\n{message}",
-                    from_email=email,
-                    recipient_list=[superuser.email],
-                )
-            return redirect("contact_page")
+            # Get chosen notification recipients or fallback to all superusers
+            notification = ContactNotification.objects.first()
+            if notification and notification.recipients.exists():
+                recipients = [user.email for user in notification.recipients.all() if user.email]
+            else:
+                recipients = [user.email for user in User.objects.filter(is_superuser=True) if user.email]
 
+            if recipients:
+                # 1) Send one email with BCC to admins
+                admin_email = EmailMessage(
+                    subject=f"New Contact Message from {name}",
+                    body=f"From: {name} <{email}>\n\n{message}",
+                    from_email=settings.DEFAULT_FROM_EMAIL,
+                    to=[settings.DEFAULT_FROM_EMAIL],  # just your site address in "To"
+                    bcc=recipients,  # all admins hidden here
+                    reply_to=[email],
+                )
+                admin_email.send()
+
+                # 2) Auto-reply to sender
+                user_email = EmailMessage(
+                    subject="Thanks for contacting Wheels Next The Sea",
+                    body=(
+                        f"Hello {name},\n\n"
+                        "Thank you for reaching out to us. "
+                        "We have received your message and will try to respond within 48 hours.\n\n"
+                        "Best regards,\n"
+                        "Wheels Next The Sea Team"
+                    ),
+                    from_email=settings.DEFAULT_FROM_EMAIL,
+                    to=[email],
+                )
+                user_email.send()
+
+            return redirect("contact_page")
     else:
         contact_form = ContactForm()
 
-    # Handle superuser editing ContactInfo
+    # Superuser editing contact info
     if request.method == "POST" and "info_submit" in request.POST and request.user.is_superuser:
         info_form = ContactInfoForm(request.POST, instance=contact_info)
         if info_form.is_valid():

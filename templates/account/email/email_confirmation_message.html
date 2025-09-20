@@ -1,0 +1,22 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans "Confirm your email" %}</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f4; text-align: center; padding: 40px; }
+        .container { background: #fff; padding: 30px; border-radius: 10px; display: inline-block; }
+        .btn { display: inline-block; padding: 12px 24px; background-color: #007bff; color: white; text-decoration: none; border-radius: 6px; margin-top: 20px; }
+        .btn:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>{% trans "Welcome!" %}</h2>
+        <p>{% trans "Please confirm your email address to complete your registration." %}</p>
+        <a href="{{ activate_url }}" class="btn">{% trans "Confirm Email" %}</a>
+        <p>{% trans "If you did not register, you can ignore this email." %}</p>
+    </div>
+</body>
+</html>
