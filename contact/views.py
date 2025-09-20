@@ -30,8 +30,10 @@ def contact_page(request):
                     to=recipients,  # send directly to superusers
                     reply_to=[email],
                 )
-                admin_email.send(fail_silently=False)
-                
+                try:
+                    admin_email.send(fail_silently=False)
+                except Exception as e:
+                    print(f"Admin email failed: {e}")
                 # 2) Auto-reply to sender
                 user_email = EmailMessage(
                     subject="Thanks for contacting Wheels Next The Sea",
