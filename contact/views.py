@@ -48,7 +48,10 @@ def contact_page(request):
                     from_email=settings.EMAIL_HOST_USER,
                     to=[email],
                 )
-                user_email.send()
+                try:
+                    user_email.send(fail_silently=False)
+                except Exception as e:
+                    print(f"User email failed: {e}")
 
             return redirect("contact_page")
     else:
