@@ -10,22 +10,21 @@ import os
 
 ADMIN_EMAIL = os.environ.get("ADMIN_EMAIL")
 
-# --- Add this helper function here ---
-def send_email_message(subject, body, to, reply_to=None):
+# --- Helper function ---
+def send_email_message(subject, body, to, from_email=None, reply_to=None):
     try:
-        # Create a new connection for each email
         connection = get_connection(fail_silently=False)
         email = EmailMessage(
             subject=subject,
             body=body,
-            from_email=settings.EMAIL_HOST_USER,
+            from_email=from_email if from_email else settings.EMAIL_HOST_USER,
             to=to,
             reply_to=reply_to if reply_to else []
         )
         email.connection = connection
         email.send()
         return True
-    except Exception as e:
+    except Exception:
         if ADMIN_EMAIL:
             try:
                 error_email = EmailMessage(
@@ -39,6 +38,7 @@ def send_email_message(subject, body, to, reply_to=None):
                 pass
         return False
 
+
 def contact_page(request):
     contact_info, _ = ContactInfo.objects.get_or_create(id=1)
 
@@ -50,7 +50,6 @@ def contact_page(request):
             message = contact_form.cleaned_data["message"]
 
             # --- Send admin notification ---
-            recipients = []
             notification = ContactNotification.objects.first()
             if notification and notification.recipients.exists():
                 recipients = [user.email for user in notification.recipients.all() if user.email]
@@ -61,10 +60,11 @@ def contact_page(request):
                 subject=f"New Contact Message from {name}",
                 body=f"From: {name} <{email}>\n\n{message}",
                 to=recipients,
-                reply_to=[email]
+                from_email=settings.EMAIL_HOST_USER,  # must match your verified SMTP email
+                reply_to=[email]  # reply will go to the user
             )
 
-            # --- Send auto-reply to user ---
+            # --- Send auto-reply to user (Gmail-safe) ---
             user_sent = send_email_message(
                 subject="Thanks for contacting Wheels Next The Sea",
                 body=(
@@ -75,8 +75,8 @@ def contact_page(request):
                     "Wheels Next The Sea Team"
                 ),
                 to=[email],
-                from_email=settings.EMAIL_HOST_USER,
-                reply_to=[settings.EMAIL_HOST_USER]
+                from_email=settings.EMAIL_HOST_USER,  # MUST match your SMTP verified email
+                reply_to=[settings.EMAIL_HOST_USER]   # reply-to points to your site email
             )
 
             if admin_sent and user_sent:
