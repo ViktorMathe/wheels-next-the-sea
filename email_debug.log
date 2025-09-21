@@ -60,3 +60,127 @@ Watching for file changes with StatReloader
 Watching for file changes with StatReloader
 /Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/contact/views.py changed, reloading.
 Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /contact/ HTTP/1.1" 200 7540
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /static/js/script.js HTTP/1.1" 304 0
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3544
+"POST /contact/ HTTP/1.1" 302 0
+"GET /contact/ HTTP/1.1" 200 7768
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+"GET /accounts/logout/ HTTP/1.1" 200 4827
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+"POST /accounts/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 7212
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+"GET /contact/reply/?token=ASD%40ASD.COM%3AASD%3AASDASDASDSADSA%3AEYNvT8R_H8Fi3nM3BCkEnB_PV3g9T8VTsX7JEGv3nd0&next=%2Fcontact%2F HTTP/1.1" 302 0
+"GET /accounts/login/?next=/contact/reply/%3Ftoken%3DASD%2540ASD.COM%253AASD%253AASDASDASDSADSA%253AEYNvT8R_H8Fi3nM3BCkEnB_PV3g9T8VTsX7JEGv3nd0%26next%3D%252Fcontact%252F HTTP/1.1" 200 5504
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 9930
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/contact/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 9710
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+"GET /contact/ HTTP/1.1" 200 7540
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+"GET /accounts/logout/ HTTP/1.1" 200 4827
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+"POST /accounts/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 7212
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+"GET /contact/ HTTP/1.1" 200 6286
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+"POST /contact/ HTTP/1.1" 302 0
+"GET /contact/ HTTP/1.1" 200 6514
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+"GET /contact/reply/?token=asdsa%40asdasd.com%3Aasdasdasd%3Aasdasdasdsd%3AcXDFlhVBR9Itls_MTyjNcGqI7tzdDYx7Nu3hSu-xav4 HTTP/1.1" 302 0
+"GET /accounts/login/?next=/contact/reply/%3Ftoken%3Dasdsa%2540asdasd.com%253Aasdasdasd%253Aasdasdasdsd%253AcXDFlhVBR9Itls_MTyjNcGqI7tzdDYx7Nu3hSu-xav4 HTTP/1.1" 200 5504
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 9930
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+"GET /accounts/logout/ HTTP/1.1" 200 4827
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+"POST /accounts/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 7212
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+"GET /contact/ HTTP/1.1" 200 6286
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+"POST /contact/ HTTP/1.1" 302 0
+"GET /contact/ HTTP/1.1" 200 6514
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+- Broken pipe from ('127.0.0.1', 56474)
+"GET /contact/reply/?token=jk%40gf.com%3Ajhijhjh%3Ahghugy%3ApqVJThCNOIj9oz5icSjY2gCgBiIz5tTPue8mocyPvZM HTTP/1.1" 302 0
+"GET /accounts/login/?next=/contact/reply/%3Ftoken%3Djk%2540gf.com%253Ajhijhjh%253Ahghugy%253ApqVJThCNOIj9oz5icSjY2gCgBiIz5tTPue8mocyPvZM HTTP/1.1" 200 5586
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 9930
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+"GET / HTTP/1.1" 200 9710
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+- Broken pipe from ('127.0.0.1', 56970)
+"GET /accounts/logout/ HTTP/1.1" 200 4827
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+"POST /accounts/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 7212
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+"GET /contact/ HTTP/1.1" 200 6286
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+"GET /contact/ HTTP/1.1" 200 6286
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 36642
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3544
+"POST /contact/ HTTP/1.1" 302 0
+"GET /contact/ HTTP/1.1" 200 6514
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+"GET /contact/reply/?token=asdasd%40asdasd.com%3Aasdasd%3Aasdasdasdasasdasdasdsad%3Azvfos1dnx8y9hsJ-sB0eGlQBktkNtzqFb_ExNt8r_DU HTTP/1.1" 302 0
+"GET /accounts/login/?next=/contact/reply/%3Ftoken%3Dasdasd%2540asdasd.com%253Aasdasd%253Aasdasdasdasasdasdasdsad%253Azvfos1dnx8y9hsJ-sB0eGlQBktkNtzqFb_ExNt8r_DU HTTP/1.1" 200 5708
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET /contact/reply/?token=asdasd%40asdasd.com%3Aasdasd%3Aasdasdasdasasdasdasdsad%3Azvfos1dnx8y9hsJ-sB0eGlQBktkNtzqFb_ExNt8r_DU HTTP/1.1" 200 5527
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+"POST /contact/reply/?token=asdasd%40asdasd.com%3Aasdasd%3Aasdasdasdasasdasdasdsad%3Azvfos1dnx8y9hsJ-sB0eGlQBktkNtzqFb_ExNt8r_DU HTTP/1.1" 302 0
+"GET /contact/ HTTP/1.1" 200 7769
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+"GET / HTTP/1.1" 200 9710
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/contact/views.py changed, reloading.
+Watching for file changes with StatReloader

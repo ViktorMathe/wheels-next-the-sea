@@ -75,13 +75,14 @@ def contact_page(request):
             reply_links_html = ""
             for user in User.objects.filter(email__in=recipients, is_superuser=True):
                 contact_token = signer.sign(f"{email}:{name}:{message}")
-                url = request.build_absolute_uri(
+                # Build the reply link (include token)
+                reply_url = request.build_absolute_uri(
                     reverse("admin_reply_contact") + "?" + urlencode({"token": contact_token})
                 )
                 reply_links_html += f"""
                     <tr>
                         <td align="center" style="padding: 10px 0;">
-                            <a href="{url}" target="_blank" 
+                            <a href="{reply_url}" target="_blank" 
                                style="
                                     display: inline-block;
                                     padding: 12px 24px;
@@ -171,7 +172,6 @@ def admin_reply_contact(request):
     signer = Signer()
 
     try:
-        email_name = signer.unsign(token)
         contact_email, contact_name, original_message = signer.unsign(token).split(":", 2)
     except BadSignature:
         messages.error(request, "Invalid reply link.")
@@ -183,18 +183,34 @@ def admin_reply_contact(request):
 
     if request.method == "POST":
         reply_message = request.POST.get("reply_message")
+        email_body = f"""
+            <html>
+            <body style="font-family: Arial, sans-serif; color: #111; line-height: 1.5;">
+                <p>{reply_message}</p>
+                <hr style="border: 1px solid #ccc; margin: 20px 0;">
+                <p style="font-size: 13px; color: #555;">
+                    Wheels Next The Sea<br>
+                    Website: <a href="https://wheelsnextthesea.co.uk" style="color: #1E40AF; text-decoration: none;">www.wheelsnextthesea.co.uk</a><br>
+                    Email: <a href="mailto:{settings.EMAIL_HOST_USER}" style="color: #1E40AF; text-decoration: none;">{settings.EMAIL_HOST_USER}</a><br>
+                    Thank you for contacting us. We appreciate your message.
+                </p>
+            </body>
+            </html>
+            """
+
         send_email_message(
-            subject=f"Reply from Wheels Next The Sea",
-            body=reply_message,
-            to=[contact_email],
-            from_email=settings.EMAIL_HOST_USER,
-            reply_to=[settings.EMAIL_HOST_USER]
-        )
+                subject=f"Reply from Wheels Next The Sea",
+                body=email_body,
+                to=[contact_email],
+                from_email=settings.EMAIL_HOST_USER,
+                reply_to=[settings.EMAIL_HOST_USER],
+                html=True
+            )
         messages.success(request, f"Reply sent to {contact_name} ({contact_email})!")
         return redirect("contact_page")
 
     return render(request, "admin_reply_contact.html", {
         "contact_name": contact_name,
         "contact_email": contact_email,
-        "original_message": message,
+        "original_message": original_message,
     })

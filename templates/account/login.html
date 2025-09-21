@@ -6,6 +6,10 @@
         <h2>Login</h2>
         <form method="post" action="{% url 'account_login' %}">
             {% csrf_token %}
+            
+            {# Preserve the 'next' query parameter #}
+            <input type="hidden" name="next" value="{{ request.GET.next|default:'' }}">
+
             {{ form.as_p }}
             <button type="submit" class="btn-primary">Login</button>
         </form>
