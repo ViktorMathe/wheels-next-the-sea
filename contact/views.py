@@ -74,7 +74,7 @@ def contact_page(request):
             signer = Signer()
             reply_links_html = ""
             for user in User.objects.filter(email__in=recipients, is_superuser=True):
-                contact_token = signer.sign(f"{email}:{name}")
+                contact_token = signer.sign(f"{email}:{name}:{message}")
                 url = request.build_absolute_uri(
                     reverse("admin_reply_contact") + "?" + urlencode({"token": contact_token})
                 )
@@ -172,7 +172,7 @@ def admin_reply_contact(request):
 
     try:
         email_name = signer.unsign(token)
-        contact_email, contact_name = email_name.split(":", 1)
+        contact_email, contact_name, original_message = signer.unsign(token).split(":", 2)
     except BadSignature:
         messages.error(request, "Invalid reply link.")
         return redirect("contact_page")
@@ -196,4 +196,5 @@ def admin_reply_contact(request):
     return render(request, "admin_reply_contact.html", {
         "contact_name": contact_name,
         "contact_email": contact_email,
+        "original_message": message,
     })
