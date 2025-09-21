@@ -12,14 +12,20 @@ from .forms import EventForm
 @superuser_required
 def delete_event(request, event_id):
     event = get_object_or_404(Event, id=event_id)
-    
+
+    # Determine if the event is upcoming or past
+    now = timezone.now()
+    if event.date >= now:
+        redirect_url = 'upcoming_events'  # your URL name for upcoming events
+    else:
+        redirect_url = 'past_events'      # your URL name for past events
+
     if request.method == "POST":
         event.delete()
-        messages.success(request, f"Event '{event.title}' has been deleted successfully.")
-        # Inside your delete_event view, instead of hardcoded name:
-        return redirect(request.META.get('HTTP_REFERER', '/'))
-    
-    return render(request, "confirm_delete.html", {"event": event})
+        messages.success(request, f"Event '{event.title}' deleted successfully!")
+        return redirect(redirect_url)
+
+    return render(request, "events/confirm_delete.html", {"event": event}
 
 def current_events(request):
     next_events = Event.objects.filter(date__gte=timezone.now()).order_by('date')
