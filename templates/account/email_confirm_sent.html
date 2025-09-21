@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="max-width: 700px; margin: 60px auto; padding: 30px; background: #f9f9f9; border-radius: 8px; border: 1px solid #ddd; text-align: center;">
+
+    <h1 style="color: #1E40AF; font-size: 2rem; margin-bottom: 20px;">
+        Verify Your Email Address
+    </h1>
+
+    <p style="font-size: 1rem; color: #333; margin-bottom: 15px;">
+        We’ve sent a verification email to <strong>{{ user.email }}</strong>.
+    </p>
+
+    <p style="font-size: 1rem; color: #555; margin-bottom: 20px;">
+        Please click the link in that email to complete your signup.
+        <br>If you don’t see it, check your <strong>spam folder</strong>.
+    </p>
+
+    <p style="font-size: 0.9rem; color: #777;">
+        Didn’t get it? Try signing in and requesting a new verification link.
+    </p>
+
+    <div style="margin-top: 30px;">
+        <a href="/" 
+           style="display: inline-block; padding: 12px 24px; background: #1E40AF; color: #fff; text-decoration: none; font-weight: bold; border-radius: 6px;">
+            Return to Home
+        </a>
+    </div>
+
+</div>
+{% endblock %}
