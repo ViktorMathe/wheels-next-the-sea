@@ -25,7 +25,7 @@ def delete_event(request, event_id):
         messages.success(request, f"Event '{event.title}' deleted successfully!")
         return redirect(redirect_url)
 
-    return render(request, "events/confirm_delete.html", {"event": event, "redirect_url": redirect_url}
+    return render(request, "events/confirm_delete.html", {"event": event, "redirect_url": redirect_url})
 
 def current_events(request):
     next_events = Event.objects.filter(date__gte=timezone.now()).order_by('date')
