@@ -16,7 +16,7 @@ def delete_event(request, event_id):
     # Determine if the event is upcoming or past
     now = timezone.now()
     if event.date >= now:
-        redirect_url = 'upcoming_events'  # your URL name for upcoming events
+        redirect_url = 'current_events'  # your URL name for upcoming events
     else:
         redirect_url = 'past_events'      # your URL name for past events
 
