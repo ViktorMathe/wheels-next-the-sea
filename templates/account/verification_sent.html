@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="max-width: 600px; margin: 60px auto; padding: 30px; background: #ffffff; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+    <h2 style="color: #1E40AF; text-align: center; margin-bottom: 20px;">
+        Verify Your Email Address
+    </h2>
+
+    <p style="font-size: 16px; color: #333; text-align: center; line-height: 1.6;">
+        We have sent a verification email to your address.  
+        Please check your inbox and click the link to complete your registration.
+    </p>
+
+    <p style="font-size: 15px; color: #555; text-align: center; margin-top: 20px;">
+        If you don’t see the email in your inbox, please check your <strong>spam</strong> folder.  
+        If it still doesn’t arrive within a few minutes, contact us at 
+        <a href="mailto:{{ settings.DEFAULT_FROM_EMAIL }}" style="color: #1E40AF; text-decoration: none;">
+            {{ settings.DEFAULT_FROM_EMAIL }}
+        </a>.
+    </p>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="/" style="display: inline-block; padding: 12px 24px; background-color: #1E40AF; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold;">
+            Return Home
+        </a>
+    </div>
+</div>
+{% endblock %}
