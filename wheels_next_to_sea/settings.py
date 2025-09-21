@@ -71,6 +71,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'allauth',
     'allauth.account',
+    'accounts',
     'home',
     'wheels_next_to_sea',
     'gallery',
@@ -181,11 +182,14 @@ if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEFAULT_FROM_EMAIL = 'admin@wheelsnextthesea.co.uk'
     EMAIL_HOST_USER = 'admin@wheelsnextthesea.co.uk'
+    ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+    ACCOUNT_LOGIN_METHODS = {"username", "email"} 
+    ACCOUNT_SIGNUP_FIELDS = ["username*", "email*", "password1*", "password2*"]
     
 else:
     # New allauth configuration
     ACCOUNT_EMAIL_VERIFICATION = "mandatory"  # still valid, not deprecated
-    ACCOUNT_LOGIN_METHODS = {"username", "email"}  # replaces ACCOUNT_AUTHENTICATION_METHOD
+    ACCOUNT_LOGIN_METHODS = {"username", "email"} 
     ACCOUNT_SIGNUP_FIELDS = ["username*", "email*", "password1*", "password2*"]  # replaces ACCOUNT_EMAIL_REQUIRED
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_PORT = 587

@@ -260,3 +260,415 @@ Not Found: /.well-known/appspecific/com.chrome.devtools.json
 "GET /contact/ HTTP/1.1" 200 7760
 Not Found: /.well-known/appspecific/com.chrome.devtools.json
 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3655
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wheels_next_to_sea/settings.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wheels_next_to_sea/settings.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wheels_next_to_sea/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /accounts/logout/ HTTP/1.1" 200 4827
+"GET /static/js/script.js HTTP/1.1" 304 0
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"POST /accounts/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 7212
+"GET /admin/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/ HTTP/1.1" 200 4163
+"POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+"GET /admin/ HTTP/1.1" 200 14942
+"GET /admin/account/emailaddress/ HTTP/1.1" 200 14984
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/account/emailaddress/1/change/ HTTP/1.1" 200 14532
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/account/emailaddress/1/change/ HTTP/1.1" 302 0
+"GET /admin/account/emailaddress/ HTTP/1.1" 200 15209
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/logout/ HTTP/1.1" 200 3558
+"GET / HTTP/1.1" 200 7004
+"GET /accounts/login/ HTTP/1.1" 200 5586
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET /accounts/confirm-email/ HTTP/1.1" 200 5715
+"GET /accounts/confirm-email/MQ:1v0DaU:4OxxEWcRzLJQlxl0TY_rwcXUCwPn_wnsw9UDMSJpq98/ HTTP/1.1" 200 5052
+"GET / HTTP/1.1" 200 7004
+"GET /accounts/login/ HTTP/1.1" 200 5586
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET /accounts/confirm-email/ HTTP/1.1" 200 5485
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wheels_next_to_sea/settings.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /accounts/confirm-email/MQ:1v0DaU:4OxxEWcRzLJQlxl0TY_rwcXUCwPn_wnsw9UDMSJpq98/ HTTP/1.1" 200 5052
+"GET / HTTP/1.1" 200 7004
+"GET /accounts/login/ HTTP/1.1" 200 5586
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET /accounts/confirm-email/ HTTP/1.1" 200 5715
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wheels_next_to_sea/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /accounts/confirm-email/MQ:1v0Ddl:EIHUTJNGG6KFkm48hB1k6CQbIgh1Me0U8aqPkNC6h9Q/ HTTP/1.1" 200 5052
+"GET / HTTP/1.1" 200 7004
+"GET /accounts/login/ HTTP/1.1" 200 5586
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET /accounts/confirm-email/ HTTP/1.1" 200 5715
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wheels_next_to_sea/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 7004
+"GET / HTTP/1.1" 200 7004
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 36642
+"GET /static/images/hero.png HTTP/1.1" 200 693604
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3544
+"GET /accounts/confirm-email/MQ:1v0DfO:Z1Ki52FCUWZVdbMLS2kAgLixBsNlogEYR3h5AZ-PntU/ HTTP/1.1" 200 5052
+"GET / HTTP/1.1" 200 7004
+"GET /accounts/login/ HTTP/1.1" 200 5586
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET /accounts/confirm-email/ HTTP/1.1" 200 5715
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wheels_next_to_sea/urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 7004
+"GET /accounts/login/ HTTP/1.1" 200 5586
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET /accounts/confirm-email/ HTTP/1.1" 200 5715
+"GET /accounts/confirm-email/MQ:1v0Dno:CIJ2x5CLxbpxe64MLdeiDZn4rrzt_SW_75xub7NxDwc/ HTTP/1.1" 200 5052
+"GET / HTTP/1.1" 200 7004
+"GET /accounts/login/ HTTP/1.1" 200 5586
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET /accounts/confirm-email/ HTTP/1.1" 200 5485
+"GET /accounts/confirm-email/MQ:1v0Dno:CIJ2x5CLxbpxe64MLdeiDZn4rrzt_SW_75xub7NxDwc/ HTTP/1.1" 200 5052
+"GET / HTTP/1.1" 200 7004
+"GET / HTTP/1.1" 200 7004
+"GET /static/images/hero.png HTTP/1.1" 200 693604
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 36642
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3544
+"GET /accounts/login/ HTTP/1.1" 200 5586
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET /accounts/confirm-email/ HTTP/1.1" 200 5715
+"GET /accounts/confirm-email/MQ:1v0DuI:ucAdTxALXnExIaxopEy0Grrkws8DVREmyuErK4vdwZM/ HTTP/1.1" 200 5052
+"GET / HTTP/1.1" 200 7004
+"GET / HTTP/1.1" 200 7004
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 36642
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/hero.png HTTP/1.1" 200 693604
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3544
+"GET /accounts/confirm-email/MQ:1v0DuI:ucAdTxALXnExIaxopEy0Grrkws8DVREmyuErK4vdwZM/ HTTP/1.1" 200 5052
+"GET / HTTP/1.1" 200 7004
+"GET /accounts/login/ HTTP/1.1" 200 5586
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET /accounts/confirm-email/ HTTP/1.1" 200 5485
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wheels_next_to_sea/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wheels_next_to_sea/settings.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wheels_next_to_sea/settings.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wheels_next_to_sea/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /accounts/confirm-email/ HTTP/1.1" 200 5485
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 36642
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3544
+"GET / HTTP/1.1" 200 7004
+"GET /accounts/login/ HTTP/1.1" 200 5573
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET /accounts/confirm-email/ HTTP/1.1" 200 5715
+"GET /accounts/confirm-email/MQ:1v0E0S:MlxtBTYfS2t6bplmE8NXwYN4ZDQ_v_5MrBMohi89oAU/ HTTP/1.1" 200 5052
+"GET / HTTP/1.1" 200 7004
+"GET /accounts/login/ HTTP/1.1" 200 5573
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET /accounts/confirm-email/ HTTP/1.1" 200 5485
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 7004
+"GET /accounts/login/ HTTP/1.1" 200 5573
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET /accounts/confirm-email/ HTTP/1.1" 200 5715
+"GET /accounts/confirm-email/MQ:1v0E2Z:pwarCeUf9w6GF-yc-xHPn1acGFvSZpDLA6vi-nCtGMw/ HTTP/1.1" 200 5052
+"GET / HTTP/1.1" 200 7004
+"GET /accounts/confirm-email/MQ:1v0E2Z:pwarCeUf9w6GF-yc-xHPn1acGFvSZpDLA6vi-nCtGMw/ HTTP/1.1" 200 5052
+"GET / HTTP/1.1" 200 7004
+"GET /accounts/confirm-email/MQ:1v0E2Z:pwarCeUf9w6GF-yc-xHPn1acGFvSZpDLA6vi-nCtGMw/ HTTP/1.1" 200 5052
+"GET / HTTP/1.1" 200 7004
+"GET /admin/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/ HTTP/1.1" 200 4163
+"POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+"GET /admin/ HTTP/1.1" 200 14986
+"GET /admin/account/emailaddress/ HTTP/1.1" 200 14984
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/ HTTP/1.1" 200 14986
+"GET /admin/login/?next=/admin/ HTTP/1.1" 302 0
+"GET /admin/ HTTP/1.1" 200 14986
+"GET / HTTP/1.1" 200 9710
+"GET /accounts/logout/ HTTP/1.1" 200 4827
+"POST /accounts/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 7212
+"GET /accounts/confirm-email/MQ:1v0E2Z:pwarCeUf9w6GF-yc-xHPn1acGFvSZpDLA6vi-nCtGMw/ HTTP/1.1" 200 5052
+"GET /accounts/confirm-email/MQ:1v0E2Z:pwarCeUf9w6GF-yc-xHPn1acGFvSZpDLA6vi-nCtGMw/ HTTP/1.1" 200 5052
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 36642
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3544
+"GET /accounts/confirm-email/MQ:1v0E2Z:pwarCeUf9w6GF-yc-xHPn1acGFvSZpDLA6vi-nCtGMw/ HTTP/1.1" 200 5052
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 36642
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3544
+"GET /accounts/login/ HTTP/1.1" 200 5573
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET /accounts/confirm-email/ HTTP/1.1" 200 5715
+"GET / HTTP/1.1" 200 7004
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 7004
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 36642
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/hero.png HTTP/1.1" 200 693604
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3544
+"GET /accounts/login/ HTTP/1.1" 200 5573
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET /accounts/confirm-email/ HTTP/1.1" 200 5715
+"GET /accounts/confirm-email/MQ:1v0E9z:gJ4Cf1WK5sXN1prF2_Xl-mNR7yr66u94AqwJlr0OYkY/ HTTP/1.1" 200 5052
+"GET / HTTP/1.1" 200 7004
+"GET /accounts/login/ HTTP/1.1" 200 5573
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET /accounts/confirm-email/ HTTP/1.1" 200 5485
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wheels_next_to_sea/urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /accounts/confirm-email/MQ:1v0E9z:gJ4Cf1WK5sXN1prF2_Xl-mNR7yr66u94AqwJlr0OYkY/ HTTP/1.1" 200 5052
+"GET / HTTP/1.1" 200 7004
+"GET /accounts/login/ HTTP/1.1" 200 5573
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET /accounts/confirm-email/ HTTP/1.1" 200 5715
+Internal Server Error: /accounts/accounts/confirm-email/MQ:1v0EBW:A_9fyTpKXmBOLcv2MQmlORKoWRA1YCpDqo3lvYNFFSk/
+Traceback (most recent call last):
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/contrib/auth/__init__.py", line 129, in login
+    backend = backend or user.backend
+                         ^^^^^^^^^^^^
+AttributeError: 'User' object has no attribute 'backend'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/accounts/views.py", line 32, in get
+    login(self.request, self.object.email_address.user)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/contrib/auth/__init__.py", line 135, in login
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: You have multiple authentication backends configured and therefore must provide the `backend` argument or set the `backend` attribute on the user.
+"GET /accounts/accounts/confirm-email/MQ:1v0EBW:A_9fyTpKXmBOLcv2MQmlORKoWRA1YCpDqo3lvYNFFSk/ HTTP/1.1" 500 96956
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/accounts/views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /accounts/accounts/confirm-email/MQ:1v0EBW:A_9fyTpKXmBOLcv2MQmlORKoWRA1YCpDqo3lvYNFFSk/
+"GET /accounts/accounts/confirm-email/MQ:1v0EBW:A_9fyTpKXmBOLcv2MQmlORKoWRA1YCpDqo3lvYNFFSk/ HTTP/1.1" 404 8594
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/accounts/urls.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /accounts/accounts/confirm-email/MQ:1v0EBW:A_9fyTpKXmBOLcv2MQmlORKoWRA1YCpDqo3lvYNFFSk/
+"GET /accounts/accounts/confirm-email/MQ:1v0EBW:A_9fyTpKXmBOLcv2MQmlORKoWRA1YCpDqo3lvYNFFSk/ HTTP/1.1" 404 9639
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+Not Found: /accounts/accounts/confirm-email/MQ:1v0EBW:A_9fyTpKXmBOLcv2MQmlORKoWRA1YCpDqo3lvYNFFSk/
+"GET /accounts/accounts/confirm-email/MQ:1v0EBW:A_9fyTpKXmBOLcv2MQmlORKoWRA1YCpDqo3lvYNFFSk/ HTTP/1.1" 404 9639
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /accounts/confirm-email/MQ:1v0EBW:A_9fyTpKXmBOLcv2MQmlORKoWRA1YCpDqo3lvYNFFSk/ HTTP/1.1" 200 5277
+"GET / HTTP/1.1" 200 7004
+"GET /accounts/login/ HTTP/1.1" 200 5573
+"POST /accounts/login/ HTTP/1.1" 200 5699
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 9930
+"GET /accounts/logout/ HTTP/1.1" 200 4827
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/accounts/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 9710
+"GET /admin/ HTTP/1.1" 200 14986
+"GET /admin/account/emailaddress/ HTTP/1.1" 200 14984
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/account/emailaddress/1/change/ HTTP/1.1" 200 14548
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/account/emailaddress/1/change/ HTTP/1.1" 302 0
+"GET /admin/account/emailaddress/ HTTP/1.1" 200 15209
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/logout/ HTTP/1.1" 200 3558
+"GET / HTTP/1.1" 200 7004
+"GET /accounts/login/ HTTP/1.1" 200 5573
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET /accounts/confirm-email/ HTTP/1.1" 200 5715
+"GET /accounts/confirm-email/MQ:1v0EEp:IBoHAeM3hI7cerl6iNhKVDheBzEP7Jn5OKW-By-ifiE/ HTTP/1.1" 200 5052
+"GET / HTTP/1.1" 200 7004
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/accounts/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /admin/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/ HTTP/1.1" 200 4163
+"POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+"GET /admin/ HTTP/1.1" 200 15031
+"GET /admin/account/emailaddress/ HTTP/1.1" 200 14984
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/logout/ HTTP/1.1" 200 3558
+"GET / HTTP/1.1" 200 7004
+"GET /accounts/login/ HTTP/1.1" 200 5573
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET /accounts/confirm-email/ HTTP/1.1" 200 5715
+"GET /accounts/confirm-email/MQ:1v0EG2:8Aza6X1uMwk7OnlOpRJ-l_c75cIs3LssBl_wYHqa158/ HTTP/1.1" 200 5052
+"GET / HTTP/1.1" 200 7004
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/accounts/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /accounts/confirm-email/MQ:1v0EG2:8Aza6X1uMwk7OnlOpRJ-l_c75cIs3LssBl_wYHqa158/ HTTP/1.1" 200 5052
+"GET / HTTP/1.1" 200 7004
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/accounts/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /accounts/confirm-email/MQ:1v0EG2:8Aza6X1uMwk7OnlOpRJ-l_c75cIs3LssBl_wYHqa158/ HTTP/1.1" 200 5052
+"GET / HTTP/1.1" 200 7004
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/accounts/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /accounts/confirm-email/MQ:1v0EG2:8Aza6X1uMwk7OnlOpRJ-l_c75cIs3LssBl_wYHqa158/ HTTP/1.1" 200 5052
+"GET / HTTP/1.1" 200 7004
+Not Found: /.admin
+"GET /.admin HTTP/1.1" 404 3681
+"GET /admin/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/ HTTP/1.1" 200 4163
+"POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+"GET /admin/ HTTP/1.1" 200 15031
+"GET /admin/account/emailaddress/ HTTP/1.1" 200 14984
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET / HTTP/1.1" 200 9710
+"GET /accounts/logout/ HTTP/1.1" 200 4827
+"POST /accounts/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 7212
+"GET /admin/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/ HTTP/1.1" 200 4163
+"GET /accounts/login/ HTTP/1.1" 200 5573
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/accounts/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wheels_next_to_sea/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/accounts/urls.py changed, reloading.
+Watching for file changes with StatReloader
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET /accounts/confirm-email/ HTTP/1.1" 200 5715
+"GET /accounts/confirm-email/MQ:1v0EMo:5owlmlKFk54lWePgm5xnkwIot8G7kIjpmgq6CyZ1Pr4/ HTTP/1.1" 200 5052
+"GET / HTTP/1.1" 200 7004
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/accounts/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wheels_next_to_sea/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/accounts/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/accounts/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/accounts/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /accounts/login/ HTTP/1.1" 200 5573
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET /accounts/confirm-email/ HTTP/1.1" 200 5715
+"GET /accounts/confirm-email/MQ:1v0EQ5:hKdDmtclcZC74KoaJO5sJnI1xRZsE-OP9Z0FFqnHKKg/ HTTP/1.1" 200 5052
+"GET / HTTP/1.1" 200 7004
+"GET /accounts/login/ HTTP/1.1" 200 5573
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET /accounts/confirm-email/ HTTP/1.1" 200 5485
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/accounts/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 7004
+"GET /accounts/login/ HTTP/1.1" 200 5573
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/accounts/views.py changed, reloading.
+Watching for file changes with StatReloader
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET /accounts/confirm-email/ HTTP/1.1" 200 5715
+"GET /accounts/confirm-email/MQ:1v0ERw:7jkhAGS_WwVyZp4WUP6ui2xkhlUPs0yWUYTDdIcapqA/ HTTP/1.1" 200 5052
+"GET / HTTP/1.1" 200 7004
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/accounts/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/accounts/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /accounts/login/ HTTP/1.1" 200 5573
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET /accounts/confirm-email/ HTTP/1.1" 200 5715
+"GET /accounts/confirm-email/MQ:1v0EVK:iKDkYspYZHS4Rjh5vjKKMeDZf3eZsBGMBlbHXYK0vhI/ HTTP/1.1" 200 5052
+"GET / HTTP/1.1" 200 7004
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wheels_next_to_sea/settings.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 7004
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 36642
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/hero.png HTTP/1.1" 200 693604
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3842
+"GET /accounts/login/ HTTP/1.1" 200 5573
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET /accounts/confirm-email/ HTTP/1.1" 200 5715
+"GET /accounts/confirm-email/MQ:1v0EXU:5eP_alfiBG2DxD_QmcKzqU_zKIZuKsPi3CZnVwU-jBY/ HTTP/1.1" 200 5052
+"GET / HTTP/1.1" 200 7004
+"GET /accounts/login/ HTTP/1.1" 200 5573
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET /accounts/confirm-email/ HTTP/1.1" 200 5485
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/accounts/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /accounts/confirm-email/ HTTP/1.1" 200 5485
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 36642
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3842
+"GET / HTTP/1.1" 200 7004
+"GET /accounts/login/ HTTP/1.1" 200 5573
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET /accounts/confirm-email/ HTTP/1.1" 200 5715
+"GET /accounts/confirm-email/MQ:1v0EZi:oVsRacYEEB6hBv7BTaNPpy55qdO4-EcKzpsDOqEV_Ms/ HTTP/1.1" 200 5052
+"GET / HTTP/1.1" 200 7004
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wheels_next_to_sea/urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /accounts/login/ HTTP/1.1" 200 5573
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET /accounts/confirm-email/ HTTP/1.1" 200 5715
+"GET /accounts/confirm-email/MQ:1v0EaW:SOrm7gLEkIbq4q8xPQb9dCheSdH3le1I7yK9F8zwvwg/ HTTP/1.1" 200 5052
+"GET / HTTP/1.1" 200 7004
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/accounts/urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 7004
+"GET /accounts/confirm-email/MQ:1v0EaW:SOrm7gLEkIbq4q8xPQb9dCheSdH3le1I7yK9F8zwvwg/ HTTP/1.1" 302 0
+"GET /accounts/login/ HTTP/1.1" 200 5923
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 9930
+"GET /accounts/logout/ HTTP/1.1" 200 4827
+"POST /accounts/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 7212
+"GET /accounts/login/ HTTP/1.1" 200 5573
+"POST /accounts/login/ HTTP/1.1" 200 5699
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 9930
