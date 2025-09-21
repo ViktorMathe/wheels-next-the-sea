@@ -7,7 +7,7 @@
       <div class="event-card">
         <div class="event-title">
           
-          <h3>{{ event.title }}</h3>  - <span href="{% url 'delete_event' event.id %}"class="btn danger-btn">Delete</span>
+          <h3>{{ event.title }}</h3>  - <a href="{% url 'delete_event' event.id %}"class="btn danger-btn">Delete</a>
         </div>
         <div class="event-description">
           <p>{{ event.description }}</p>
