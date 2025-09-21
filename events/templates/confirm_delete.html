@@ -7,6 +7,6 @@
   <form method="post">
     {% csrf_token %}
     <button type="submit">Yes, delete</button>
-    <a href="{% if event.date >= now %}{% url 'upcoming_events' %}{% else %}{% url 'past_events' %}{% endif %}">Cancel</a>
+    <a href="{% url redirect_url %}" class="btn danger-btn">Cancel</a>
 </form>
 {% endblock %}
