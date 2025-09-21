@@ -60,6 +60,10 @@ else:
     ALLOWED_HOSTS = ['wheelsnextthesea.co.uk','www.wheelsnextthesea.co.uk',
         'wheels-next-the-sea-ef8cbe80b186.herokuapp.com']
 
+
+MIDDLEWARE.insert(0, "middleware.template_debug_middleware.TemplateDebugMiddleware")
+
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
