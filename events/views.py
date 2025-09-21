@@ -16,7 +16,8 @@ def delete_event(request, event_id):
     if request.method == "POST":
         event.delete()
         messages.success(request, f"Event '{event.title}' has been deleted successfully.")
-        return redirect("events_list")  # Replace with your events list view name
+        # Inside your delete_event view, instead of hardcoded name:
+        return redirect(request.META.get('HTTP_REFERER', '/'))
     
     return render(request, "confirm_delete.html", {"event": event})
 
