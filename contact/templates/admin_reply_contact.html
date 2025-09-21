@@ -4,6 +4,7 @@
 <div style="max-width: 600px; margin: 40px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9;">
     <h2 style="color: #1E40AF;">Reply to {{ contact_name }}</h2>
     <p><strong>Email:</strong> {{ contact_email }}</p>
+    <p><strong>Message:</strong> {{ original_message }} </p>
     <form method="POST">
         {% csrf_token %}
         <textarea name="reply_message" rows="6" placeholder="Type your reply here..." 
