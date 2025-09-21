@@ -14,6 +14,7 @@
       </div>
     </div>
 
+    {% if images|length > 0 %}
     <div class="images-grid">
       {% for image in images %}
         <div class="image-card">
@@ -23,10 +24,13 @@
           {% endif %}
           <img src="{{ image.url }}" alt="{{ image.title }}" />
         </div>
-      {% empty %}
-        <p class="no-events">No images found in this folder.</p>
       {% endfor %}
     </div>
+    {% else %}
+    <div style="justify-self:center">
+    <p class="no-events">No images found in this folder.</p>
+    </div>
+    {% endif %}
   </div>
 
   {% if is_admin %}

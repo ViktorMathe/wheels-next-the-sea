@@ -57,8 +57,10 @@
   <span class="close-btn">&times;</span>
   <form id="folder-form" method="POST" action="{% url 'gallery' %}">
     {% csrf_token %}
+    <div style="display:flow;">
     {{ folder_form }}
     <button class="btn" type="submit">Create folder</button>
+    </div>
   </form>
 </div>
 </div>

@@ -318,13 +318,15 @@ h3,
 .auth-card .remember-me {
    display: flex;
    align-items: center;
-   gap: 0.5rem; /* space between checkbox and text */
+   gap: 0.5rem;
+   /* space between checkbox and text */
    color: #fff;
    font-size: 0.9rem;
 }
 
 .auth-card .remember-me input[type="checkbox"] {
-   position: static; /* remove floating */
+   position: static;
+   /* remove floating */
    width: auto;
    height: auto;
    margin: 0;
@@ -731,7 +733,7 @@ h3,
 
 .review-items ul {
    list-style: none;
-   padding: 10px;
+   padding: 0;
    margin: 10px auto;
 }
 
@@ -1121,15 +1123,15 @@ h3,
 }
 
 #create-folder input[type="text"] {
-   width: 100%;
+   width: auto;
    padding: 8px 10px;
-   margin-bottom: 15px;
+   margin: 10px;
    border-radius: 6px;
    border: 1px solid #ccc;
 }
 
 #create-folder .btn {
-   width: 100%;
+   width: fit-content;
    background: var(--primary-color);
    color: white;
 }
@@ -1142,6 +1144,10 @@ h3,
    font-size: 2rem;
    border: none;
    cursor: pointer;
+}
+
+#folder-form {
+   text-align: center;
 }
 
 /* ====== Delete Folder Button ====== */
@@ -1639,7 +1645,6 @@ h3,
 .year-gallery-actions {
    display: flex;
    gap: 0.5rem;
-   flex-wrap: wrap;
    align-items: anchor-center;
 }
 
@@ -2141,6 +2146,11 @@ form button[type="submit"]:hover {
       display: flow-root;
    }
 
+   #contact-edit {
+      justify-self: center !important;
+      float: none;
+   }
+
    .dropdown-menu {
       right: 0;
       transform: translateY(-10px);
@@ -2183,6 +2193,10 @@ form button[type="submit"]:hover {
    .review-items {
       min-width: 80%;
    }
+
+   .review-items ul {
+      padding: 10px 0px 10px 0px;
+   }
 }
 
 @media (max-width: 600px) {
@@ -2202,6 +2216,10 @@ form button[type="submit"]:hover {
 
    .event {
       max-width: 90%;
+   }
+
+   .btn {
+      font-size: 0.7rem;
    }
 
    .prev,

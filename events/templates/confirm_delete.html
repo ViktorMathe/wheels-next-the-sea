@@ -1,12 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h2>Confirm Delete</h2>
-  <p>Are you sure you want to delete the event: <strong>{{ event.title }}</strong>?</p>
+<div class="event">
+    <div class="form-container">
+  <h2 class="form-title">Confirm Delete</h2>
+  <p style="font-size:larger;">Are you sure you want to delete the event: <strong>{{ event.title }}</strong>?</p>
   
   <form method="post">
     {% csrf_token %}
     <button type="submit">Yes, delete</button>
     <a href="{% url redirect_url %}" class="btn danger-btn">Cancel</a>
 </form>
+</div>
+</div>
 {% endblock %}
