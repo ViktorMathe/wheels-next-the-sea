@@ -179,6 +179,8 @@ SESSION_COOKIE_SECURE = True
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEFAULT_FROM_EMAIL = 'admin@wheelsnextthesea.co.uk'
+    EMAIL_HOST_USER = 'admin@wheelsnextthesea.co.uk'
+    
 else:
     # New allauth configuration
     ACCOUNT_EMAIL_VERIFICATION = "mandatory"  # still valid, not deprecated

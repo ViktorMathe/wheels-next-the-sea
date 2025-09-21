@@ -183,10 +183,7 @@ def admin_reply_contact(request):
 
     if request.method == "POST":
         reply_message = request.POST.get("reply_message")
-        email_body = f"""
-            <html>
-            <body style="font-family: Arial, sans-serif; color: #111; line-height: 1.5;">
-                <p>{reply_message}</p>
+        footer_html = f"""
                 <hr style="border: 1px solid #ccc; margin: 20px 0;">
                 <p style="font-size: 13px; color: #555;">
                     Wheels Next The Sea<br>
@@ -194,11 +191,18 @@ def admin_reply_contact(request):
                     Email: <a href="mailto:{settings.EMAIL_HOST_USER}" style="color: #1E40AF; text-decoration: none;">{settings.EMAIL_HOST_USER}</a><br>
                     Thank you for contacting us. We appreciate your message.
                 </p>
-            </body>
-            </html>
-            """
+                """
+        
+        email_body = f"""
+        <html>
+        <body style="font-family: Arial, sans-serif; color: #111; line-height: 1.5;">
+            <p>{escape(reply_message)}</p>
+            {footer_html}
+        </body>
+        </html>
+        """
 
-        send_email_message(
+        reply_sent = send_email_message(
                 subject=f"Reply from Wheels Next The Sea",
                 body=email_body,
                 to=[contact_email],
@@ -206,7 +210,10 @@ def admin_reply_contact(request):
                 reply_to=[settings.EMAIL_HOST_USER],
                 html=True
             )
-        messages.success(request, f"Reply sent to {contact_name} ({contact_email})!")
+        if reply_sent :
+            messages.success(request, f"Reply sent to {contact_name} ({contact_email})!")
+        else:
+            messages.error(request, "There was an error sending your message. Please try again later.")
         return redirect("contact_page")
 
     return render(request, "admin_reply_contact.html", {
