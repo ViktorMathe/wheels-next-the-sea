@@ -12,7 +12,7 @@ class ContactInfo(models.Model):
 class ContactNotification(models.Model):
     recipients = models.ManyToManyField(
         User,
-        limit_choices_to={'is_superuser': True},
+        limit_choices_to={'is_staff': True},
         help_text="Choose which superusers should receive contact form emails."
     )
 
