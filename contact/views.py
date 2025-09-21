@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from wheels_next_to_sea.decorators import superuser_required
 from django.contrib.auth import REDIRECT_FIELD_NAME
 from .forms import ContactForm, ContactInfoForm
 from .models import ContactInfo, ContactNotification
@@ -68,12 +69,12 @@ def contact_page(request):
             recipients = (
                 [user.email for user in notification.recipients.all() if user.email]
                 if notification and notification.recipients.exists()
-                else [user.email for user in User.objects.filter(is_superuser=True) if user.email]
+                else [user.email for user in User.objects.filter(superuser_required) if user.email]
             )
 
             signer = Signer()
             reply_links_html = ""
-            for user in User.objects.filter(email__in=recipients, is_superuser=True):
+            for user in User.objects.filter(email__in=recipients, superuser_required):
                 contact_token = signer.sign(f"{email}:{name}:{message}")
                 # Build the reply link (include token)
                 reply_url = request.build_absolute_uri(
@@ -150,7 +151,7 @@ def contact_page(request):
         contact_form = ContactForm()
 
     # --- Superuser contact info edit ---
-    if request.method == "POST" and "info_submit" in request.POST and request.user.is_superuser:
+    if request.method == "POST" and "info_submit" in request.POST and superuser_required:
         info_form = ContactInfoForm(request.POST, instance=contact_info)
         if info_form.is_valid():
             info_form.save()
@@ -177,7 +178,7 @@ def admin_reply_contact(request):
         messages.error(request, "Invalid reply link.")
         return redirect("contact_page")
 
-    if not request.user.is_superuser:
+    if not superuser_required:
         messages.error(request, "You do not have permission to reply.")
         return redirect("contact_page")
 
