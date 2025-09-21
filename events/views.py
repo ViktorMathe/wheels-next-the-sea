@@ -18,7 +18,7 @@ def delete_event(request, event_id):
         messages.success(request, f"Event '{event.title}' has been deleted successfully.")
         return redirect("events_list")  # Replace with your events list view name
     
-    return render(request, "events/confirm_delete.html", {"event": event})
+    return render(request, "confirm_delete.html", {"event": event})
 
 def current_events(request):
     next_events = Event.objects.filter(date__gte=timezone.now()).order_by('date')
