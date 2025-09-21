@@ -61,9 +61,6 @@ else:
         'wheels-next-the-sea-ef8cbe80b186.herokuapp.com']
 
 
-MIDDLEWARE.insert(0, "middleware.template_debug_middleware.TemplateDebugMiddleware")
-
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -84,6 +81,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'middleware.template_debug_middleware.TemplateDebugMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
