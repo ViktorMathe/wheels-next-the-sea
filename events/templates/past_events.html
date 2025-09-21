@@ -8,13 +8,7 @@
         <div class="event-title">
           
           <h3>{{ event.title }}</h3>  -
-           <a href="{% url 'delete_event' event.id %}"class="btn danger-btn" onclick="return confirm('Are you sure?');" >Delete</a> 
-           <script>
-                // Optional: automatic redirect after 2 seconds
-              setTimeout(function() {
-                window.location.href = "{% url 'current_events' %}";
-              }, 2000);
-          </script>
+           <a href="{% url 'delete_event' event.id %}"class="btn danger-btn" >Delete</a>
         </div>
         <div class="event-description">
           <p>{{ event.description }}</p>
