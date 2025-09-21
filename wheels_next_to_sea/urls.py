@@ -23,7 +23,6 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/confirm-email/<key>/', CustomConfirmEmailView.as_view(), name='account_confirm_email'),
     path('accounts/', include('allauth.urls')),
     path('ckeditor_5/', include('django_ckeditor_5.urls')),
     path('', include('home.urls')),
