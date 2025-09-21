@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from wheels_next_to_sea.decorators import superuser_required
 
 class ContactInfo(models.Model):
     address = models.TextField()
@@ -12,7 +13,7 @@ class ContactInfo(models.Model):
 class ContactNotification(models.Model):
     recipients = models.ManyToManyField(
         User,
-        limit_choices_to={'is_staff': True},
+        limit_choices_to={superuser_required(User)},
         help_text="Choose which superusers should receive contact form emails."
     )
 
