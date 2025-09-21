@@ -57,6 +57,7 @@ def send_email_message(subject, body, to, from_email=None, reply_to=None, html=F
 def contact_page(request):
     contact_info, _ = ContactInfo.objects.get_or_create(id=1)
 
+    # Handle contact form submission
     if request.method == "POST" and "contact_submit" in request.POST:
         contact_form = ContactForm(request.POST)
         if contact_form.is_valid():
@@ -69,38 +70,38 @@ def contact_page(request):
             recipients = (
                 [user.email for user in notification.recipients.all() if user.email]
                 if notification and notification.recipients.exists()
-                else [user.email for user in User.objects.filter(superuser_required) if user.email]
+                else [user.email for user in User.objects.filter(is_staff=True) if user.email]
             )
 
             signer = Signer()
             reply_links_html = ""
-            for user in User.objects.filter(email__in=recipients, superuser_required):
-                contact_token = signer.sign(f"{email}:{name}:{message}")
-                # Build the reply link (include token)
-                reply_url = request.build_absolute_uri(
-                    reverse("admin_reply_contact") + "?" + urlencode({"token": contact_token})
-                )
-                reply_links_html += f"""
-                    <tr>
-                        <td align="center" style="padding: 10px 0;">
-                            <a href="{reply_url}" target="_blank" 
-                               style="
-                                    display: inline-block;
-                                    padding: 12px 24px;
-                                    background-color: #1E40AF;
-                                    color: #ffffff;
-                                    text-decoration: none;
-                                    border-radius: 6px;
-                                    font-weight: bold;
-                                    font-family: Arial, sans-serif;
-                               ">
-                               Reply to {escape(name)}
-                            </a>
-                        </td>
-                    </tr>
-                """
-            
-            # Construct full HTML email
+            for user in User.objects.filter(email__in=recipients):
+                if superuser_required(user):
+                    contact_token = signer.sign(f"{email}:{name}:{message}")
+                    reply_url = request.build_absolute_uri(
+                        reverse("admin_reply_contact") + "?" + urlencode({"token": contact_token})
+                    )
+                    reply_links_html += f"""
+                        <tr>
+                            <td align="center" style="padding: 10px 0;">
+                                <a href="{reply_url}" target="_blank"
+                                   style="
+                                        display: inline-block;
+                                        padding: 12px 24px;
+                                        background-color: #1E40AF;
+                                        color: #ffffff;
+                                        text-decoration: none;
+                                        border-radius: 6px;
+                                        font-weight: bold;
+                                        font-family: Arial, sans-serif;
+                                   ">
+                                   Reply to {escape(name)}
+                                </a>
+                            </td>
+                        </tr>
+                    """
+
+            # Build full HTML email for admins
             admin_body_html = f"""
             <html>
               <body style="font-family: Arial, sans-serif; color: #111; line-height: 1.5;">
@@ -117,8 +118,8 @@ def contact_page(request):
               </body>
             </html>
             """
-            
-            # Send HTML email
+
+            # Send email to admins
             admin_sent = send_email_message(
                 subject=f"New Contact Message from {name}",
                 body=admin_body_html,
@@ -128,7 +129,7 @@ def contact_page(request):
                 html=True
             )
 
-            # --- Auto-reply to user ---
+            # Auto-reply to user
             user_sent = send_email_message(
                 subject="Thanks for contacting Wheels Next The Sea",
                 body=(
@@ -150,8 +151,8 @@ def contact_page(request):
     else:
         contact_form = ContactForm()
 
-    # --- Superuser contact info edit ---
-    if request.method == "POST" and "info_submit" in request.POST and superuser_required:
+    # Handle superuser updating contact info
+    if request.method == "POST" and "info_submit" in request.POST and superuser_required(request.user):
         info_form = ContactInfoForm(request.POST, instance=contact_info)
         if info_form.is_valid():
             info_form.save()
@@ -178,7 +179,7 @@ def admin_reply_contact(request):
         messages.error(request, "Invalid reply link.")
         return redirect("contact_page")
 
-    if not superuser_required:
+    if not superuser_required(request.user):
         messages.error(request, "You do not have permission to reply.")
         return redirect("contact_page")
 
