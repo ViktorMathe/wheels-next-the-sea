@@ -7,7 +7,7 @@
       <h2>{{ folder.name }}</h2>
       <div class="year-gallery-actions">
         <a href="{% url 'gallery' %}" class="btn back-btn">← Back to Gallery</a>
-        {% if user.is_superuser %}
+        {% if is_admin %}
           <button id="add-image-btn" class="btn add-btn">+ Add Images</button>
           <button id="delete-selected" class="btn danger-btn" data-delete-url="{% url 'delete_multiple_images' %}">Delete Selected</button>
         {% endif %}
@@ -17,7 +17,7 @@
     <div class="images-grid">
       {% for image in images %}
         <div class="image-card">
-          {% if user.is_superuser %}
+          {% if is_admin %}
             <input type="checkbox" class="select-image" data-url="{{ image.url }}" />
             <button class="delete-image-btn" data-url="{{ image.url }}" data-delete-url="{% url 'delete_image' %}">✖</button>
           {% endif %}
@@ -29,7 +29,7 @@
     </div>
   </div>
 
-  {% if user.is_superuser %}
+  {% if is_admin %}
     <!-- Add Image Modal -->
     <div id="add-image-modal" class="folder-modal hidden">
       <form id="image-upload-form" class="form-container" method="POST" action="{% url 'upload_images' %}" enctype="multipart/form-data">

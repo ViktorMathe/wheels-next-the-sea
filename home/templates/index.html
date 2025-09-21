@@ -17,13 +17,13 @@
         <img src="{{ next_event.flyer.url }}" alt="Event Flyer" width="200" />
       {% endif %}
 
-      {% if request.user.is_superuser %}
+      {% if is_admin %}
         <a href="{% url 'manage_events_edit' next_event.id %}" class="edit-btn">Edit</a>
         <a href="{% url 'add_event' %}" class="edit-btn">Add New Event</a>
       {% endif %}
     {% else %}
       <p>No events has been announced</p>
-      {% if request.user.is_superuser %}
+      {% if is_admin %}
         <a href="{% url 'add_event' %}" class="edit-btn">Add Event</a>
       {% endif %}
     {% endif %}
@@ -34,14 +34,14 @@
       <h2>About us:</h2>
       {{ about.content|safe }}
 
-      {% if user.is_superuser %}
+      {% if is_admin %}
         <!-- Edit button -->
         <button id="openModalBtn" class="edit-btn">Edit About Us</button>
       {% endif %}
     </div>
   </div>
 
-  {% if user.is_superuser %}
+  {% if is_admin %}
     <!-- Modal -->
     <div id="aboutUsModal" class="aboutModal">
       <div class="aboutContent">

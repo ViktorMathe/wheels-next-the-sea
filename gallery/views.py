@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
-from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth.decorators import login_required
+from wheels_next_to_sea.decorators import superuser_required
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from .models import Folder, UploadImages
@@ -10,14 +11,11 @@ import json
 import os
 from urllib.parse import urlparse
 
-# Superuser check
-def is_superuser(user):
-    return user.is_superuser
 
 def gallery(request):
     folders = Folder.objects.all()
     folder_images = {}
-    is_superuser_flag = request.user.is_superuser
+    is_superuser_flag = superuser_required
 
     folder_form = FolderForm(request.POST or None)
     upload_form = GalleryImageForm()
@@ -62,7 +60,7 @@ def gallery(request):
         'upload_form': upload_form,
         'folders': folders,
         'folder_images': folder_images,
-        'is_superuser': is_superuser_flag,
+        'superuser_required': is_superuser_flag,
         'get_all_folders': get_all_folders,
     }
     return render(request, 'gallery.html', context)
@@ -90,7 +88,7 @@ def year_gallery(request, folder_name):
 
 
 @login_required
-@user_passes_test(is_superuser)
+@superuser_required
 def upload_images(request):
     if request.method == 'POST':
         form = GalleryImageForm(request.POST, request.FILES)
@@ -151,7 +149,7 @@ def upload_images(request):
     return JsonResponse({"success": False, "error": "Invalid request method"}, status=400)
 
 @login_required
-@user_passes_test(is_superuser)
+@superuser_required
 @csrf_exempt
 def delete_image(request):
     if request.method != "POST":
@@ -182,7 +180,7 @@ def delete_image(request):
 
 
 @login_required
-@user_passes_test(is_superuser)
+@superuser_required
 def delete_multiple_images(request):
     if request.method == "POST":
         try:
@@ -210,7 +208,7 @@ def delete_multiple_images(request):
 
 
 @login_required
-@user_passes_test(is_superuser)
+@superuser_required
 @csrf_exempt
 def delete_folder(request):
     if request.method == "POST":

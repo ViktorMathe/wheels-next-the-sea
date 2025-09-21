@@ -14,13 +14,13 @@
         <a href="{% url 'year_gallery' folder.name %}">
           <h3 class="btn">{{ folder.name }}</h3>
           </a>
-          {% if is_superuser %}
+          {% if is_admin %}
             <button class="delete-folder" data-folder="{{ folder.name }}">Delete Folder</button>
           {% endif %}
       </div>
     {% endfor %}
 
-   {% if user.is_superuser %}
+   {% if is_admin %}
     <div class="add-folder">
         <div id="add-sign">&plus;</div>
         <h2>Add New Folder</h2>
@@ -77,7 +77,7 @@
     </div>
   </div>
 
-  {% if user.is_superuser %}
+  {% if is_admin %}
     <!-- Add Image Modal -->
   {% endif %}
 

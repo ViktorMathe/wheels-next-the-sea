@@ -24,7 +24,7 @@
                 <small>Written : {{ review.created_at }} <br /> By {{ review.name }}</small>
               </p>
             </li>
-            {% if user.is_superuser %}
+            {% if is_admin %}
               <li>
                 <form method="post" action="{% url 'delete_review' review.id %}" style="display:inline;">
                   {% csrf_token %}

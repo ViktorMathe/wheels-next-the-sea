@@ -10,7 +10,32 @@
             {# Preserve the 'next' query parameter #}
             <input type="hidden" name="next" value="{{ request.GET.next|default:'' }}">
 
-            {{ form.as_p }}
+            {# Render username/email #}
+            <p>
+                {{ form.login.label_tag }}
+                {{ form.login }}
+                {% if form.login.errors %}
+                    <span class="error">{{ form.login.errors }}</span>
+                {% endif %}
+            </p>
+
+            {# Render password #}
+            <p>
+                {{ form.password.label_tag }}
+                {{ form.password }}
+                {% if form.password.errors %}
+                    <span class="error">{{ form.password.errors }}</span>
+                {% endif %}
+            </p>
+
+            {# Render 'remember me' checkbox inline #}
+            <p>
+                <label class="remember-me">
+                    {{ form.remember }}
+                    Remember me
+                </label>
+            </p>
+
             <button type="submit" class="btn-primary">Login</button>
         </form>
         <p class="auth-links">

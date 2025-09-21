@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import user_passes_test
+from wheels_next_to_sea.decorators import superuser_required
 from django.utils import timezone
 from .models import Event
 from .forms import EventForm
@@ -12,11 +12,8 @@ def past_events(request):
     past_events = Event.objects.filter(date__lt=timezone.now()).order_by('-date')
     return render(request, 'past_events.html', {'past_events': past_events})
 
-# Restrict event management to superusers only
-def is_superuser(user):
-    return user.is_superuser
 
-@user_passes_test(is_superuser)
+@superuser_required
 def manage_events(request, event_id=None):
     if event_id:
         event = Event.objects.get(id=event_id)

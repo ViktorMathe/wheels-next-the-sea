@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.decorators import user_passes_test
+from wheels_next_to_sea.decorators import superuser_required
 from django.contrib import messages
 from .models import Review
 from .forms import ReviewForm
@@ -23,7 +23,7 @@ def review_detail(request, review_id, slug):
     return render(request, 'review_detail.html', {'review': review})
 
 
-@user_passes_test(lambda u: u.is_superuser)
+@superuser_required
 def delete_review(request, review_id):
     review = get_object_or_404(Review, id=review_id)
     review.delete()

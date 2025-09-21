@@ -28,7 +28,7 @@
             <strong>Email:</strong> {{ contact_info.email }}
           </p>
 
-          {% if user.is_superuser %}
+          {% if is_admin %}
             <span id="edit-contact-btn" class="edit-btn" type="button">Edit</span>
           {% endif %}
           <!-- Google Map -->
@@ -39,7 +39,7 @@
       </div>
 
       <!-- Hidden editable form (only superuser can toggle) -->
-      {% if user.is_superuser %}
+      {% if is_admin %}
         <div id="contact-edit-modal">
           <div id="contact-edit">
             <span class="close-btn">&times;</span>

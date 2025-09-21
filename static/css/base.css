@@ -197,10 +197,6 @@ h3,
    text-align: center;
 }
 
-.auth-card form input[type="text"] {
-   margin: 10px;
-}
-
 /* Logo */
 .logo {
    margin-right: auto;
@@ -319,10 +315,19 @@ h3,
    animation: fadeIn 0.5s ease-in-out;
 }
 
-.auth-card input[type="checkbox" i] {
-   position: relative;
-   left: -45px;
-   top: -20px;
+.auth-card .remember-me {
+   display: flex;
+   align-items: center;
+   gap: 0.5rem; /* space between checkbox and text */
+   color: #fff;
+   font-size: 0.9rem;
+}
+
+.auth-card .remember-me input[type="checkbox"] {
+   position: static; /* remove floating */
+   width: auto;
+   height: auto;
+   margin: 0;
 }
 
 .auth-card a {
@@ -340,12 +345,13 @@ h3,
 }
 
 .auth-card input {
-   width: 100%;
-   padding: 0.6rem;
-   margin-top: 0.3rem;
-   border-radius: 8px;
-   border: none;
-   outline: none;
+   width: 95%;
+   padding: 10px 12px;
+   margin-top: 10px;
+   margin-bottom: 10px;
+   border-radius: 6px;
+   border: 1px solid #ccc;
+   font-size: 1rem;
 }
 
 .btn-primary {
@@ -1634,6 +1640,7 @@ h3,
    display: flex;
    gap: 0.5rem;
    flex-wrap: wrap;
+   align-items: anchor-center;
 }
 
 .btn {
@@ -1706,8 +1713,8 @@ h3,
    color: #fff;
    border-radius: 50%;
    font-size: 14px;
-   width: 26px;
-   height: 26px;
+   width: 25px;
+   height: 25px;
    cursor: pointer;
    line-height: 24px;
    text-align: center;

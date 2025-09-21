@@ -1236,3 +1236,447 @@ Not Found: /.well-known/appspecific/com.chrome.devtools.json
 "GET /reviews/ HTTP/1.1" 200 10019
 Not Found: /.well-known/appspecific/com.chrome.devtools.json
 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+Watching for file changes with StatReloader
+"GET /reviews/ HTTP/1.1" 200 9910
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37188
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET / HTTP/1.1" 200 9470
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"POST / HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 9480
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/ HTTP/1.1" 200 8305
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /reviews/ HTTP/1.1" 200 9910
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /contact/ HTTP/1.1" 200 7433
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /accounts/logout/ HTTP/1.1" 200 4718
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"POST /accounts/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 7234
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /contact/ HTTP/1.1" 200 6286
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /reviews/ HTTP/1.1" 200 8475
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/ HTTP/1.1" 200 6233
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/test HTTP/1.1" 200 6899
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/ HTTP/1.1" 200 6233
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET / HTTP/1.1" 200 7026
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /accounts/login/ HTTP/1.1" 200 5573
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 9700
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/events/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/home/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/home/views.py", line 14, in home
+    if superuser_required and request.method == "POST":
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'superuser_required'
+"GET / HTTP/1.1" 500 71419
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+Not Found: /favicon.ico
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /favicon.ico HTTP/1.1" 404 3696
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/home/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 9480
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37188
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/images/hero.png HTTP/1.1" 200 693604
+"GET /static/django_ckeditor_5/dist/styles.css HTTP/1.1" 200 213809
+"GET /static/django_ckeditor_5/dist/bundle.js HTTP/1.1" 200 1275904
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+Internal Server Error: /gallery/
+Traceback (most recent call last):
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py", line 18, in gallery
+    is_superuser_flag = superuser_required
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'superuser_required'
+"GET /gallery/ HTTP/1.1" 500 70586
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /gallery/ HTTP/1.1" 200 8305
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37188
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /gallery/test HTTP/1.1" 200 11554
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/test HTTP/1.1" 200 11554
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37219
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /gallery/test HTTP/1.1" 200 11554
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37219
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET / HTTP/1.1" 200 9480
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37219
+"GET / HTTP/1.1" 200 9480
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37219
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/hero.png HTTP/1.1" 200 693604
+"GET /static/django_ckeditor_5/dist/styles.css HTTP/1.1" 200 213809
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/django_ckeditor_5/dist/bundle.js HTTP/1.1" 200 1275904
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/template/base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'is_admin'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/home/views.py", line 22, in home
+    return render(request, 'index.html', context)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/template/backends/django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/template/engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/template/engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/template/base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/template/loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/template/loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/template/defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/template/base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/template/base.py", line 563, in invalid_block_tag
+    raise self.error(
+    ...<8 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 20: 'is_admin', expected 'elif', 'else' or 'endif'. Did you forget to register or load this tag?
+"GET / HTTP/1.1" 500 235200
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET / HTTP/1.1" 200 9737
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37219
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/hero.png HTTP/1.1" 200 693604
+"GET /static/django_ckeditor_5/dist/styles.css HTTP/1.1" 200 213809
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/django_ckeditor_5/dist/bundle.js HTTP/1.1" 200 1275904
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /events/manage-events/5/ HTTP/1.1" 200 5491
+"GET / HTTP/1.1" 200 9737
+"GET /events/add-event/ HTTP/1.1" 200 5440
+"GET /gallery/ HTTP/1.1" 200 8414
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /gallery/test HTTP/1.1" 200 11663
+"POST /gallery/delete-multiple-images/ HTTP/1.1" 200 17
+"GET /gallery/test HTTP/1.1" 200 10275
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"POST /gallery/delete-multiple-images/ HTTP/1.1" 200 17
+"GET /gallery/test HTTP/1.1" 200 9031
+"GET /gallery/ HTTP/1.1" 200 8414
+"GET /reviews/ HTTP/1.1" 200 10019
+"GET /contact/ HTTP/1.1" 200 7542
+"POST /contact/ HTTP/1.1" 302 0
+"GET /contact/ HTTP/1.1" 200 7771
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"POST /contact/ HTTP/1.1" 302 0
+"GET /contact/ HTTP/1.1" 200 7771
+"GET /reviews/ HTTP/1.1" 200 10019
+"GET /gallery/ HTTP/1.1" 200 8414
+"GET /events/add-event/ HTTP/1.1" 200 5440
+"POST /events/add-event/ HTTP/1.1" 302 0
+"GET /events/current-events/ HTTP/1.1" 200 5341
+"GET /events/past-events/ HTTP/1.1" 200 5858
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET / HTTP/1.1" 200 9737
+"GET /events/manage-events/5/ HTTP/1.1" 200 5491
+"POST /events/manage-events/5/ HTTP/1.1" 302 0
+"GET /events/current-events/ HTTP/1.1" 200 5348
+"GET / HTTP/1.1" 200 9744
+"GET /reviews/ HTTP/1.1" 200 10019
+"GET /contact/ HTTP/1.1" 200 7542
+"GET / HTTP/1.1" 200 9744
+"GET /accounts/logout/ HTTP/1.1" 200 4827
+"POST /accounts/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 7241
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /accounts/login/ HTTP/1.1" 200 5573
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 9964
+"GET /admin/ HTTP/1.1" 200 15031
+"GET /static/admin/css/base.css HTTP/1.1" 304 0
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+"GET /static/admin/js/theme.js HTTP/1.1" 304 0
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+"GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+"GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+"GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 304 0
+"GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+"GET /admin/auth/user/ HTTP/1.1" 200 15997
+"GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+"GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+"GET /static/admin/js/actions.js HTTP/1.1" 304 0
+"GET /static/admin/js/core.js HTTP/1.1" 304 0
+"GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+"GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+"GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+"GET /static/admin/img/search.svg HTTP/1.1" 304 0
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/js/filters.js HTTP/1.1" 304 0
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+"GET /static/admin/img/sorting-icons.svg HTTP/1.1" 304 0
+"GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 304 0
+"GET /admin/auth/group/ HTTP/1.1" 200 11949
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/auth/user/ HTTP/1.1" 200 15997
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/auth/user/4/change/ HTTP/1.1" 200 28692
+"GET /static/admin/css/forms.css HTTP/1.1" 304 0
+"GET /static/admin/js/calendar.js HTTP/1.1" 304 0
+"GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 304 0
+"GET /static/admin/js/SelectBox.js HTTP/1.1" 304 0
+"GET /static/admin/js/SelectFilter2.js HTTP/1.1" 304 0
+"GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+"GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+"GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/img/icon-unknown-alt.svg HTTP/1.1" 304 0
+"GET /static/admin/img/icon-unknown.svg HTTP/1.1" 304 0
+"GET /static/admin/img/icon-clock.svg HTTP/1.1" 304 0
+"GET /static/admin/img/selector-icons.svg HTTP/1.1" 304 0
+"GET /static/admin/img/icon-calendar.svg HTTP/1.1" 304 0
+"GET /admin/auth/user/ HTTP/1.1" 200 15997
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/auth/user/3/change/ HTTP/1.1" 200 28714
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/auth/user/3/change/ HTTP/1.1" 302 0
+"GET /admin/auth/user/ HTTP/1.1" 200 16196
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET / HTTP/1.1" 200 9744
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /accounts/logout/ HTTP/1.1" 200 4827
+"POST /accounts/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 7241
+"GET /accounts/login/ HTTP/1.1" 200 5573
+"POST /accounts/login/ HTTP/1.1" 200 5705
+"POST /accounts/login/ HTTP/1.1" 200 5705
+"POST /accounts/login/ HTTP/1.1" 200 5705
+"POST /accounts/login/ HTTP/1.1" 200 5705
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"POST /accounts/login/ HTTP/1.1" 200 5705
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37162
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"POST /accounts/login/ HTTP/1.1" 200 5694
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37177
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"POST /accounts/login/ HTTP/1.1" 200 5705
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37198
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"POST /accounts/login/ HTTP/1.1" 200 5705
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37408
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"POST /accounts/login/ HTTP/1.1" 200 5705
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37408
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"POST /accounts/login/ HTTP/1.1" 200 5655
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37408
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"POST /accounts/login/ HTTP/1.1" 200 5655
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37408
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET / HTTP/1.1" 200 7033
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /contact/ HTTP/1.1" 200 6286
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /gallery/ HTTP/1.1" 200 6233
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /reviews/ HTTP/1.1" 200 8475
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET / HTTP/1.1" 200 7033
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /admin/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/ HTTP/1.1" 200 4163
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/admin/css/login.css HTTP/1.1" 304 0
+"POST /admin/login/?next=/admin/ HTTP/1.1" 200 4330
+"POST /admin/login/?next=/admin/ HTTP/1.1" 200 4330
+"POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+"GET /admin/ HTTP/1.1" 200 7829
+"GET / HTTP/1.1" 200 9744
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /events/add-event/ HTTP/1.1" 200 5440
+"POST /events/add-event/ HTTP/1.1" 302 0
+"GET /events/current-events/ HTTP/1.1" 200 5565
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET / HTTP/1.1" 200 9744
+"GET /reviews/ HTTP/1.1" 200 10019
+"POST /reviews/reviews/8/delete/ HTTP/1.1" 302 0
+"GET /reviews/ HTTP/1.1" 200 9268
+"GET /contact/ HTTP/1.1" 200 7542
+"POST /contact/ HTTP/1.1" 200 7542
+"GET / HTTP/1.1" 200 9385
