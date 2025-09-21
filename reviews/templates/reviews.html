@@ -3,7 +3,7 @@
   <div id="review-page">
     <div class="review-header">
       <h2 class="review-h2">Reviews</h2>
-      <h3 class="leave-review"><a id="write-review" href="#">Leave a Review!</a></h3>
+      <h2 class="leave-review"><a id="write-review" href="#">Leave a Review!</a></h2>
     </div>
     <div class="review-list">
       {% csrf_token %}
@@ -38,8 +38,8 @@
       {% endfor %}
     </div>
     <div id="review-form-modal">
-      <div class="close-btn">x</div>
       <form class="review-form" method="post">
+        <div class="close-btn">x</div>
         <h2 class="form-h2">Submit a Review</h2>
         {% csrf_token %}
         {{ form.as_p }}

@@ -69,49 +69,64 @@ h3,
 
 /* Toast container */
 #toast-container {
-    position: fixed;
-    top: 10%;
-    right: 20px;
-    z-index: 9999;
+   position: fixed;
+   top: 10%;
+   right: 20px;
+   z-index: 9999;
 }
 
 /* Individual toast */
 .toast {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-width: 220px;
-    max-width: 300px;
-    margin-bottom: 10px;
-    padding: 12px 18px;
-    border-radius: 6px;
-    color: #fff;
-    font-family: 'Lato', sans-serif;
-    font-size: 14px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    opacity: 0;
-    transform: translateX(100%);
-    animation: slidein 0.5s forwards;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   min-width: 220px;
+   max-width: 300px;
+   margin-bottom: 10px;
+   padding: 12px 18px;
+   border-radius: 6px;
+   color: #fff;
+   font-family: 'Lato', sans-serif;
+   font-size: 14px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+   opacity: 0;
+   transform: translateX(100%);
+   animation: slidein 0.5s forwards;
 }
 
 /* Toast types */
-.toast.success { background-color: #28a745; }
-.toast.error { background-color: #dc3545; }
-.toast.info { background-color: #007bff; }
+.toast.success {
+   background-color: #28a745;
+}
+
+.toast.error {
+   background-color: #dc3545;
+}
+
+.toast.info {
+   background-color: #007bff;
+}
 
 /* Close button */
 .toast .toast-close {
-    cursor: pointer;
-    margin-left: 10px;
-    font-weight: bold;
+   cursor: pointer;
+   margin-left: 10px;
+   font-weight: bold;
 }
 
 /* Slide-in/out animation */
 @keyframes slidein {
-    to { opacity: 1; transform: translateX(0); }
+   to {
+      opacity: 1;
+      transform: translateX(0);
+   }
 }
+
 @keyframes slideout {
-    to { opacity: 0; transform: translateX(100%); }
+   to {
+      opacity: 0;
+      transform: translateX(100%);
+   }
 }
 
 /* Header */
@@ -681,17 +696,18 @@ h3,
 
 .review-items {
    background: #2b2b2b;
-   /* Dark card */
    border: 1px solid #444;
    border-radius: 6px;
-   width: 35%;
-   min-width: 250px;
+   min-height: auto;
+   min-width: 30%;
    max-width: 350px;
    max-height: 250px;
    padding: 15px;
+   margin: 10px auto;
    overflow: hidden;
    position: relative;
    color: #f1f1f1;
+   align-content: center;
    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
    transition: transform 0.2s ease-in-out, border-color 0.2s ease-in-out;
    line-break: anywhere;
@@ -709,7 +725,8 @@ h3,
 
 .review-items ul {
    list-style: none;
-   padding: 0;
+   padding: 10px;
+   margin: 10px auto;
 }
 
 .review-items .review-title {
@@ -812,7 +829,7 @@ h3,
 
 /* Review detail page */
 .review-detail {
-   max-width: 800px;
+   max-width: 65%;
    margin: 3rem auto;
    padding: 2rem;
    background: rgba(20, 20, 20, 0.9);
@@ -835,6 +852,7 @@ h3,
 
 .back-btn {
    display: inline-block;
+   margin: 20px auto;
    padding: 0.6rem 1.2rem;
    background: #ff0044;
    color: #fff;
@@ -924,6 +942,14 @@ h3,
 
 .review-form {
    float: right !important;
+   margin-top: 10% !important;
+   padding: 15px !important;
+}
+
+.review-form .close-btn {
+   text-align: end;
+   margin-top: -1%;
+   top: unset !important;
 }
 
 /* Keyframes for row scrolling */
@@ -1102,12 +1128,12 @@ h3,
    color: white;
 }
 
-#create-folder .close {
+#create-folder .close-btn {
    position: absolute;
-   top: 10px;
+   top: 0;
    right: 10px;
    background: none;
-   font-size: 1.5rem;
+   font-size: 2rem;
    border: none;
    cursor: pointer;
 }
@@ -1261,7 +1287,6 @@ h3,
 .gallery-folder,
 .add-folder {
    background: linear-gradient(180deg, rgba(44, 44, 44, 1) 0%, rgba(15, 15, 15, 1) 100%);
-   ;
    padding: 15px;
    border-radius: 7px;
    border-style: groove;
@@ -1272,6 +1297,10 @@ h3,
    cursor: pointer;
    transition: transform 0.3s ease-in-out;
    overflow: scroll;
+}
+
+.add-folder {
+   align-content: center;
 }
 
 .gallery-folder a {
@@ -1458,8 +1487,8 @@ h3,
 .upload-files-container {
    background-color: #3c3c3c;
    color: #efefef;
-   width: 420px;
-   padding: 30px 60px;
+   width: 35%;
+   padding: 0px 30px;
    border-radius: 40px;
    display: flex;
    align-items: center;
@@ -1468,12 +1497,22 @@ h3,
    box-shadow: rgba(0, 0, 0, 0.24) 0px 10px 20px, rgba(0, 0, 0, 0.28) 0px 6px 6px;
 }
 
+.upload-files-container .close-btn {
+   position: static;
+   align-self: self-end;
+   width: fit-content;
+}
+
+.upload-files-container .upload-btn {
+   margin-bottom: 12px;
+}
+
 .drag-file-area {
    border: 2px dashed #212121;
    border-radius: 40px;
    margin: 10px 0 15px;
    padding: 30px 50px;
-   width: 350px;
+   width: auto;
    text-align: center;
 }
 
@@ -1660,8 +1699,8 @@ h3,
 
 .delete-image-btn {
    position: absolute;
-   top: 6px;
-   right: 6px;
+   top: 10px;
+   right: 10px;
    background: rgba(231, 76, 60, 0.9);
    border: none;
    color: #fff;
@@ -1878,7 +1917,6 @@ form textarea {
 
 form button[type="submit"] {
    background: #049045;
-   ;
    color: white;
    border: none;
    padding: 10px 18px;
@@ -1953,10 +1991,6 @@ form button[type="submit"]:hover {
    background: rgba(0, 0, 0, 0.5);
 }
 
-#contact-edit-modal .close-btn {
-   top: 40px;
-   right: 45px;
-}
 
 #contact-edit {
    width: fit-content;
@@ -1965,6 +1999,13 @@ form button[type="submit"]:hover {
    margin: 3%;
    padding: 30px;
    border-radius: 15px;
+}
+
+#contact-edit .close-btn {
+   position: relative;
+   right: -1% !important;
+   top: -20px;
+   float: right;
 }
 
 .contact-map {
@@ -2015,7 +2056,7 @@ form button[type="submit"]:hover {
    position: absolute;
    top: 4px;
    right: 4px;
-   background: rgba(0, 0, 0, 0.6);
+   background: #ff0044;
    color: #fff;
    border: none;
    border-radius: 50%;
@@ -2029,6 +2070,10 @@ form button[type="submit"]:hover {
 @media(max-width: 1150px) {
    .gallery-main {
       max-width: 90vw;
+   }
+
+   .upload-files-container {
+      width: 60%;
    }
 }
 

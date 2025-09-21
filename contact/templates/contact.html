@@ -41,8 +41,8 @@
       <!-- Hidden editable form (only superuser can toggle) -->
       {% if user.is_superuser %}
         <div id="contact-edit-modal">
-          <span class="close-btn">&times;</span>
           <div id="contact-edit">
+            <span class="close-btn">&times;</span>
             <form method="post">
               {% csrf_token %}
               {{ info_form.as_p }}

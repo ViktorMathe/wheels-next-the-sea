@@ -672,3 +672,567 @@ Watching for file changes with StatReloader
 "POST /accounts/login/ HTTP/1.1" 200 5699
 "POST /accounts/login/ HTTP/1.1" 302 0
 "GET / HTTP/1.1" 200 9930
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 9710
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 9384
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/hero.png HTTP/1.1" 200 693604
+"GET /static/django_ckeditor_5/dist/styles.css HTTP/1.1" 200 213809
+"GET /static/django_ckeditor_5/dist/bundle.js HTTP/1.1" 200 1275904
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET / HTTP/1.1" 200 9710
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 9384
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/hero.png HTTP/1.1" 200 693604
+"GET /static/django_ckeditor_5/dist/styles.css HTTP/1.1" 200 213809
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+"GET /static/django_ckeditor_5/dist/bundle.js HTTP/1.1" 200 1275904
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /gallery/ HTTP/1.1" 200 8414
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET / HTTP/1.1" 200 9710
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET / HTTP/1.1" 200 9710
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 9279
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/hero.png HTTP/1.1" 200 693604
+"GET /static/django_ckeditor_5/dist/styles.css HTTP/1.1" 200 213809
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+"GET /static/django_ckeditor_5/dist/bundle.js HTTP/1.1" 200 1275904
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET / HTTP/1.1" 200 9710
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 9279
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/hero.png HTTP/1.1" 200 693604
+"GET /static/django_ckeditor_5/dist/styles.css HTTP/1.1" 200 213809
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+"GET /static/django_ckeditor_5/dist/bundle.js HTTP/1.1" 200 1275904
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET / HTTP/1.1" 200 9710
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 36642
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/hero.png HTTP/1.1" 200 693604
+"GET /static/django_ckeditor_5/dist/styles.css HTTP/1.1" 200 213809
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+"GET /static/django_ckeditor_5/dist/bundle.js HTTP/1.1" 200 1275904
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /events/add-event/ HTTP/1.1" 200 5440
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET / HTTP/1.1" 200 9710
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /events/manage-events/5/ HTTP/1.1" 200 5491
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET / HTTP/1.1" 200 9710
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /reviews/reviews/4/asd/ HTTP/1.1" 200 5486
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /reviews/ HTTP/1.1" 200 9992
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"POST /reviews/reviews/1/delete/ HTTP/1.1" 302 0
+"GET /reviews/ HTTP/1.1" 200 9276
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/ HTTP/1.1" 200 8414
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/2024 HTTP/1.1" 200 11009
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/ HTTP/1.1" 200 8414
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /gallery/test HTTP/1.1" 200 11659
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /gallery/ HTTP/1.1" 200 8414
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 36665
+"GET /gallery/ HTTP/1.1" 200 8414
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+- Broken pipe from ('127.0.0.1', 60279)
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 36669
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /gallery/test HTTP/1.1" 200 11659
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 36664
+"GET /gallery/test HTTP/1.1" 200 11659
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 36664
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /gallery/test HTTP/1.1" 200 11663
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 36664
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /gallery/test HTTP/1.1" 200 11663
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 36749
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /gallery/test HTTP/1.1" 200 11663
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 36770
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /gallery/test HTTP/1.1" 200 11663
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 36902
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /gallery/test HTTP/1.1" 200 11663
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 36897
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /gallery/test HTTP/1.1" 200 11663
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 36881
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /gallery/test HTTP/1.1" 200 11663
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 36870
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /gallery/test HTTP/1.1" 200 11663
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 36870
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /gallery/ HTTP/1.1" 200 8414
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /reviews/ HTTP/1.1" 200 9060
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /reviews/ HTTP/1.1" 200 9060
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 36870
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /reviews/ HTTP/1.1" 200 9062
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37000
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /reviews/ HTTP/1.1" 200 9062
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37026
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /reviews/ HTTP/1.1" 200 9062
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /contact/ HTTP/1.1" 200 7540
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /contact/ HTTP/1.1" 200 7540
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37058
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /contact/ HTTP/1.1" 200 7542
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37026
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /contact/ HTTP/1.1" 200 7542
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37058
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /contact/ HTTP/1.1" 200 7542
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37025
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /contact/ HTTP/1.1" 200 7542
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 36960
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /contact/ HTTP/1.1" 200 7542
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 36960
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /contact/ HTTP/1.1" 200 7542
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37072
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /contact/ HTTP/1.1" 200 7542
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET / HTTP/1.1" 200 9375
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /static/django_ckeditor_5/dist/styles.css.map HTTP/1.1" 304 0
+"GET /static/django_ckeditor_5/dist/bundle.js.map HTTP/1.1" 304 0
+"GET /reviews/reviews/8/asdsad/ HTTP/1.1" 200 4774
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET / HTTP/1.1" 200 9375
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /reviews/reviews/8/asdsad/ HTTP/1.1" 200 4774
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /reviews/reviews/8/asdsad/ HTTP/1.1" 200 4774
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37092
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /reviews/ HTTP/1.1" 200 9062
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /reviews/ HTTP/1.1" 200 9062
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37150
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /reviews/ HTTP/1.1" 200 9062
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/ HTTP/1.1" 200 8414
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET / HTTP/1.1" 200 9375
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /gallery/ HTTP/1.1" 200 8414
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/ HTTP/1.1" 200 8414
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37188
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /contact/ HTTP/1.1" 200 7542
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /reviews/ HTTP/1.1" 200 9062
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /reviews/reviews/4/asd/ HTTP/1.1" 200 5486
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /reviews/ HTTP/1.1" 200 9062
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET / HTTP/1.1" 200 9375
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wheels_next_to_sea/settings.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 9375
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37188
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/hero.png HTTP/1.1" 200 693604
+"GET /static/django_ckeditor_5/dist/styles.css HTTP/1.1" 200 213809
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/django_ckeditor_5/dist/bundle.js HTTP/1.1" 200 1275904
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET / HTTP/1.1" 200 9375
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37188
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/hero.png HTTP/1.1" 200 693604
+"GET /static/django_ckeditor_5/dist/styles.css HTTP/1.1" 200 213809
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/django_ckeditor_5/dist/bundle.js HTTP/1.1" 200 1275904
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 9375
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37188
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/hero.png HTTP/1.1" 200 693604
+"GET /static/django_ckeditor_5/dist/styles.css HTTP/1.1" 200 213809
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/django_ckeditor_5/dist/bundle.js HTTP/1.1" 200 1275904
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET / HTTP/1.1" 200 9375
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37188
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/hero.png HTTP/1.1" 200 693604
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/django_ckeditor_5/dist/styles.css HTTP/1.1" 200 213809
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/django_ckeditor_5/dist/bundle.js HTTP/1.1" 200 1275904
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 9375
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET / HTTP/1.1" 200 9375
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37188
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/hero.png HTTP/1.1" 200 693604
+"GET /static/django_ckeditor_5/dist/styles.css HTTP/1.1" 200 213809
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/django_ckeditor_5/dist/bundle.js HTTP/1.1" 200 1275904
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET / HTTP/1.1" 200 9375
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37188
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/hero.png HTTP/1.1" 200 693604
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/django_ckeditor_5/dist/styles.css HTTP/1.1" 200 213809
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+"GET /static/django_ckeditor_5/dist/bundle.js HTTP/1.1" 200 1275904
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET / HTTP/1.1" 200 9375
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37188
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/hero.png HTTP/1.1" 200 693604
+"GET /static/django_ckeditor_5/dist/styles.css HTTP/1.1" 200 213809
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+"GET /static/django_ckeditor_5/dist/bundle.js HTTP/1.1" 200 1275904
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /contact/ HTTP/1.1" 200 7542
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /reviews/ HTTP/1.1" 200 9062
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/ HTTP/1.1" 200 8414
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/ HTTP/1.1" 200 8414
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /reviews/ HTTP/1.1" 200 9062
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"POST /reviews/ HTTP/1.1" 302 0
+"GET /reviews/ HTTP/1.1" 200 10019
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /reviews/ HTTP/1.1" 200 10019
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37188
+"GET /static/js/script.js HTTP/1.1" 200 19596
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/images/logo-white.png HTTP/1.1" 200 103016
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET / HTTP/1.1" 200 9727
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /events/current-events/ HTTP/1.1" 200 5341
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET / HTTP/1.1" 200 9727
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /events/current-events/ HTTP/1.1" 200 5341
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /events/past-events/ HTTP/1.1" 200 5541
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /media/event_flyers/IMG_2136.jpeg HTTP/1.1" 200 733597
+"GET /events/add-event/ HTTP/1.1" 200 5440
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/ HTTP/1.1" 200 8414
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /reviews/ HTTP/1.1" 200 10019
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /contact/ HTTP/1.1" 200 7542
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 304 0
+"GET /reviews/ HTTP/1.1" 200 10019
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807

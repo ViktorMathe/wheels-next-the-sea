@@ -32,12 +32,12 @@
   {% if user.is_superuser %}
     <!-- Add Image Modal -->
     <div id="add-image-modal" class="folder-modal hidden">
-      <span class="close-btn">&times;</span>
       <form id="image-upload-form" class="form-container" method="POST" action="{% url 'upload_images' %}" enctype="multipart/form-data">
         {% csrf_token %}
         <input type="hidden" name="targetFolder" value="{{ folder.name }}" />
 
         <div class="upload-files-container">
+          <span class="close-btn">&times;</span>
           <div id="drop-area" class="drag-file-area">
             <span class="material-icons-outlined upload-icon"></span>
             <h3 class="dynamic-message">Drag & drop images here or click to select</h3>
