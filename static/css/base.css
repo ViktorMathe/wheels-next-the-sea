@@ -450,7 +450,7 @@ h3,
    border-radius: 6px;
    max-width: 600px;
    text-align: center;
-   justify-self: center;
+   place-self: anchor-center;
    min-width: 50%;
    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
    color: #f8f8f8;
@@ -1358,6 +1358,7 @@ h3,
    margin: 10px auto;
    padding: 5px;
    overflow: auto;
+   scrollbar-width:none;
 }
 
 .gallery-preview img {
