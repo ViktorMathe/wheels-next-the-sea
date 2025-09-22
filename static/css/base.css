@@ -1309,6 +1309,7 @@ h3,
    cursor: pointer;
    transition: transform 0.3s ease-in-out;
    overflow: scroll;
+   scrollbar-width:none;
 }
 
 .add-folder {
