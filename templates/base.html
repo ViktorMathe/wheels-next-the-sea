@@ -92,16 +92,16 @@
         <footer class="footer">
             <div class="footer-container">
                 <div class="footer-dev">
-                    {% if user.is_authenticated %}
+                    {% if is_admin %}
                     <a href="{% url 'account_logout' %}">Logout</a>
                     {% else %}
                     <a href="{% url 'account_login' %}">Site manager</a>
                     {% endif %}
                 </div>
                 <div class="footer-social">
-                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="social-link"><img src="{% static 'images/logo-white.png' %}" alt="X logo"></img></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/people/Wheels-Next-Sea/100066464177432/" class="social-link"><i class="fab fa-facebook"></i></a>
+<!--                     <a href="#" class="social-link"><img src="{% static 'images/logo-white.png' %}" alt="X logo"></img></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a> -->
                 </div>
                 <div class="footer-text">
                     <p>Wheels Next The Sea <br> <small>Est 2010</small></p>
