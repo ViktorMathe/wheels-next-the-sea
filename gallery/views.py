@@ -9,7 +9,7 @@ import cloudinary.uploader
 import cloudinary.api
 import json
 import os
-from urllib.parse import urlparse
+from urllib.parse import urlparse, unquote
 
 
 def gallery(request):
@@ -163,12 +163,18 @@ def delete_image(request):
 
         # Parse Cloudinary public_id
         parsed = urlparse(image_url)
-        public_id = os.path.splitext(parsed.path.split("/wheels-next-the-sea/")[1])[0]
+        # Example path: /image/upload/v123456/wheels-next-the-sea/2025/event1/img.jpg
+        parts = parsed.path.split('/wheels-next-the-sea/')
+        if len(parts) != 2:
+            return JsonResponse({"error": "Invalid Cloudinary path"}, status=400)
+
+        public_id = parts[1]  # gives 2025/event1/img.jpg
+        public_id = os.path.splitext(public_id)[0]  # remove extension
+        public_id = unquote(public_id)  # decode URL-encoded characters
 
         result = cloudinary.uploader.destroy(f"wheels-next-the-sea/{public_id}")
-
         if result.get("result") != "ok":
-            return JsonResponse({"error": "Failed to delete from Cloudinary"}, status=500)
+            return JsonResponse({"error": f"Failed to delete from Cloudinary. Response: {result}"}, status=500)
 
         # Delete from DB
         UploadImages.objects.filter(url=image_url).delete()
@@ -194,8 +200,16 @@ def delete_multiple_images(request):
                     img = UploadImages.objects.get(url=image_url)
                     # extract public_id
                     parsed = urlparse(image_url)
-                    public_id = os.path.splitext(parsed.path.split("/wheels-next-the-sea/")[1])[0]
-                    cloudinary.uploader.destroy(f"wheels-next-the-sea/{public_id}")
+                    # Example path: /image/upload/v123456/wheels-next-the-sea/2025/event1/img.jpg
+                    parts = parsed.path.split('/wheels-next-the-sea/')
+                    if len(parts) != 2:
+                        return JsonResponse({"error": "Invalid Cloudinary path"}, status=400)
+
+                    public_id = parts[1]  # gives 2025/event1/img.jpg
+                    public_id = os.path.splitext(public_id)[0]  # remove extension
+                    public_id = unquote(public_id)  # decode URL-encoded characters
+
+                    result = cloudinary.uploader.destroy(f"wheels-next-the-sea/{public_id}")
                     img.delete()
                 except UploadImages.DoesNotExist:
                     continue
@@ -226,8 +240,16 @@ def delete_folder(request):
                 try:
                     img = UploadImages.objects.get(url=image_url.url)
                     # extract public_id
-                    parsed = urlparse(image_url.url)
-                    public_id = os.path.splitext(parsed.path.split("/wheels-next-the-sea/")[1])[0]
+                    parsed = urlparse(img.url)
+                    # Example path: /image/upload/v123456/wheels-next-the-sea/2025/event1/img.jpg
+                    parts = parsed.path.split('/wheels-next-the-sea/')
+                    if len(parts) != 2:
+                        return JsonResponse({"error": "Invalid Cloudinary path"}, status=400)
+
+                    public_id = parts[1]  # gives 2025/event1/img.jpg
+                    public_id = os.path.splitext(public_id)[0]  # remove extension
+                    public_id = unquote(public_id)  # decode URL-encoded characters
+
                     result = cloudinary.uploader.destroy(f"wheels-next-the-sea/{public_id}")
                     if result.get("result") != "ok":
                         errors.append(f"Failed to delete {public_id}")

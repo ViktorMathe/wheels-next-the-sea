@@ -2129,3 +2129,827 @@ Not Found: /favicon.ico
 "GET /contact/ HTTP/1.1" 200 7546
 Not Found: /.well-known/appspecific/com.chrome.devtools.json
 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /gallery/ HTTP/1.1" 200 9862
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/js/script.js HTTP/1.1" 304 0
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /gallery/ HTTP/1.1" 200 9862
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /gallery/
+Traceback (most recent call last):
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py", line 31, in gallery
+    get_all_folders = cloudinary.api.subfolders['folders']
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+TypeError: 'function' object is not subscriptable
+"GET /gallery/ HTTP/1.1" 500 71689
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /gallery/
+Traceback (most recent call last):
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py", line 31, in gallery
+    get_all_folders = cloudinary.api.root_folders['folders']
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+TypeError: 'function' object is not subscriptable
+"GET /gallery/ HTTP/1.1" 500 71697
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /gallery/
+Traceback (most recent call last):
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py", line 34, in gallery
+    folder_name = cloud_folder['name']
+                  ~~~~~~~~~~~~^^^^^^^^
+TypeError: string indices must be integers, not 'str'
+"GET /gallery/ HTTP/1.1" 500 72924
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /gallery/
+Traceback (most recent call last):
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py", line 35, in gallery
+    folder_name = cloud_folder['name']
+                  ~~~~~~~~~~~~^^^^^^^^
+TypeError: string indices must be integers, not 'str'
+"GET /gallery/ HTTP/1.1" 500 72924
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /gallery/
+Traceback (most recent call last):
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py", line 35, in gallery
+    folder_name = cloud_folder('name')
+TypeError: 'str' object is not callable
+"GET /gallery/ HTTP/1.1" 500 72868
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /gallery/
+Traceback (most recent call last):
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py", line 35, in gallery
+    folder_name = cloud_folder.name
+                  ^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'name'
+"GET /gallery/ HTTP/1.1" 500 72810
+- Broken pipe from ('127.0.0.1', 59905)
+Internal Server Error: /gallery/
+Traceback (most recent call last):
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py", line 35, in gallery
+    folder_name = cloud_folder.name
+                  ^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'name'
+"GET /gallery/ HTTP/1.1" 500 72809
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /gallery/
+Traceback (most recent call last):
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py", line 35, in gallery
+    folder_name = cloud_folder['name']
+                  ~~~~~~~~~~~~^^^^^^^^
+TypeError: string indices must be integers, not 'str'
+"GET /gallery/ HTTP/1.1" 500 72923
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /gallery/
+Traceback (most recent call last):
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py", line 35, in gallery
+    folder_name = cloud_folder.get('name')
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+"GET /gallery/ HTTP/1.1" 500 72965
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /gallery/ HTTP/1.1" 200 7948
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /gallery/o HTTP/1.1" 200 7112
+"GET /gallery/e HTTP/1.1" 200 7112
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /gallery/ HTTP/1.1" 200 7948
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /gallery/ HTTP/1.1" 200 7948
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /gallery/ HTTP/1.1" 200 7948
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /gallery/ HTTP/1.1" 200 7948
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /gallery/
+Traceback (most recent call last):
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py", line 32, in gallery
+    print(get_all_folders[1])
+          ~~~~~~~~~~~~~~~^^^
+KeyError: 1
+"GET /gallery/ HTTP/1.1" 500 72561
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /gallery/ HTTP/1.1" 200 7948
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /gallery/
+Traceback (most recent call last):
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py", line 32, in gallery
+    print(get_all_folders.objects)
+          ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Response' object has no attribute 'objects'
+"GET /gallery/ HTTP/1.1" 500 72881
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /gallery/
+Traceback (most recent call last):
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py", line 32, in gallery
+    print(get_all_folders.objects())
+          ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Response' object has no attribute 'objects'
+"GET /gallery/ HTTP/1.1" 500 72885
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /gallery/
+Traceback (most recent call last):
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py", line 32, in gallery
+    print(get_all_folders.search('folders[*].name'))
+          ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Response' object has no attribute 'search'
+"GET /gallery/ HTTP/1.1" 500 72931
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /gallery/
+Traceback (most recent call last):
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py", line 32, in gallery
+    print(get_all_folders['name'])
+          ~~~~~~~~~~~~~~~^^^^^^^^
+KeyError: 'name'
+"GET /gallery/ HTTP/1.1" 500 72661
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /gallery/
+Traceback (most recent call last):
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py", line 32, in gallery
+    print(get_all_folders('name'))
+          ~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'Response' object is not callable
+"GET /gallery/ HTTP/1.1" 500 72787
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /gallery/
+Traceback (most recent call last):
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py", line 36, in gallery
+    print(cloud_folder[2])
+          ~~~~~~~~~~~~^^^
+KeyError: 2
+"GET /gallery/ HTTP/1.1" 500 72567
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /gallery/
+Traceback (most recent call last):
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py", line 36, in gallery
+    folder_name = cloud_folder[1]
+                  ~~~~~~~~~~~~^^^
+KeyError: 1
+"GET /gallery/ HTTP/1.1" 500 72587
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /gallery/
+Traceback (most recent call last):
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py", line 32, in gallery
+    print(get_all_folders['name'])
+          ~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+"GET /gallery/ HTTP/1.1" 500 72554
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /gallery/
+Traceback (most recent call last):
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py", line 36, in gallery
+    folder_name = cloud_folder[1]
+                  ~~~~~~~~~~~~^^^
+KeyError: 1
+"GET /gallery/ HTTP/1.1" 500 72592
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /gallery/
+Traceback (most recent call last):
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/wntsVE/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py", line 36, in gallery
+    folder_name = cloud_folder[1]
+                  ~~~~~~~~~~~~^^^
+KeyError: 1
+"GET /gallery/ HTTP/1.1" 500 72590
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /gallery/ HTTP/1.1" 200 19685
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /gallery/samples HTTP/1.1" 200 29284
+Internal Server Error: /gallery/delete-image/
+"POST /gallery/delete-image/ HTTP/1.1" 500 36
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /gallery/samples HTTP/1.1" 200 29284
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+Internal Server Error: /gallery/delete-image/
+"POST /gallery/delete-image/ HTTP/1.1" 500 36
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /gallery/samples HTTP/1.1" 200 29284
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+Internal Server Error: /gallery/delete-image/
+"POST /gallery/delete-image/ HTTP/1.1" 500 36
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /gallery/samples HTTP/1.1" 200 29284
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+Internal Server Error: /gallery/delete-image/
+"POST /gallery/delete-image/ HTTP/1.1" 500 28
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /gallery/samples HTTP/1.1" 200 29284
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+Internal Server Error: /gallery/delete-image/
+"POST /gallery/delete-image/ HTTP/1.1" 500 45
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /gallery/samples HTTP/1.1" 200 29284
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET / HTTP/1.1" 200 9335
+"GET /static/django_ckeditor_5/dist/styles.css HTTP/1.1" 304 0
+"GET /static/django_ckeditor_5/dist/bundle.js HTTP/1.1" 304 0
+"GET /gallery/ HTTP/1.1" 200 9862
+"POST /gallery/ HTTP/1.1" 302 0
+"GET /gallery/ HTTP/1.1" 200 10216
+"GET /gallery/delete%20this HTTP/1.1" 200 7132
+"POST /gallery/upload/ HTTP/1.1" 200 491
+"GET /gallery/delete%20this HTTP/1.1" 200 8993
+Internal Server Error: /gallery/delete-image/
+"POST /gallery/delete-image/ HTTP/1.1" 500 45
+"GET /gallery/delete%20this HTTP/1.1" 200 8993
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+Internal Server Error: /gallery/delete-image/
+"POST /gallery/delete-image/ HTTP/1.1" 500 45
+"GET /gallery/delete%20this HTTP/1.1" 200 8993
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+Internal Server Error: /gallery/delete-image/
+"POST /gallery/delete-image/ HTTP/1.1" 500 45
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /gallery/delete%20this HTTP/1.1" 200 8993
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+Internal Server Error: /gallery/delete-image/
+"POST /gallery/delete-image/ HTTP/1.1" 500 45
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /gallery/delete%20this HTTP/1.1" 200 8993
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+Internal Server Error: /gallery/delete-image/
+"POST /gallery/delete-image/ HTTP/1.1" 500 45
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /gallery/delete%20this HTTP/1.1" 200 8993
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+Internal Server Error: /gallery/delete-image/
+"POST /gallery/delete-image/ HTTP/1.1" 500 45
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/delete%20this HTTP/1.1" 200 8993
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+Internal Server Error: /gallery/delete-image/
+"POST /gallery/delete-image/ HTTP/1.1" 500 45
+"GET /gallery/delete%20this HTTP/1.1" 200 8993
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19657
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+Internal Server Error: /gallery/delete-image/
+"POST /gallery/delete-image/ HTTP/1.1" 500 45
+"GET /gallery/delete%20this HTTP/1.1" 200 8993
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19718
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+Internal Server Error: /gallery/delete-image/
+"POST /gallery/delete-image/ HTTP/1.1" 500 45
+"GET /gallery/delete%20this HTTP/1.1" 200 8993
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19403
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+Internal Server Error: /gallery/delete-image/
+"POST /gallery/delete-image/ HTTP/1.1" 500 45
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /gallery/delete%20this HTTP/1.1" 200 8993
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19403
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /gallery/ HTTP/1.1" 200 10768
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/delete%20this HTTP/1.1" 200 8993
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+Bad Request: /gallery/delete-image/
+"POST /gallery/delete-image/ HTTP/1.1" 400 36
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /gallery/delete%20this HTTP/1.1" 200 8993
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/js/script.js HTTP/1.1" 200 19403
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"POST /gallery/delete-image/ HTTP/1.1" 200 17
+"GET /gallery/delete%20this HTTP/1.1" 200 8352
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"POST /gallery/delete-image/ HTTP/1.1" 200 17
+"GET /gallery/delete%20this HTTP/1.1" 200 7711
+"GET /static/js/script.js HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"POST /gallery/upload/ HTTP/1.1" 200 731
+"GET /gallery/delete%20this HTTP/1.1" 200 9009
+"GET /static/js/script.js HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"POST /gallery/delete-multiple-images/ HTTP/1.1" 200 17
+"GET /gallery/delete%20this HTTP/1.1" 200 7711
+"GET /static/js/script.js HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"POST /gallery/delete-image/ HTTP/1.1" 200 17
+"GET /gallery/delete%20this HTTP/1.1" 200 7132
+"GET /static/js/script.js HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/ HTTP/1.1" 200 10588
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/ HTTP/1.1" 200 10588
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /gallery/delete%20this HTTP/1.1" 200 8368
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"POST /gallery/delete-image/ HTTP/1.1" 200 17
+"GET /gallery/delete%20this HTTP/1.1" 200 7711
+"GET /static/js/script.js HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/delete%20this HTTP/1.1" 200 7711
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /gallery/ HTTP/1.1" 200 10400
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/ HTTP/1.1" 200 10400
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /gallery/delete%20this HTTP/1.1" 200 7711
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"POST /gallery/delete-image/ HTTP/1.1" 200 17
+"GET /gallery/delete%20this HTTP/1.1" 200 7132
+"GET /static/js/script.js HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/ HTTP/1.1" 200 10216
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/delete%20this HTTP/1.1" 200 7132
+"GET /static/js/script.js HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"POST /gallery/upload/ HTTP/1.1" 200 1267
+"GET /gallery/delete%20this HTTP/1.1" 200 10435
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/js/script.js HTTP/1.1" 304 0
+"GET /gallery/ HTTP/1.1" 200 11176
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/delete%20this HTTP/1.1" 200 10435
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"POST /gallery/delete-multiple-images/ HTTP/1.1" 200 17
+"GET /gallery/delete%20this HTTP/1.1" 200 9153
+"GET /static/js/script.js HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/ HTTP/1.1" 200 11176
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/ HTTP/1.1" 200 11176
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"GET /gallery/delete%20this HTTP/1.1" 200 10435
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /gallery/delete%20this HTTP/1.1" 200 10435
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"POST /gallery/delete-multiple-images/ HTTP/1.1" 200 17
+"GET /gallery/delete%20this HTTP/1.1" 200 9153
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/ HTTP/1.1" 200 10808
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/delete%20this HTTP/1.1" 200 9153
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"POST /gallery/delete-image/ HTTP/1.1" 200 17
+"GET /gallery/delete%20this HTTP/1.1" 200 8512
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/ HTTP/1.1" 200 10624
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/delete%20this HTTP/1.1" 200 8512
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/ HTTP/1.1" 200 10624
+"GET /static/js/script.js HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /gallery/ HTTP/1.1" 200 10624
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+Internal Server Error: /gallery/delete-folder/
+"POST /gallery/delete-folder/ HTTP/1.1" 500 215
+"GET /gallery/ HTTP/1.1" 200 10624
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /gallery/delete-folder/
+"POST /gallery/delete-folder/ HTTP/1.1" 500 243
+"GET /gallery/ HTTP/1.1" 200 10624
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /gallery/ HTTP/1.1" 200 10624
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+Internal Server Error: /gallery/delete-folder/
+"POST /gallery/delete-folder/ HTTP/1.1" 500 215
+"GET /gallery/ HTTP/1.1" 200 10624
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+/Volumes/WD_BLACK/Viktor/Websites/Wheels-next-the-sea/wheels-next-the-sea/gallery/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /gallery/ HTTP/1.1" 200 10624
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/css/base.css?v=2 HTTP/1.1" 200 37674
+"GET /static/images/logo.png HTTP/1.1" 200 276256
+"GET /static/js/script.js HTTP/1.1" 200 19596
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3696
+"POST /gallery/delete-folder/ HTTP/1.1" 200 17
+"GET /gallery/ HTTP/1.1" 200 9862
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"POST /gallery/ HTTP/1.1" 302 0
+"GET /gallery/ HTTP/1.1" 200 10182
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/asd HTTP/1.1" 200 7116
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"POST /gallery/upload/ HTTP/1.1" 200 1387
+"GET /gallery/asd HTTP/1.1" 200 10896
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"POST /gallery/delete-image/ HTTP/1.1" 200 17
+"GET /gallery/asd HTTP/1.1" 200 10293
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/ HTTP/1.1" 200 11058
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/asd HTTP/1.1" 200 10293
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"POST /gallery/delete-multiple-images/ HTTP/1.1" 200 17
+"GET /gallery/asd HTTP/1.1" 200 8903
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/ HTTP/1.1" 200 10684
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/asd HTTP/1.1" 200 8903
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /gallery/ HTTP/1.1" 200 10684
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"POST /gallery/delete-folder/ HTTP/1.1" 200 17
+"GET /gallery/ HTTP/1.1" 200 9862
+"GET /static/js/script.js HTTP/1.1" 304 0
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET / HTTP/1.1" 200 9335
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3807
+"GET /static/django_ckeditor_5/dist/styles.css.map HTTP/1.1" 304 0
+"GET /static/django_ckeditor_5/dist/bundle.js.map HTTP/1.1" 304 0
