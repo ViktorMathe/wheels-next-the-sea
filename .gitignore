@@ -10,5 +10,7 @@ wntsVE
 .vscode/
 clean_ghost_files.sh
 staticfiles/
+db.sqlite3
+email_debug.log
 # Ghost files (macOS resource forks)
 ._*
